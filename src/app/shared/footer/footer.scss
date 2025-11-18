@@ -1,0 +1,57 @@
+:host { display: block; }
+.site-footer {
+	background: #141D2F;
+	color: #ffffff;
+	border-top: 4px solid #70E61C;
+	max-height: 300px;
+	overflow: hidden;
+}
+.site-footer .container {
+	margin: 0 auto;
+	padding: 1rem 2rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.footer-left {
+	flex: 0 0 auto;
+}
+
+.footer-left img {
+	width: 210px;
+	height: 50px;
+	display: block;
+	object-fit: contain;
+	max-width: none;
+	flex-shrink: 0;
+}
+
+.footer-center {
+	text-align: center;
+	font-size: 0.95rem;
+}
+
+.footer-right a {
+	display: inline-flex;
+	align-items: center;
+	margin-left: 0.5rem;
+}
+
+.footer-right img {
+	height: 28px;
+	width: auto;
+	display: block;
+}
+
+@media (max-width: 640px) {
+	.site-footer .container {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.footer-right {
+		margin-top: 0.5rem;
+	}
+}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="acidGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff2fbf"/>
+      <stop offset="100%" stop-color="#7b3cff"/>
+    </linearGradient>
+    <filter id="softEdges" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feColorMatrix in="blur" type="matrix"
+        values="1 0 0 0 0
+                0 1 0 0 0
+                0 0 1 0 0
+                0 0 0 20 -10" />
+    </filter>
+  </defs>
+
+  <!-- Organic background blobs -->
+  <g fill="url(#acidGradient)" opacity="0.9" filter="url(#softEdges)">
+    <path d="M230 760C200 660 220 560 310 520C420 470 530 520 600 540C700 570 770 560 830 520C900 470 990 480 1030 550C1070 620 1050 720 980 790C910 860 790 900 670 890C550 880 500 860 420 850C330 840 260 820 230 760Z"/>
+    <path d="M280 380C280 300 340 240 430 230C520 220 590 250 640 300C690 350 760 380 820 380C880 380 930 410 950 450C970 490 960 540 920 570C880 600 820 610 760 600C700 590 640 560 590 540C540 520 500 520 450 520C390 520 340 510 310 480C290 460 280 430 280 380Z"/>
+  </g>
+
+  <!-- Name in fluid, acid-style text (uses system cursive fonts; edit in a vector program if needed) -->
+  <g fill="url(#acidGradient)">
+    <text x="50%" y="45%" text-anchor="middle"
+          font-size="210"
+          font-family="Comfortaa, 'Baloo 2', 'Comic Sans MS', system-ui, cursive"
+          font-weight="700">
+      Florian
+    </text>
+    <text x="50%" y="70%" text-anchor="middle"
+          font-size="210"
+          font-family="Comfortaa, 'Baloo 2', 'Comic Sans MS', system-ui, cursive"
+          font-weight="700">
+      Weimann
+    </text>
+  </g>
+</svg>
