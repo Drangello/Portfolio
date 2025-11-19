@@ -8,11 +8,9 @@
 }
 .site-footer .container {
 	margin: 0 auto;
-	padding: 1rem 2rem;
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
-	gap: 1rem;
+	justify-content: space-around;
 }
 
 .footer-left {
@@ -21,11 +19,7 @@
 
 .footer-left img {
 	width: 210px;
-	height: 50px;
-	display: block;
-	object-fit: contain;
-	max-width: none;
-	flex-shrink: 0;
+	height: 200px;
 }
 
 .footer-center {
@@ -36,7 +30,6 @@
 .footer-right a {
 	display: inline-flex;
 	align-items: center;
-	margin-left: 0.5rem;
 }
 
 .footer-right img {
@@ -51,7 +44,4 @@
 		text-align: center;
 	}
 
-	.footer-right {
-		margin-top: 0.5rem;
-	}
 }

@@ -1,11 +1,15 @@
 :host {
 	display: block;
+	position: sticky;
 }
 
+.container{
+	display: flex;
+	justify-content: space-around;
+}
 .site-header {
 	height: 110px;
 	background: #141D2F;
-	position: sticky;
 	top: 0;
 	z-index: 9999;
 	display: flex;
@@ -16,11 +20,9 @@
 .site-header .container {
 	width: 100%;
 	margin: 0;
-	padding: 0 2rem;
 	height: 100%;
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
 }
 
 .brand {
@@ -31,7 +33,7 @@
 }
 
 .logo-img {
-	height: 50px;
+	height: 200px;
 	width: auto;
 	max-width: 150px;
 	object-fit: contain;

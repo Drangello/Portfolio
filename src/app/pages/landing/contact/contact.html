@@ -1,10 +1,12 @@
 <section class="contact">
 	<h2>Kontakt</h2>
-	<p>Du kannst mich per E-Mail erreichen: <a href="mailto:email@example.com">email@example.com</a></p>
-	<form>
-		<label>Name<br /><input type="text" name="name" placeholder="Dein Name" /></label>
-		<label>Email<br /><input type="email" name="email" placeholder="dein@beispiel.de" /></label>
-		<label>Nachricht<br /><textarea name="message" rows="4" placeholder="Kurz beschreiben, worum es geht..."></textarea></label>
-		<button type="button">Absenden (Platzhalter)</button>
+	<p>Du kannst mich per E-Mail erreichen: <a href="mailto:florianweimann9@gmail.com">florianweimann9@gmail.com</a></p>
+	<form (ngSubmit)="onSubmit()" #contactForm="ngForm">
+		<label>Name<br /><input type="text" name="name" placeholder="Dein Name" ngModel required /></label>
+		<label>Email<br /><input type="email" name="email" placeholder="dein@beispiel.de" ngModel required /></label>
+		<label>Nachricht<br /><textarea name="message" rows="4" placeholder="Kurz beschreiben, worum es geht..." ngModel required></textarea></label>
+		<button type="submit" [disabled]="!contactForm.valid">Absenden</button>
 	</form>
+	<p *ngIf="successMessage" class="success-message">{{ successMessage }}</p>
+	<p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
 </section>
