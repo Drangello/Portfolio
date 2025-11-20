@@ -1,15 +1,70 @@
 :host {
   display: block;
   min-height: 100vh;
-  background: #141D2F;
+  background: #141d2f;
   color: #fff;
-  position: relative;
-  z-index: 10; /* sit above empfang decorative background */
+  padding: 4rem 2rem;
 }
 
-/* make sure this section covers the area under the decorative image smoothly */
-.ueber-content {
-  position: relative;
-  z-index: 1;
-  padding: 4rem 2rem;
+
+.ueber-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4rem;
+}
+
+
+.ueber-left h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.ueber-left p {
+  font-size: 1.2rem;
+  max-width: 450px;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.ueber-points {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ueber-points li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+}
+
+.ueber-points img {
+  width: 28px;
+  height: 28px;
+  margin-right: 1rem;
+}
+
+
+.ueber-image {
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 6px solid #4caf50; 
+}
+
+
+@media (max-width: 900px) {
+  .ueber-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .ueber-image {
+    margin-top: 2rem;
+  }
 }
