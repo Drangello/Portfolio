@@ -1,4 +1,220 @@
 :host {
   display: block;
-  height: 100vh;
+}
+
+.empfang {
+  min-height: calc(100vh - 110px);
+  display: flex;
+  align-items: center;
+  background: #141D2F; /* same as header */
+  color: #fff;
+  position: relative; /* enable decorative pseudo-element overflow */
+  overflow: hidden; /* prevent horizontal scrollbar */
+}
+
+.empfang-inner {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.empfang-content {
+  flex: 1 1 60%;
+}
+
+.empfang-visual {
+  flex: 0 0 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empfang-visual-img {
+  width: 220px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+}
+
+.empfang-vertical {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vertical-label {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-weight: 700;
+  color: rgba(255,255,255,0.9);
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+}
+
+.name-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.display-name {
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.subtitle {
+  margin-top: 0.2rem;
+  color: #9b59b6; /* lilac/purple */
+  font-weight: 800;
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem); /* match name size */
+  line-height: 1;
+}
+
+.btn.talk {
+  margin-top: 0.8rem;
+  background: #70E61C;
+  color: #ffffff;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn.talk:hover {
+  filter: brightness(0.95);
+}
+
+.empfang-title {
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  line-height: 1.05;
+  margin: 0 0 1rem 0;
+}
+
+.accent {
+  color: #70E61C;
+}
+
+.lead {
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+}
+
+.empfang-ctas {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: #70E61C;
+  color: #141D2F;
+  border: 2px solid #70E61C;
+}
+
+.btn.ghost {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255,255,255,0.12);
+}
+
+.empfang-visual {
+  flex: 0 0 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empfang-visual-img {
+  width: 180px;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.95;
+}
+
+/* Decorative background that sits below text and overlaps into next section */
+.empfang::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  left: 0;
+  right: 0;
+  bottom: -25%;
+  width: 100%;
+  height: 80%;
+  background-image: url('/assets/img/51. bg VERSION B.png');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: contain; /* keep arch shape below 1440px */
+  opacity: 1;
+  z-index: 0;
+}
+
+@media (min-width: 1440px) {
+  .empfang::after {
+    background-size: cover; /* stretch to full width at 1440px and above */
+  }
+}
+
+/* ensure content sits above decorative image */
+.empfang-inner,
+.empfang-content,
+.empfang-visual,
+.empfang-vertical,
+.name-wrap {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 800px) {
+  .empfang-inner {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  .empfang-visual {
+    margin-bottom: 1.25rem;
+  }
+
+  .empfang-vertical {
+    transform: rotate(0deg);
+  }
+
+  .vertical-label {
+    writing-mode: horizontal-tb;
+    transform: none;
+    margin-bottom: 0.5rem;
+  }
+
+  .name-wrap {
+    align-items: center;
+  }
+}
+
+.simple-intro {
+  font-size: 1.25rem;
+  color: #ffffff;
+  margin: 0;
+  font-weight: 600;
 }
