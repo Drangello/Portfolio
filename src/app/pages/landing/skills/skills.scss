@@ -3,4 +3,97 @@
   min-height: 100vh;
   background: #141D2F;
   color: #fff;
+  padding: 4rem 2rem;
+}
+
+/* Wrapper für zweispaltiges Layout */
+.skills-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  gap: 4rem;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* LINKER BEREICH: ICON GRID */
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 Icons pro Reihe */
+  gap: 1.5rem;
+}
+
+.icon-grid img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.15));
+  transition: transform 0.2s ease;
+}
+
+.icon-grid img:hover {
+  transform: scale(1.1);
+}
+
+/* RECHTER BEREICH */
+.skills-right h2 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.skills-right p {
+  max-width: 500px;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: #d5d5d5;
+}
+
+.skills-right h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.7rem;
+  font-size: 1.6rem;
+  color: #8BE28B; /* leichter Grünton */
+}
+
+/* Button */
+.contact-btn {
+  margin-top: 1rem;
+  padding: 0.9rem 2rem;
+  background: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.contact-btn:hover {
+  background: #43a047;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 950px) {
+  .skills-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .skills-right p, 
+  .skills-right h3 {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .icon-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .icon-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
