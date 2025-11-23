@@ -19,7 +19,7 @@
 /* LINKER BEREICH: ICON GRID */
 .icon-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 Icons pro Reihe */
+  grid-template-columns: repeat(5, 1fr); /* 4 Icons pro Reihe */
   gap: 1.5rem;
 }
 
