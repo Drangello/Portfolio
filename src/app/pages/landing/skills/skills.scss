@@ -11,7 +11,7 @@
   max-width: 1400px;
   margin: 0 auto;
   display: flex;
-  gap: 4rem;
+  gap: 2.5rem; /* enger zusammen */
   justify-content: space-between;
   align-items: flex-start;
 }
@@ -19,7 +19,7 @@
 /* LINKER BEREICH: ICON GRID */
 .icon-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 4 Icons pro Reihe */
+  grid-template-columns: repeat(5, 1fr);
   gap: 1.5rem;
 }
 
@@ -36,24 +36,58 @@
 }
 
 /* RECHTER BEREICH */
-.skills-right h2 {
+.skills-right {
+  text-align: right;
+}
+
+/* Neue H2 mit Lila Linie rechts daneben (Overflow-frei) */
+.skills-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
   font-size: 2.8rem;
   margin-bottom: 1rem;
 }
 
+.skills-title .line {
+  display: block;
+  width: 70px;
+  height: 4px;
+  background: rgba(151, 71, 255, 1);
+  border-radius: 4px;
+}
+
+/* Text */
 .skills-right p {
   max-width: 500px;
   font-size: 1.15rem;
   line-height: 1.6;
   margin-bottom: 2rem;
   color: #d5d5d5;
+  margin-left: auto;
 }
 
+/* Standard-H3 */
 .skills-right h3 {
   margin-top: 1.5rem;
   margin-bottom: 0.7rem;
   font-size: 1.6rem;
-  color: #8BE28B; /* leichter Grünton */
+  color: #fff;
+  margin-left: auto;
+}
+
+/* H3 einzeilig + farbiger Teil */
+.skill-title {
+  font-size: 1.6rem;
+  white-space: nowrap;
+  text-align: right;
+  margin-bottom: 0.7rem;
+  color: #fff;
+}
+
+.skill-title .highlight {
+  color: rgba(151, 71, 255, 1);
 }
 
 /* Button */
@@ -81,7 +115,7 @@
     text-align: center;
   }
 
-  .skills-right p, 
+  .skills-right p,
   .skills-right h3 {
     margin-left: auto;
     margin-right: auto;
