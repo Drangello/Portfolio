@@ -1,12 +1,58 @@
 <section class="contact">
-	<h2>Kontakt</h2>
-	<p>Du kannst mich per E-Mail erreichen: <a href="mailto:florianweimann9@gmail.com">florianweimann9@gmail.com</a></p>
-	<form (ngSubmit)="onSubmit()" #contactForm="ngForm">
-		<label>Name<br /><input type="text" name="name" placeholder="Dein Name" ngModel required /></label>
-		<label>Email<br /><input type="email" name="email" placeholder="dein@beispiel.de" ngModel required /></label>
-		<label>Nachricht<br /><textarea name="message" rows="4" placeholder="Kurz beschreiben, worum es geht..." ngModel required></textarea></label>
-		<button type="submit" [disabled]="!contactForm.valid">Absenden</button>
-	</form>
-	<p *ngIf="successMessage" class="success-message">{{ successMessage }}</p>
-	<p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+  <div class="contact-container">
+
+    <!-- Left side text -->
+    <div class="contact-info">
+      <h1>Got a problem to solve?</h1>
+      <p>
+        Encourage people to contact you and describe what role you are interested in.
+        Show that you will add value to their projects through your work.
+      </p>
+      <p>
+        Need a Frontend developer?
+        <span class="highlight">Contact me!</span>
+      </p>
+    </div>
+
+    <!-- Right side form -->
+    <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="contact-form">
+
+      <input
+        type="text"
+        name="name"
+        placeholder="Your name"
+        ngModel
+        required
+      />
+
+      <input
+        type="email"
+        name="email"
+        placeholder="Your email"
+        ngModel
+        required
+      />
+
+      <textarea
+        name="message"
+        rows="6"
+        placeholder="Your message"
+        ngModel
+        required
+      ></textarea>
+
+     <label class="checkbox">
+  <input type="checkbox" name="privacy" ngModel required />
+  <span>I've read the <a href="#">privacy policy</a> and agree.</span>
+</label>
+
+
+      <button type="submit" [disabled]="!contactForm.valid">
+        Send message :)
+      </button>
+
+    </form>
+  </div>
+
+
 </section>
