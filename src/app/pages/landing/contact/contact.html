@@ -33,6 +33,9 @@
   <!-- ICON im Input -->
   <img *ngIf="name.valid && name.touched" src="assets/icons/Vector-1.svg" class="state-icon success" />
   <img *ngIf="name.invalid && name.touched" src="assets/icons/Frame.svg" class="state-icon error" />
+  <span class="error-text" *ngIf="name.invalid && name.touched">
+    Name nicht korrekt
+  </span>
 </div>
 
 
@@ -53,6 +56,9 @@
 
   <img *ngIf="email.valid && email.touched" src="assets/icons/Vector-1.svg" class="state-icon success" />
   <img *ngIf="email.invalid && email.touched" src="assets/icons/Frame.svg" class="state-icon error" />
+  <span class="error-text" *ngIf="email.invalid && email.touched">
+    E-Mail nicht korrekt
+  </span>
 </div>
 
 
@@ -73,11 +79,22 @@
 
   <img *ngIf="message.valid && threeWords" src="assets/icons/Vector-1.svg" class="state-icon success" />
   <img *ngIf="message.touched && !threeWords" src="assets/icons/Frame.svg" class="state-icon error" />
+    <span class="error-text" *ngIf="message.touched && !threeWords">
+    Bisschen mehr Text bitte
+  </span>
 </div>
       <label class="checkbox">
-        <input type="checkbox" name="privacy" ngModel required />
-        <span>I've read the <a href="#">privacy policy</a> and agree.</span>
-      </label>
+  <input 
+    type="checkbox" 
+    name="privacy" 
+    ngModel 
+    required 
+    class="checkbox-input"
+  />
+  <span>
+    I've read the <a href="#">privacy policy</a> and agree.
+  </span>
+</label>
 
       <button type="submit" [disabled]="!contactForm.valid || !threeWords">
         Send message :)
