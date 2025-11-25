@@ -1,7 +1,7 @@
 :host {
   display: block;
   min-height: 100vh;
-  background: #0f1626;
+  background: #141D2F;
   color: #fff;
   padding: 80px 10%;
   font-family: Inter, sans-serif;
@@ -42,27 +42,55 @@
   flex-direction: column;
   gap: 20px;
 
-  input,
-  textarea {
-    width: 100%;
-    padding: 15px 20px;
-    border-radius: 8px;
-    background: #111827;
-    border: 2px solid #5d2eff;
-    color: white;
-    font-size: 16px;
-    outline: none;
-    transition: 0.2s;
+ .field-wrapper {
+  position: relative;
+  width: 100%;
+}
 
-    &:focus {
-      border-color: #9d5cff;
-      box-shadow: 0 0 12px #8f50ff;
-    }
-  }
+input,
+textarea {
+  width: 100%;
+  padding: 15px 48px 15px 20px; // Platz für das Icon
+  border-radius: 8px;
+  background: #111827; // Hintergrund bleibt immer gleich!
+  border: 2px solid #5d2eff; // Standard-Lila
+  color: white;
+  font-size: 16px;
+  outline: none;
+  transition: 0.2s;
 
-  textarea {
-    resize: none;
+  &:focus {
+    border-color: #9d5cff; // Hell-Lila beim Fokus
+    box-shadow: 0 0 12px #8f50ff;
   }
+}
+
+/* ICON IM INPUT */
+.state-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  width: 22px;
+  transform: translateY(-50%);
+  pointer-events: none; // wichtige Einstellung!
+}
+
+/* Grün bei korrekter Eingabe */
+.valid {
+  border-color: #34d399 !important;
+  box-shadow: 0 0 12px rgba(52, 211, 153, 0.4);
+}
+
+.state-icon.success {
+  filter: brightness(1.3) saturate(2); // optionales Glow
+}
+
+/* Rot bei Fehler */
+.invalid {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.4);
+}
+
 
 .checkbox {
   display: flex;
@@ -99,6 +127,18 @@
     }
   }
 }
+/* === Autofill Bug Fix === */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: #fff !important;
+  box-shadow: 0 0 0px 1000px #111827 inset !important;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
 @media (max-width: 900px) {
   .contact-container {
     flex-direction: column;

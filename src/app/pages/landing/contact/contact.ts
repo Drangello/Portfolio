@@ -46,4 +46,11 @@ export class Contact {
       this.successMessage.set(null);
     }, 2000);
   }
+  threeWords: boolean = false;
+
+checkWords(message: any) {
+  const words = message.value?.trim().split(/\s+/) || [];
+  this.threeWords = words.length >= 3;
+}
+
 }

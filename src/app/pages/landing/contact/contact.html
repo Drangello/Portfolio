@@ -1,58 +1,88 @@
 <section class="contact">
   <div class="contact-container">
 
-    <!-- Left side text -->
     <div class="contact-info">
-      <h1>Gibt es wieder Herrausforderungen zu bestreiten ?</h1>
+      <h1>Gibt es wieder Herausforderungen zu bestreiten ?</h1>
       <p>
-        Logisches denken und der Künstlerische Geist wurden mir schon in die Wiege gelegt.
-        Mit leidenschafft für die Details und dem Blick für das Großeganze setzte ich mich hinter jedes Werk mit vollem Einsatz.
+        Logisches Denken und der künstlerische Geist wurden mir schon in die Wiege gelegt.
+        Mit Leidenschaft für Details und dem Blick für das Große Ganze setze ich mich hinter jedes Werk.
       </p>
       <p>
-        Benötigst du verstärkung für Anspruchsvolle und Kreative Projekte ? 
-        <span class="highlight">Kontaktier mich!</span>
+        Benötigst du Verstärkung für anspruchsvolle kreative Projekte?
+        <span class="highlight">Kontaktiere mich!</span>
       </p>
     </div>
 
-    <!-- Right side form -->
     <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="contact-form">
 
-      <input
-        type="text"
-        name="name"
-        placeholder="Your name"
-        ngModel
-        required
-      />
+      <div class="field-wrapper">
+  <input
+    type="text"
+    name="name"
+    placeholder="Your name"
+    ngModel
+    #name="ngModel"
+    required
+    minlength="2"
+    [ngClass]="{
+      'valid': name.valid && name.touched,
+      'invalid': name.invalid && name.touched
+    }"
+  />
 
-      <input
-        type="email"
-        name="email"
-        placeholder="Your email"
-        ngModel
-        required
-      />
-
-      <textarea
-        name="message"
-        rows="6"
-        placeholder="Your message"
-        ngModel
-        required
-      ></textarea>
-
-     <label class="checkbox">
-  <input type="checkbox" name="privacy" ngModel required />
-  <span>I've read the <a href="#">privacy policy</a> and agree.</span>
-</label>
+  <!-- ICON im Input -->
+  <img *ngIf="name.valid && name.touched" src="assets/icons/Vector-1.svg" class="state-icon success" />
+  <img *ngIf="name.invalid && name.touched" src="assets/icons/Frame.svg" class="state-icon error" />
+</div>
 
 
-      <button type="submit" [disabled]="!contactForm.valid">
+<div class="field-wrapper">
+  <input
+    type="email"
+    name="email"
+    placeholder="Your email"
+    ngModel
+    #email="ngModel"
+    required
+    email
+    [ngClass]="{
+      'valid': email.valid && email.touched,
+      'invalid': email.invalid && email.touched
+    }"
+  />
+
+  <img *ngIf="email.valid && email.touched" src="assets/icons/Vector-1.svg" class="state-icon success" />
+  <img *ngIf="email.invalid && email.touched" src="assets/icons/Frame.svg" class="state-icon error" />
+</div>
+
+
+<div class="field-wrapper">
+  <textarea
+    name="message"
+    rows="6"
+    placeholder="Your message"
+    ngModel
+    #message="ngModel"
+    required
+    (ngModelChange)="checkWords(message)"
+    [ngClass]="{
+      'valid': message.valid && threeWords,
+      'invalid': message.touched && !threeWords
+    }"
+  ></textarea>
+
+  <img *ngIf="message.valid && threeWords" src="assets/icons/Vector-1.svg" class="state-icon success" />
+  <img *ngIf="message.touched && !threeWords" src="assets/icons/Frame.svg" class="state-icon error" />
+</div>
+      <label class="checkbox">
+        <input type="checkbox" name="privacy" ngModel required />
+        <span>I've read the <a href="#">privacy policy</a> and agree.</span>
+      </label>
+
+      <button type="submit" [disabled]="!contactForm.valid || !threeWords">
         Send message :)
       </button>
 
     </form>
   </div>
-
-
 </section>
