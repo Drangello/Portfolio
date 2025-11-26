@@ -1,8 +1,30 @@
 
 *, *::before, *::after {
-	box-sizing: border-box;
-	margin: 0;
-    scroll-behavior: smooth;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
 }
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  font-family: sans-serif; // optional
+}
+
+/* --- Full-width Backgrounds allowed --- */
+/* Falls du einen globalen Hintergrund hast */
+body {
+  background: var(--global-bg,#141D2F); // optional
+}
+.page-limit {
+  margin: 0 auto;
+
+  @media (min-width: 1440px) {
+    max-width: 1440px;
+  }
+}
+
 
 
