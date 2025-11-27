@@ -10,21 +10,9 @@ html, body {
   width: 100%;
   min-height: 100%;
   overflow-x: hidden;
-  font-family: sans-serif; // optional
+  font-family: sans-serif; 
 }
 
-/* --- Full-width Backgrounds allowed --- */
-/* Falls du einen globalen Hintergrund hast */
-body {
-  background: var(--global-bg,#141D2F); // optional
-}
-.page-limit {
-  margin: 0 auto;
-
-  @media (min-width: 1440px) {
-    max-width: 1440px;
-  }
-}
 
 
 
