@@ -11,36 +11,65 @@
   max-width: 1400px;
   margin: 0 auto;
   display: flex;
-  gap: 2.5rem; /* enger zusammen */
+  gap: 2.5rem;
   justify-content: space-between;
   align-items: flex-start;
 }
 
-/* LINKER BEREICH: ICON GRID */
+/* LEFT SIDE: ICON GRID */
 .icon-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 1.5rem;
 }
 
-.icon-grid img {
-  width: 60px;
-  height: 60px;
+/* ===== SKILL ITEM ===== */
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+/* Icons */
+.skill-item img {
+  width: 65px;
+  height: 65px;
   object-fit: contain;
-  filter: drop-shadow(0 0 6px rgba(255,255,255,0.15));
-  transition: transform 0.2s ease;
+  transition: transform 0.45s ease, filter 0.3s ease;
+  filter: drop-shadow(0 0 4px rgba(255,255,255,0.12));
 }
 
-.icon-grid img:hover {
-  transform: scale(1.1);
+/* Text */
+.skill-item span {
+  font-size: 1rem;
+  color: #fff;
+  opacity: 0.9;
 }
 
-/* RECHTER BEREICH */
+/* Hover Animation – smooth & elegant */
+.skill-item:hover img {
+  transform: translateY(-10px) rotateX(12deg);
+  filter: drop-shadow(0 8px 12px rgba(0,0,0,0.35));
+}
+
+.skill-item:hover {
+  transform: translateY(-4px);
+}
+
+/* ❗ Entfernt: Alte .icon-grid img:hover scale Regel */
+/* (würde Animation zerstören!) */
+
+
+/* RIGHT SIDE */
 .skills-right {
   text-align: right;
 }
 
-/* Neue H2 mit Lila Linie rechts daneben (Overflow-frei) */
+/* Title + Line */
 .skills-title {
   display: flex;
   align-items: center;
@@ -68,22 +97,13 @@
   margin-left: auto;
 }
 
-/* Standard-H3 */
+/* h3 */
 .skills-right h3 {
   margin-top: 1.5rem;
   margin-bottom: 0.7rem;
   font-size: 1.6rem;
   color: #fff;
   margin-left: auto;
-}
-
-/* H3 einzeilig + farbiger Teil */
-.skill-title {
-  font-size: 1.6rem;
-  white-space: nowrap;
-  text-align: right;
-  margin-bottom: 0.7rem;
-  color: #fff;
 }
 
 .skill-title .highlight {
