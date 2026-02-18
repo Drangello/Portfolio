@@ -6,148 +6,143 @@
   padding: 4rem 2rem;
 }
 
-/* Wrapper für zweispaltiges Layout */
+/* ======================= DESKTOP ======================= */
 .skills-wrapper {
   max-width: 1400px;
   margin: 0 auto;
   display: flex;
-  gap: 2.5rem;
   justify-content: space-between;
-  align-items: flex-start;
+  gap: 4rem;
 }
 
-/* LEFT SIDE: ICON GRID */
-.icon-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1.5rem;
+/* LEFT: ICONS */
+.skills-left {
+  flex: 1;
 }
 
-/* ===== SKILL ITEM ===== */
-.skill-item {
+/* RIGHT: TEXT BLOCK (top + bottom stacked) */
+.skills-right {
+  flex: 1;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 0.6rem;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-/* Icons */
-.skill-item img {
-  width: 65px;
-  height: 65px;
-  object-fit: contain;
-  transition: transform 0.45s ease, filter 0.3s ease;
-  filter: drop-shadow(0 0 4px rgba(255,255,255,0.12));
-}
-
-/* Text */
-.skill-item span {
-  font-size: 1rem;
-  color: #fff;
-  opacity: 0.9;
-}
-
-/* Hover Animation – smooth & elegant */
-.skill-item:hover img {
-  transform: translateY(-10px) rotateX(12deg);
-  filter: drop-shadow(0 8px 12px rgba(0,0,0,0.35));
-}
-
-.skill-item:hover {
-  transform: translateY(-4px);
-}
-
-/* ❗ Entfernt: Alte .icon-grid img:hover scale Regel */
-/* (würde Animation zerstören!) */
-
-
-/* RIGHT SIDE */
-.skills-right {
+  gap: 3rem;
   text-align: right;
 }
 
-/* Title + Line */
+/* ------------------- TEXT STYLING ------------------- */
 .skills-title {
+  font-size: 3.5rem;
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 1rem;
-  font-size: 2.8rem;
-  margin-bottom: 1rem;
 }
 
 .skills-title .line {
-  display: block;
-  width: 70px;
+  width: 80px;
   height: 4px;
-  background: rgba(151, 71, 255, 1);
-  border-radius: 4px;
+  background: #9747ff;
+  border-radius: 5px;
 }
 
-/* Text */
 .skills-right p {
-  max-width: 500px;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   line-height: 1.6;
-  margin-bottom: 2rem;
   color: #d5d5d5;
-  margin-left: auto;
 }
 
-/* h3 */
-.skills-right h3 {
-  margin-top: 1.5rem;
-  margin-bottom: 0.7rem;
-  font-size: 1.6rem;
-  color: #fff;
-  margin-left: auto;
+/* ------------------- ICON GRID ------------------- */
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 120px);
+  gap: 2rem 3rem;
 }
 
-.skill-title .highlight {
-  color: rgba(151, 71, 255, 1);
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  transition: transform 0.3s;
 }
 
-/* Button */
+.skill-item img {
+  width: 65px;
+  height: 65px;
+  transition: 0.3s;
+}
+
+.skill-item:hover img {
+  transform: translateY(-10px) rotateX(12deg);
+}
+
+/* ------------------- BUTTON ------------------- */
 .contact-btn {
   margin-top: 1rem;
-  padding: 0.9rem 2rem;
-  background: #4CAF50;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-size: 1.1rem;
+  padding: 1rem 2rem;
+  background: #4caf50;
+  border-radius: 10px;
+  font-size: 1.2rem;
   cursor: pointer;
-  transition: 0.2s ease;
+  border: none;
+  transition: 0.2s;
 }
 
 .contact-btn:hover {
   background: #43a047;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
 
-/* Responsive */
+.skills-bottom-mobile {
+    display: none;
+  }
+
+/* ======================= MOBILE (<950px) ======================= */
 @media (max-width: 950px) {
+
   .skills-wrapper {
     flex-direction: column;
     text-align: center;
+    align-items: center;
+    gap: 3rem;
   }
 
-  .skills-right p,
-  .skills-right h3 {
-    margin-left: auto;
-    margin-right: auto;
+  /* Reihenfolge für Mobile */
+  .skills-right { order: 1; text-align: center; }
+  .skills-left  { order: 2; }
+  .skills-bottom { order: 3;
+    display: none;
   }
+  .skills-bottom-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
 
+  /* Grid in der Mitte zentrieren */
   .icon-grid {
     grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+  }
+
+  .skills-title {
+    justify-content: center;
+  }
+
+  .contact-btn {
+    margin: 0 auto;
   }
 }
 
+/* ======================= VERY SMALL DEV (<600px) ======================= */
 @media (max-width: 600px) {
   .icon-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+
