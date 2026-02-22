@@ -133,10 +133,18 @@
   }
 
   .error-text {
-    display: block;
-    margin-top: 6px;
+    position: absolute;
+    bottom: -22px;
+    left: 0;
     font-size: 14px;
     color: #ef4444;
+  }
+
+  /* Add margin to field wrapper to prevent overlapping */
+  .field-wrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px; // Extra space for absolute error text
   }
 
 
