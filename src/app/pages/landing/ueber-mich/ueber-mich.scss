@@ -5,6 +5,7 @@
   color: #fff;
   padding: 4rem 0;
   margin-top: -1px;
+  overflow: hidden;
 }
 
 
@@ -50,12 +51,30 @@
 }
 
 
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
 .ueber-image {
   width: 450px;
   height: 450px;
   border-radius: 50%;
   object-fit: cover;
-  border: 6px solid #4caf50;
+  border: 4px solid #8ef178; // Lighter green matched with project
+  position: relative;
+  z-index: 2;
+}
+
+.green-line {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 50vw;
+  height: 4px;
+  background: #8ef178;
+  transform: translateY(-50%);
+  z-index: 1;
 }
 
 
@@ -65,7 +84,21 @@
     text-align: center;
   }
 
-  .ueber-image {
+  .ueber-points li {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  .ueber-points img {
+    margin-right: 0;
+  }
+
+  .image-wrapper {
     margin-top: 2rem;
+  }
+
+  .green-line {
+    display: none; // hide on mobile to prevent weird overflow bugs
   }
 }
