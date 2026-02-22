@@ -3,7 +3,8 @@
   min-height: 100vh;
   background: #141D2F;
   color: #fff;
-  padding: 4rem 2rem;
+  padding: 4rem 0;
+  margin-top: -1px;
 }
 
 /* ======================= DESKTOP ======================= */
@@ -96,8 +97,8 @@
 }
 
 .skills-bottom-mobile {
-    display: none;
-  }
+  display: none;
+}
 
 /* ======================= MOBILE (<950px) ======================= */
 @media (max-width: 950px) {
@@ -110,18 +111,27 @@
   }
 
   /* Reihenfolge für Mobile */
-  .skills-right { order: 1; text-align: center; }
-  .skills-left  { order: 2; }
-  .skills-bottom { order: 3;
+  .skills-right {
+    order: 1;
+    text-align: center;
+  }
+
+  .skills-left {
+    order: 2;
+  }
+
+  .skills-bottom {
+    order: 3;
     display: none;
   }
+
   .skills-bottom-mobile {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
   }
-  
+
 
   /* Grid in der Mitte zentrieren */
   .icon-grid {
@@ -144,5 +154,3 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
-

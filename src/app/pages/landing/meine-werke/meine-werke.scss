@@ -2,7 +2,8 @@
   display: block;
   background: #141D2F;
   color: #fff;
-  padding: 100px 10%;
+  padding: 100px 0;
+  margin-top: -1px;
   font-family: Inter, sans-serif;
 }
 
@@ -51,7 +52,7 @@
   gap: 80px;
 
   &:nth-child(even) {
-    flex-direction: row-reverse;  // abwechselnder Stil
+    flex-direction: row-reverse; // abwechselnder Stil
   }
 }
 

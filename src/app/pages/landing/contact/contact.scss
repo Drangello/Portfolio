@@ -3,7 +3,8 @@
   min-height: 100vh;
   background: #141D2F;
   color: #fff;
-  padding: 80px 10%;
+  padding: 80px 0;
+  margin-top: -1px;
   font-family: Inter, sans-serif;
 }
 
@@ -100,42 +101,43 @@
 
   /* CHECKBOX */
   .checkbox {
-  display: flex;
-  align-items: center;
-  justify-content: center;;
-  gap: 12px;
-  cursor: pointer; // nur für Text
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    ;
+    gap: 12px;
+    cursor: pointer; // nur für Text
 
-  .checkbox-input {
-    width: 20px;
-    height: 20px;
-    accent-color: #9d5cff; 
-    cursor: pointer;
+    .checkbox-input {
+      width: 20px;
+      height: 20px;
+      accent-color: #9d5cff;
+      cursor: pointer;
 
-    /* Hover nur um das Kästchen */
-    &:hover {
-      box-shadow: 0 0 6px rgba(157, 92, 255, 0.7);
-      border-radius: 4px;
+      /* Hover nur um das Kästchen */
+      &:hover {
+        box-shadow: 0 0 6px rgba(157, 92, 255, 0.7);
+        border-radius: 4px;
+      }
+    }
+
+    span {
+      font-size: 15px;
+      user-select: none;
+    }
+
+    a {
+      color: #9d5cff;
+      text-decoration: underline;
     }
   }
 
-  span {
-    font-size: 15px;
-    user-select: none;
-  }
-
-  a {
-    color: #9d5cff;
-    text-decoration: underline;
-  }
-}
-
   .error-text {
-  display: block;
-  margin-top: 6px;
-  font-size: 14px;
-  color: #ef4444;
-}
+    display: block;
+    margin-top: 6px;
+    font-size: 14px;
+    color: #ef4444;
+  }
 
 
   /* SUBMIT BUTTON */
