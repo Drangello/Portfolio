@@ -1,6 +1,8 @@
 :host {
 	display: block;
-
+	position: sticky;
+	top: 0;
+	z-index: 9999;
 }
 
 .container {
@@ -22,8 +24,6 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
-	position: sticky;
-	top: 0;
 }
 
 .brand {
