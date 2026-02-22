@@ -1,99 +1,179 @@
 :host {
   display: block;
   min-height: 100vh;
-  background: #141D2F;
+  background-color: #141d2f;
   color: #fff;
-  padding: 4rem 0;
+  padding: 8rem 0;
   margin-top: -1px;
+  position: relative;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* ======================= DESKTOP ======================= */
+/* Green glow blob */
+:host::before {
+  content: "";
+  position: absolute;
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, rgba(112, 230, 28, 0.15) 0%, rgba(112, 230, 28, 0) 65%);
+  bottom: -20vh;
+  left: -20vw;
+  z-index: 0;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
 .skills-wrapper {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  gap: 4rem;
+  align-items: flex-start;
+  gap: 5rem;
+  position: relative;
+  z-index: 1;
+  padding: 0 2rem;
 }
 
 /* LEFT: ICONS */
 .skills-left {
-  flex: 1;
+  flex: 1.2;
 }
 
-/* RIGHT: TEXT BLOCK (top + bottom stacked) */
+/* RIGHT: TEXT BLOCK */
 .skills-right {
   flex: 1;
-  max-width: 500px;
+  max-width: 480px;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  align-items: flex-end;
+  gap: 6rem;
   text-align: right;
 }
 
 /* ------------------- TEXT STYLING ------------------- */
+.skills-top {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
 .skills-title {
-  font-size: 3.5rem;
-  font-weight: 700;
+  font-size: 4rem;
+  font-weight: 800;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 1rem;
+  gap: 1.5rem;
+  margin: 0 0 1.5rem 0;
+  position: relative;
 }
 
 .skills-title .line {
-  width: 80px;
-  height: 4px;
+  width: 90px;
+  height: 5px;
   background: #9747ff;
   border-radius: 5px;
 }
 
-.skills-right p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  color: #d5d5d5;
+@media (min-width: 951px) {
+  .skills-title .line {
+    position: absolute;
+    left: calc(100% + 1.5rem);
+    width: 100vw;
+  }
+}
+
+.intro,
+.outro {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #c4c4c4;
+  margin: 0;
+}
+
+.skills-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.skill-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 0 0 1rem 0;
+}
+
+.highlight {
+  color: #9747ff;
 }
 
 /* ------------------- ICON GRID ------------------- */
 .icon-grid {
   display: grid;
-  grid-template-columns: repeat(3, 120px);
-  gap: 2rem 3rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem 1.5rem;
+  justify-items: center;
 }
 
 .skill-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.6rem;
-  transition: transform 0.3s;
+  gap: 0.8rem;
+  transition: transform 0.3s ease;
 }
 
 .skill-item img {
   width: 65px;
   height: 65px;
-  transition: 0.3s;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.skill-item span {
+  font-size: 0.95rem;
+  color: #fff;
+  font-weight: 500;
+  text-align: center;
+}
+
+.skill-item:last-child span {
+  color: #9747ff;
+}
+
+.skill-item:last-child img {
+  /* This filter creates a bright purple (#9747ff) out of a white graphic */
+  filter: brightness(0) saturate(100%) invert(38%) sepia(50%) saturate(6939%) hue-rotate(247deg) brightness(102%) contrast(103%);
+}
+
+.skill-item:hover {
+  transform: translateY(-8px);
 }
 
 .skill-item:hover img {
-  transform: translateY(-10px) rotateX(12deg);
+  transform: scale(1.1);
 }
 
 /* ------------------- BUTTON ------------------- */
 .contact-btn {
-  margin-top: 1rem;
-  padding: 1rem 2rem;
-  background: #4caf50;
-  border-radius: 10px;
-  font-size: 1.2rem;
+  margin-top: 2rem;
+  padding: 1rem 2.5rem;
+  background-color: #70E61C;
+  color: #fff;
+  border-radius: 30px;
+  font-size: 1.25rem;
+  font-weight: 600;
   cursor: pointer;
   border: none;
-  transition: 0.2s;
+  transition: all 0.3s ease;
 }
 
 .contact-btn:hover {
-  background: #43a047;
+  background-color: #5dce14;
   transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(112, 230, 28, 0.4);
 }
 
 .skills-bottom-mobile {
@@ -102,26 +182,60 @@
 
 /* ======================= MOBILE (<950px) ======================= */
 @media (max-width: 950px) {
+  :host {
+    padding: 4rem 0;
+  }
 
   .skills-wrapper {
     flex-direction: column;
-    text-align: center;
     align-items: center;
+    text-align: center;
+    gap: 4rem;
+    padding: 0 1.5rem;
+  }
+
+  .skills-right {
+    order: 1;
+    align-items: center;
+    text-align: center;
     gap: 3rem;
   }
 
-  /* Reihenfolge für Mobile */
-  .skills-right {
-    order: 1;
+  .skills-top {
+    align-items: center;
     text-align: center;
+  }
+
+  .skills-title {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-size: 3.5rem;
+    text-align: center;
+  }
+
+  .skills-title .line {
+    width: 60px;
   }
 
   .skills-left {
     order: 2;
+    width: 100%;
+  }
+
+  .icon-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem 1rem;
+    justify-items: center;
+  }
+
+  /* Center the 25th item in the 3-column grid */
+  .skill-item:last-child {
+    grid-column: 2;
   }
 
   .skills-bottom {
-    order: 3;
     display: none;
   }
 
@@ -129,28 +243,36 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
-  }
-
-
-  /* Grid in der Mitte zentrieren */
-  .icon-grid {
-    grid-template-columns: repeat(3, 1fr);
-    justify-items: center;
-  }
-
-  .skills-title {
-    justify-content: center;
-  }
-
-  .contact-btn {
-    margin: 0 auto;
+    text-align: center;
+    margin-top: 4rem;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
   }
 }
 
 /* ======================= VERY SMALL DEV (<600px) ======================= */
 @media (max-width: 600px) {
+  .skills-title {
+    font-size: 2.8rem;
+  }
+
+  .skill-title {
+    font-size: 1.8rem;
+  }
+
   .icon-grid {
     grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+  }
+
+  /* Span both columns so it's centered */
+  .skill-item:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .contact-btn {
+    width: 100%;
+    max-width: 300px;
   }
 }
