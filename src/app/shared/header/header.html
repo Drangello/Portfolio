@@ -1,9 +1,16 @@
 <header class="site-header">
 	<div class="container">
-		
-		<a class="brand" href="#empfang">
+
+		<a class="brand" href="#empfang" (click)="closeMenu()">
 			<img src="/assets/img/FlosLogo.png" alt="Florian Weimann Logo" class="logo-img" />
 		</a>
+
+		<!-- Burger Button (Mobile Only) -->
+		<button class="burger-btn" [class.open]="menuOpen" (click)="toggleMenu()" aria-label="Toggle Menu">
+			<span></span>
+			<span></span>
+			<span></span>
+		</button>
 
 		<div class="header-right">
 			<nav class="main-nav">
@@ -12,11 +19,24 @@
 				<a href="#meine-werke">Werke</a>
 				<a href="#contact">Kontakt</a>
 			</nav>
-			
+
 			<div class="lang-buttons">
 				<button class="lang-btn active">EN</button>
 				<button class="lang-btn">DE</button>
 			</div>
+		</div>
+	</div>
+
+	<!-- Mobile Menu Overlay -->
+	<div class="mobile-menu" [class.open]="menuOpen">
+		<nav class="mobile-nav">
+			<a href="#ueber-mich" (click)="closeMenu()">Über mich</a>
+			<a href="#skills" (click)="closeMenu()">Skills</a>
+			<a href="#meine-werke" (click)="closeMenu()">Werke</a>
+			<a href="#contact" (click)="closeMenu()">Kontakt</a>
+		</nav>
+		<div class="mobile-lang">
+			<span class="active">EN</span> <span class="divider">/</span> <span>DE</span>
 		</div>
 	</div>
 </header>
