@@ -3,22 +3,21 @@
 
 }
 
-.container{
+.container {
 	display: flex;
 	justify-content: space-around;
 }
+
 .site-header {
 	height: 110px;
 	background: #141D2F;
 	z-index: 9999;
 	display: flex;
 	align-items: center;
-	box-shadow: 0 1px 6px rgba(0,0,0,0.12);
+	box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12);
 }
 
 .site-header .container {
-	width: 100%;
-	margin: 0;
 	height: 100%;
 	display: flex;
 	align-items: center;

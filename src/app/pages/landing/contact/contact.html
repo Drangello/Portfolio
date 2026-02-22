@@ -1,5 +1,5 @@
 <section class="contact">
-  <div class="contact-container">
+  <div class="contact-container container">
 
     <div class="contact-info">
       <h1>Gibt es wieder Herausforderungen zu bestreiten ?</h1>
@@ -16,85 +16,53 @@
     <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="contact-form">
 
       <div class="field-wrapper">
-  <input
-    type="text"
-    name="name"
-    placeholder="Your name"
-    ngModel
-    #name="ngModel"
-    required
-    minlength="2"
-    [ngClass]="{
+        <input type="text" name="name" placeholder="Your name" ngModel #name="ngModel" required minlength="2" [ngClass]="{
       'valid': name.valid && name.touched,
       'invalid': name.invalid && name.touched
-    }"
-  />
+    }" />
 
-  <!-- ICON im Input -->
-  <img *ngIf="name.valid && name.touched" src="assets/icons/Vector-1.svg" class="state-icon success" />
-  <img *ngIf="name.invalid && name.touched" src="assets/icons/Frame.svg" class="state-icon error" />
-  <span class="error-text" *ngIf="name.invalid && name.touched">
-    Name nicht korrekt
-  </span>
-</div>
+        <!-- ICON im Input -->
+        <img *ngIf="name.valid && name.touched" src="assets/icons/Vector-1.svg" class="state-icon success" />
+        <img *ngIf="name.invalid && name.touched" src="assets/icons/Frame.svg" class="state-icon error" />
+        <span class="error-text" *ngIf="name.invalid && name.touched">
+          Name nicht korrekt
+        </span>
+      </div>
 
 
-<div class="field-wrapper">
-  <input
-    type="email"
-    name="email"
-    placeholder="Your email"
-    ngModel
-    #email="ngModel"
-    required
-    email
-    [ngClass]="{
+      <div class="field-wrapper">
+        <input type="email" name="email" placeholder="Your email" ngModel #email="ngModel" required email [ngClass]="{
       'valid': email.valid && email.touched,
       'invalid': email.invalid && email.touched
-    }"
-  />
+    }" />
 
-  <img *ngIf="email.valid && email.touched" src="assets/icons/Vector-1.svg" class="state-icon success" />
-  <img *ngIf="email.invalid && email.touched" src="assets/icons/Frame.svg" class="state-icon error" />
-  <span class="error-text" *ngIf="email.invalid && email.touched">
-    E-Mail nicht korrekt
-  </span>
-</div>
+        <img *ngIf="email.valid && email.touched" src="assets/icons/Vector-1.svg" class="state-icon success" />
+        <img *ngIf="email.invalid && email.touched" src="assets/icons/Frame.svg" class="state-icon error" />
+        <span class="error-text" *ngIf="email.invalid && email.touched">
+          E-Mail nicht korrekt
+        </span>
+      </div>
 
 
-<div class="field-wrapper">
-  <textarea
-    name="message"
-    rows="6"
-    placeholder="Your message"
-    ngModel
-    #message="ngModel"
-    required
-    (ngModelChange)="checkWords(message)"
-    [ngClass]="{
+      <div class="field-wrapper">
+        <textarea name="message" rows="6" placeholder="Your message" ngModel #message="ngModel" required
+          (ngModelChange)="checkWords(message)" [ngClass]="{
       'valid': message.valid && threeWords,
       'invalid': message.touched && !threeWords
-    }"
-  ></textarea>
+    }"></textarea>
 
-  <img *ngIf="message.valid && threeWords" src="assets/icons/Vector-1.svg" class="state-icon success" />
-  <img *ngIf="message.touched && !threeWords" src="assets/icons/Frame.svg" class="state-icon error" />
-    <span class="error-text" *ngIf="message.touched && !threeWords">
-    Bisschen mehr Text bitte
-  </span>
-</div>
+        <img *ngIf="message.valid && threeWords" src="assets/icons/Vector-1.svg" class="state-icon success" />
+        <img *ngIf="message.touched && !threeWords" src="assets/icons/Frame.svg" class="state-icon error" />
+        <span class="error-text" *ngIf="message.touched && !threeWords">
+          Bisschen mehr Text bitte
+        </span>
+      </div>
       <label class="checkbox">
-  <input 
-    type="checkbox" 
-    name="privacy" 
-    ngModel 
-    required 
-    class="checkbox-input"
-  />
-  <span>
-    I've read the <a href="#">privacy policy</a> and agree.
-  </span>
-</label>
+        <input type="checkbox" name="privacy" ngModel required class="checkbox-input" />
+        <span>
+          I've read the <a href="#">privacy policy</a> and agree.
+        </span>
+      </label>
 
       <button type="submit" [disabled]="!contactForm.valid || !threeWords">
         Send message :)
