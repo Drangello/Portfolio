@@ -158,6 +158,7 @@
 
 /* ------------------- BUTTON ------------------- */
 .contact-btn {
+  display: inline-block;
   margin-top: 2rem;
   padding: 1rem 2.5rem;
   background-color: #70E61C;
@@ -167,6 +168,8 @@
   font-weight: 600;
   cursor: pointer;
   border: none;
+  text-decoration: none;
+  text-align: center;
   transition: all 0.3s ease;
 }
 
@@ -174,6 +177,11 @@
   background-color: #5dce14;
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(112, 230, 28, 0.4);
+}
+
+.contact-btn:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 4px;
 }
 
 .skills-bottom-mobile {
@@ -274,5 +282,17 @@
   .contact-btn {
     width: 100%;
     max-width: 300px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-item,
+  .skill-item img {
+    transition: none;
+  }
+
+  .skill-item:hover,
+  .skill-item:hover img {
+    transform: none;
   }
 }
