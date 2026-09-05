@@ -62,3 +62,11 @@
 #contact {
 	scroll-margin-top: 110px;
 }
+
+@media (max-width: 600px) {
+	#skills::before {
+		top: 42rem;
+		bottom: auto;
+		left: -14rem;
+	}
+}
