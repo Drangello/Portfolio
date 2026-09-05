@@ -1,3 +1,63 @@
+.landing-container {
+	position: relative;
+	isolation: isolate;
+	background: #141d2f;
+}
+
+.landing-container > section {
+	position: relative;
+}
+
+.landing-container > section > * {
+	position: relative;
+	z-index: 1;
+}
+
+#ueber-mich::before,
+#skills::before,
+#meine-werke::before,
+#contact::before {
+	content: "";
+	position: absolute;
+	z-index: 0;
+	pointer-events: none;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+
+#ueber-mich::before {
+	top: clamp(-7rem, -7vw, -4rem);
+	right: clamp(-16rem, -14vw, -5rem);
+	width: clamp(28rem, 51.4vw, 46.25rem);
+	aspect-ratio: 740 / 736;
+	background-image: url('/assets/img/30. Purple shadow about me.png');
+}
+
+#skills::before {
+	left: clamp(-24rem, -22vw, -8rem);
+	bottom: clamp(-20rem, -18vw, -9rem);
+	width: clamp(34rem, 62.4vw, 56.125rem);
+	aspect-ratio: 898 / 976;
+	background-image: url('/assets/img/31. Green shadow Skills Portfolio.png');
+}
+
+#meine-werke::before {
+	right: clamp(-22rem, -20vw, -8rem);
+	bottom: clamp(-18rem, -16vw, -8rem);
+	width: clamp(30rem, 57.4vw, 51.6875rem);
+	aspect-ratio: 827 / 934;
+	background-image: url('/assets/img/32 Purple shadow portfolio.png');
+}
+
+#contact::before {
+	left: clamp(-28rem, -24vw, -10rem);
+	bottom: clamp(3rem, 7vw, 7rem);
+	width: clamp(34rem, 75.2vw, 67.6875rem);
+	aspect-ratio: 1083 / 939;
+	background-image: url('/assets/img/33. Purple shadow Footer.png');
+}
+
 #skills,
 #contact {
 	scroll-margin-top: 110px;

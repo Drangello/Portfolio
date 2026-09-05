@@ -7,13 +7,12 @@
   min-height: calc(100vh - 110px);
   display: flex;
   align-items: center;
-  background: #141D2F;
+  background: transparent;
   /* same as header */
   color: #fff;
   position: relative;
-  /* enable decorative pseudo-element overflow */
-  overflow: hidden;
-  /* prevent horizontal scrollbar */
+  /* allow decorative elements to extend vertically; global overflow-x clipping prevents horizontal scrolling */
+  overflow: visible;
 }
 
 .empfang-inner {
