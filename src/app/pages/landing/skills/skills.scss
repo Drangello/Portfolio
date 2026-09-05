@@ -274,14 +274,18 @@
   }
 
   .icon-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2.75rem 1.5rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.75rem 0.75rem;
     justify-items: center;
   }
 
   .skill-item img {
-    width: 4.25rem;
-    height: 4.25rem;
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .skill-item span {
+    font-size: 0.9rem;
   }
 
   .contact-btn {
