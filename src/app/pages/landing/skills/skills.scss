@@ -25,15 +25,15 @@
 }
 
 .skills-wrapper {
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 5rem;
+  gap: clamp(4rem, 6vw, 6rem);
   position: relative;
   z-index: 1;
-  padding: 0 2rem;
+  padding: 0 clamp(2rem, 6.95vw, 6.25rem);
 }
 
 /* LEFT: ICONS */
@@ -44,7 +44,7 @@
 /* RIGHT: TEXT BLOCK */
 .skills-right {
   flex: 1;
-  max-width: 480px;
+  max-width: 34rem;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -60,14 +60,16 @@
 }
 
 .skills-title {
-  font-size: 4rem;
+  font-size: clamp(4rem, 6.25vw, 5.625rem);
+  line-height: 1.2;
   font-weight: 800;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 1.5rem;
-  margin: 0 0 1.5rem 0;
+  gap: 1.75rem;
+  margin: 0 0 2rem 0;
   position: relative;
+  white-space: nowrap;
 }
 
 .skills-title .line {
@@ -80,15 +82,15 @@
 @media (min-width: 951px) {
   .skills-title .line {
     position: absolute;
-    left: calc(100% + 1.5rem);
+    left: calc(100% + 1.75rem);
     width: 100vw;
   }
 }
 
 .intro,
 .outro {
-  font-size: 1.15rem;
-  line-height: 1.7;
+  font-size: 1.25rem;
+  line-height: 1.6;
   color: #c4c4c4;
   margin: 0;
 }
@@ -100,9 +102,10 @@
 }
 
 .skill-title {
-  font-size: 2.2rem;
+  font-size: 2.5rem;
+  line-height: 1.25;
   font-weight: 800;
-  margin: 0 0 1rem 0;
+  margin: 0 0 1.25rem 0;
 }
 
 .highlight {
@@ -113,7 +116,7 @@
 .icon-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 3rem 1.5rem;
+  gap: 4rem 2.5rem;
   justify-items: center;
 }
 
@@ -121,31 +124,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.8rem;
+  gap: 1rem;
   transition: transform 0.3s ease;
 }
 
 .skill-item img {
-  width: 65px;
-  height: 65px;
+  width: 4.75rem;
+  height: 4.75rem;
   object-fit: contain;
   transition: transform 0.3s ease;
 }
 
 .skill-item span {
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   color: #fff;
   font-weight: 500;
   text-align: center;
-}
-
-.skill-item:last-child span {
-  color: #9747ff;
-}
-
-.skill-item:last-child img {
-  /* This filter creates a bright purple (#9747ff) out of a white graphic */
-  filter: brightness(0) saturate(100%) invert(38%) sepia(50%) saturate(6939%) hue-rotate(247deg) brightness(102%) contrast(103%);
 }
 
 .skill-item:hover {
@@ -160,11 +154,11 @@
 .contact-btn {
   display: inline-block;
   margin-top: 2rem;
-  padding: 1rem 2.5rem;
+  padding: 1.1rem 2.75rem;
   background-color: #70E61C;
   color: #fff;
   border-radius: 30px;
-  font-size: 1.25rem;
+  font-size: 1.4rem;
   font-weight: 600;
   cursor: pointer;
   border: none;
@@ -198,7 +192,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 4rem;
+    gap: 3.5rem;
     padding: 0 1.5rem;
   }
 
@@ -234,13 +228,23 @@
 
   .icon-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem 1rem;
+    gap: 3rem 2rem;
     justify-items: center;
   }
 
-  /* Center the 25th item in the 3-column grid */
-  .skill-item:last-child {
-    grid-column: 2;
+  .skill-item img {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+
+  .skill-item span {
+    font-size: 1rem;
+  }
+
+  .intro,
+  .outro {
+    font-size: 1.125rem;
+    line-height: 1.65;
   }
 
   .skills-bottom {
@@ -252,7 +256,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-top: 4rem;
+    margin-top: 5rem;
     padding: 0 2rem;
     position: relative;
     z-index: 1;
@@ -266,22 +270,23 @@
   }
 
   .skill-title {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   .icon-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 2.75rem 1.5rem;
     justify-items: center;
   }
 
-  /* Span both columns so it's centered */
-  .skill-item:last-child {
-    grid-column: 1 / -1;
+  .skill-item img {
+    width: 4.25rem;
+    height: 4.25rem;
   }
 
   .contact-btn {
     width: 100%;
-    max-width: 300px;
+    max-width: 20rem;
   }
 }
 
