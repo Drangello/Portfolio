@@ -1,19 +1,22 @@
-<header class="site-header">
+<header class="site-header" [class.menu-open]="menuOpen">
 	<div class="container">
 
-		<a class="brand" href="#empfang" (click)="closeMenu()">
-			<img src="/assets/img/FlosLogo.png" alt="Florian Weimann Logo" class="logo-img" />
+		<a #brandLink class="brand" href="#empfang" (click)="closeMenu()">
+			<img src="/assets/img/FlosLogo.png" alt="Florian Weimann Logo" class="logo-img" width="1024"
+				height="1024" />
 		</a>
 
 		<!-- Burger Button (Mobile Only) -->
-		<button class="burger-btn" [class.open]="menuOpen" (click)="toggleMenu()" aria-label="Toggle Menu">
+		<button #burgerButton class="burger-btn" type="button" [class.open]="menuOpen" (click)="toggleMenu()"
+			[attr.aria-expanded]="menuOpen" aria-controls="mobile-menu"
+			[attr.aria-label]="menuOpen ? 'Menü schließen' : 'Menü öffnen'">
 			<span></span>
 			<span></span>
 			<span></span>
 		</button>
 
 		<div class="header-right">
-			<nav class="main-nav">
+			<nav class="main-nav" aria-label="Hauptnavigation">
 				<a href="#ueber-mich">Über mich</a>
 				<a href="#skills">Skills</a>
 				<a href="#meine-werke">Werke</a>
@@ -21,22 +24,29 @@
 			</nav>
 
 			<div class="lang-buttons">
-				<button class="lang-btn active">EN</button>
-				<button class="lang-btn">DE</button>
+				<button class="lang-btn" type="button" aria-pressed="false" disabled
+					aria-label="Englische Version noch nicht verfügbar">EN</button>
+				<button class="lang-btn active" type="button" aria-pressed="true">DE</button>
 			</div>
 		</div>
 	</div>
 
 	<!-- Mobile Menu Overlay -->
-	<div class="mobile-menu" [class.open]="menuOpen">
-		<nav class="mobile-nav">
-			<a href="#ueber-mich" (click)="closeMenu()">Über mich</a>
-			<a href="#skills" (click)="closeMenu()">Skills</a>
-			<a href="#meine-werke" (click)="closeMenu()">Werke</a>
-			<a href="#contact" (click)="closeMenu()">Kontakt</a>
-		</nav>
-		<div class="mobile-lang">
-			<span class="active">EN</span> <span class="divider">/</span> <span>DE</span>
+	@if (menuOpen) {
+		<div #mobileMenu id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true"
+			aria-label="Navigationsmenü">
+			<nav class="mobile-nav" aria-label="Mobile Navigation">
+				<a #firstMenuLink href="#ueber-mich" (click)="closeMenu()">Über mich</a>
+				<a href="#skills" (click)="closeMenu()">Skills</a>
+				<a href="#meine-werke" (click)="closeMenu()">Werke</a>
+				<a href="#contact" (click)="closeMenu()">Kontakt</a>
+			</nav>
+			<div class="mobile-lang" role="group" aria-label="Sprachauswahl">
+				<button class="lang-btn" type="button" aria-pressed="false" disabled
+					aria-label="Englische Version noch nicht verfügbar">EN</button>
+				<span class="divider" aria-hidden="true">/</span>
+				<button class="lang-btn active" type="button" aria-pressed="true">DE</button>
+			</div>
 		</div>
-	</div>
+	}
 </header>
