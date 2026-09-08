@@ -51,9 +51,9 @@
 }
 
 #contact::before {
-	left: clamp(-28rem, -24vw, -10rem);
-	bottom: clamp(3rem, 7vw, 7rem);
-	width: clamp(34rem, 75.2vw, 67.6875rem);
+	left: clamp(-15rem, -14vw, -7rem);
+	bottom: clamp(-15rem, calc(-33rem + 32vw), -9rem);
+	width: clamp(28rem, 46vw, 42rem);
 	aspect-ratio: 1083 / 939;
 	background-image: url('/assets/img/33. Purple shadow Footer.png');
 }
