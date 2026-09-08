@@ -1,5 +1,7 @@
 :host {
 	display: block;
+	position: relative;
+	z-index: 1;
 	margin-top: -1px;
 }
 
@@ -7,57 +9,103 @@
 	background: #141D2F;
 	color: #ffffff;
 	border-top: 4px solid #70E61C;
-	max-height: 300px;
-	overflow: hidden;
 }
 
 .site-footer .container {
-	margin: 0 auto;
+	max-width: 1280px;
+	margin-inline: auto;
+	padding: 2.75rem 2.5rem;
 	display: flex;
 	align-items: center;
-	justify-content: space-around;
+	justify-content: space-between;
+	gap: 2rem;
 }
 
-.footer-left {
-	flex: 0 0 auto;
+.footer-left,
+.footer-right {
+	flex: 1;
 }
 
 .footer-left img {
-	width: 210px;
-	height: 200px;
+	display: block;
+	width: 150px;
+	height: 150px;
+	object-fit: contain;
 }
 
 .footer-center {
+	flex: 0 0 auto;
 	text-align: center;
-	font-size: 0.95rem;
+	font-size: 1rem;
 }
 
 .footer-right {
 	display: flex;
 	align-items: center;
-	gap: 1.5rem;
+	justify-content: flex-end;
+	gap: 0.75rem;
 }
 
 .footer-right a {
+	min-width: 44px;
+	min-height: 44px;
 	display: inline-flex;
 	align-items: center;
-	transition: transform 0.2s ease;
+	justify-content: center;
+	color: #ffffff;
+	border-radius: 0.25rem;
+	text-decoration: none;
+	transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .footer-right a:hover {
+	color: #70E61C;
 	transform: scale(1.1);
 }
 
-.footer-right img {
-	height: 28px;
-	width: auto;
-	display: block;
+.footer-right a:focus-visible {
+	outline: 3px solid #9747FF;
+	outline-offset: 3px;
 }
 
-@media (max-width: 640px) {
+.footer-right img {
+	display: block;
+	width: 28px;
+	height: 28px;
+	object-fit: contain;
+}
+
+.linkedin-link {
+	padding-inline: 0.5rem;
+	font-weight: 700;
+}
+
+@media (max-width: 800px) {
 	.site-footer .container {
 		flex-direction: column;
 		text-align: center;
+		gap: 1.25rem;
+		padding: 2rem 1.25rem 2.5rem;
 	}
 
+	.footer-left,
+	.footer-right {
+		flex: 0 0 auto;
+	}
+
+	.footer-left img {
+		width: 120px;
+		height: 120px;
+	}
+
+	.footer-right {
+		justify-content: center;
+		gap: 1rem;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.footer-right a {
+		transition: none;
+	}
 }
