@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, OnDestroy, ViewChild } from '@angular/core';
+import { AfterViewChecked, Component, ElementRef, HostListener, OnDestroy, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
-export class Header implements OnDestroy {
+export class Header implements AfterViewChecked, OnDestroy {
   @ViewChild('brandLink') private brandLink?: ElementRef<HTMLAnchorElement>;
   @ViewChild('burgerButton') private burgerButton?: ElementRef<HTMLButtonElement>;
   @ViewChild('mobileMenu') private mobileMenu?: ElementRef<HTMLElement>;
@@ -18,7 +18,12 @@ export class Header implements OnDestroy {
   private scrollLockActive = false;
   private previousBodyOverflow = '';
   private previousBodyPaddingRight = '';
-  private previousHtmlOverflow = '';
+  private previousBodyPosition = '';
+  private previousBodyTop = '';
+  private previousBodyWidth = '';
+  private previousHtmlOverflowY = '';
+  private lockedScrollPosition = 0;
+  private focusFirstMenuLink = false;
 
   toggleMenu() {
     if (this.menuOpen) {
@@ -27,6 +32,15 @@ export class Header implements OnDestroy {
     }
 
     this.openMenu();
+  }
+
+  ngAfterViewChecked() {
+    if (!this.focusFirstMenuLink || !this.firstMenuLink) {
+      return;
+    }
+
+    this.focusFirstMenuLink = false;
+    this.firstMenuLink.nativeElement.focus();
   }
 
   closeMenu(restoreBurgerFocus = true) {
@@ -102,14 +116,9 @@ export class Header implements OnDestroy {
   }
 
   private openMenu() {
+    this.focusFirstMenuLink = true;
     this.menuOpen = true;
     this.lockPageScroll();
-
-    setTimeout(() => {
-      if (this.menuOpen) {
-        this.firstMenuLink?.nativeElement.focus();
-      }
-    });
   }
 
   private keepFocusInsideMenu(event: KeyboardEvent) {
@@ -155,12 +164,19 @@ export class Header implements OnDestroy {
     }
 
     const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    this.lockedScrollPosition = window.scrollY;
     this.previousBodyOverflow = document.body.style.overflow;
     this.previousBodyPaddingRight = document.body.style.paddingRight;
-    this.previousHtmlOverflow = document.documentElement.style.overflow;
+    this.previousBodyPosition = document.body.style.position;
+    this.previousBodyTop = document.body.style.top;
+    this.previousBodyWidth = document.body.style.width;
+    this.previousHtmlOverflowY = document.documentElement.style.overflowY;
 
-    document.documentElement.style.overflow = 'hidden';
+    document.documentElement.style.overflowY = 'scroll';
     document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${this.lockedScrollPosition}px`;
+    document.body.style.width = '100%';
 
     if (scrollbarWidth > 0) {
       document.body.style.paddingRight = `${scrollbarWidth}px`;
@@ -174,9 +190,13 @@ export class Header implements OnDestroy {
       return;
     }
 
-    document.documentElement.style.overflow = this.previousHtmlOverflow;
+    document.documentElement.style.overflowY = this.previousHtmlOverflowY;
     document.body.style.overflow = this.previousBodyOverflow;
     document.body.style.paddingRight = this.previousBodyPaddingRight;
+    document.body.style.position = this.previousBodyPosition;
+    document.body.style.top = this.previousBodyTop;
+    document.body.style.width = this.previousBodyWidth;
     this.scrollLockActive = false;
+    window.scrollTo(0, this.lockedScrollPosition);
   }
 }
