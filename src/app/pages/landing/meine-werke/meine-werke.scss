@@ -22,7 +22,7 @@
   .line {
     flex: 1;
     height: 4px;
-    background: #a259ff;
+    background: #9747ff;
     max-width: 180px; // optional
   }
 }
@@ -40,7 +40,9 @@
 .projects {
   display: flex;
   flex-direction: column;
-  gap: 120px;
+  gap: 72px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 /* Einzelnes Projekt */
@@ -52,13 +54,21 @@
 
   &:nth-child(even) {
     flex-direction: row-reverse; // abwechselnder Stil
+
+    .project-info {
+      text-align: right;
+    }
+
+    .buttons {
+      justify-content: flex-end;
+    }
   }
 }
 
 .project-image img {
   width: 420px;
-  border-radius: 10px;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+  height: auto;
+  display: block;
 }
 
 .project-info {
@@ -67,17 +77,17 @@
   h2 {
     font-size: 32px;
     margin-bottom: 10px;
-    color: #b889ff;
+    color: #9747ff;
   }
 
   .tech {
     font-weight: 600;
-    color: #8ef178;
+    color: #70e61c;
     margin-bottom: 15px;
 
     span {
       margin: 0 6px;
-      color: #8ef178;
+      color: #70e61c;
     }
   }
 
@@ -90,43 +100,68 @@
   /* Buttons */
   .buttons {
     display: flex;
-    gap: 20px;
+    gap: 32px;
   }
 
   .btn {
-    padding: 10px 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 12px 24px;
     border-radius: 10px;
     font-size: 16px;
     cursor: pointer;
     text-decoration: none;
-    transition: 0.2s;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+    &:focus-visible {
+      outline: 3px solid currentColor;
+      outline-offset: 4px;
+    }
   }
 
   .live {
-    background: #a259ff;
+    background: #9747ff;
     color: #fff;
 
     &:hover {
-      background: #b874ff;
+      background: #7f35d9;
     }
   }
 
   .github {
-    border: 2px solid #8ef178;
-    color: #8ef178;
+    border: 2px solid #70e61c;
+    color: #70e61c;
 
     &:hover {
-      background: #8ef178;
+      background: #70e61c;
       color: #141D2F;
     }
   }
 }
 
 /* MOBILE */
-@media (max-width: 900px) {
+@media (max-width: 950px) {
+  .projects {
+    max-width: 760px;
+    gap: 96px;
+  }
+
   .project {
     flex-direction: column !important;
     text-align: center;
+    gap: 56px;
+
+    &:nth-child(even) {
+      .project-info {
+        text-align: center;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+    }
   }
 
   .project-image img {
@@ -135,7 +170,7 @@
   }
 
   .project-info {
-    max-width: 100%;
+    max-width: 620px;
   }
 
   .buttons {
@@ -145,5 +180,65 @@
   .portfolio-title .left,
   .portfolio-title .right {
     display: none; // optional
+  }
+}
+
+@media (max-width: 600px) {
+  .portfolio-heading {
+    width: calc(100% + 20px);
+    margin-right: -20px;
+    margin-bottom: 24px;
+    gap: 12px;
+
+    h1 {
+      font-size: clamp(40px, 8vw, 48px);
+      white-space: normal;
+    }
+
+    .line {
+      height: 3px;
+      max-width: none;
+    }
+
+    .line:first-child {
+      flex: 0 0 clamp(24px, 6vw, 34px);
+    }
+
+    .line:last-child {
+      flex: 1 1 auto;
+      min-width: 24px;
+    }
+  }
+
+  .portfolio-subtitle {
+    font-size: 16px;
+    line-height: 1.35;
+    margin-bottom: 56px;
+  }
+
+  .projects {
+    gap: 72px;
+  }
+
+  .project {
+    gap: 36px;
+  }
+
+  .project-image img {
+    max-width: 260px;
+  }
+
+  .project-info {
+    .description {
+      margin-bottom: 22px;
+    }
+
+    .buttons {
+      gap: 28px;
+    }
+
+    .btn {
+      padding: 12px 22px;
+    }
   }
 }

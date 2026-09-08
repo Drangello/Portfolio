@@ -43,8 +43,8 @@
 }
 
 #meine-werke::before {
-	right: clamp(-22rem, -20vw, -8rem);
-	bottom: clamp(-18rem, -16vw, -8rem);
+	top: clamp(56rem, 65vw, 58.125rem);
+	left: clamp(-18rem, -16vw, -8rem);
 	width: clamp(30rem, 57.4vw, 51.6875rem);
 	aspect-ratio: 827 / 934;
 	background-image: url('/assets/img/32 Purple shadow portfolio.png');
@@ -63,7 +63,19 @@
 	scroll-margin-top: 110px;
 }
 
+@media (max-width: 950px) {
+	#meine-werke::before {
+		top: 56rem;
+		left: clamp(-16rem, -24vw, -10rem);
+	}
+}
+
 @media (max-width: 600px) {
+	#meine-werke::before {
+		top: 76rem;
+		left: -11rem;
+	}
+
 	#skills::before {
 		top: 42rem;
 		bottom: auto;
