@@ -1,6 +1,13 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
+
+interface ContactFormValue {
+  name: string;
+  email: string;
+  message: string;
+  privacy: boolean;
+}
 
 @Component({
   selector: 'app-contact',
@@ -11,46 +18,40 @@ import { FormsModule } from '@angular/forms';
 export class Contact {
   successMessage = signal<string | null>(null);
   errorMessage = signal<string | null>(null);
+  threeWords = false;
   private readonly recipientEmail = 'florianweimann9@gmail.com';
 
-  onSubmit() {
-    // Reset messages
+  onSubmit(form: NgForm): void {
     this.successMessage.set(null);
     this.errorMessage.set(null);
 
-    // For now, we'll use a simple approach: open the default email client
-    // Later, you can integrate with a backend service (e.g., EmailJS, backend API)
-    const name = (document.querySelector('input[name="name"]') as HTMLInputElement)?.value;
-    const email = (document.querySelector('input[name="email"]') as HTMLInputElement)?.value;
-    const message = (document.querySelector('textarea[name="message"]') as HTMLTextAreaElement)?.value;
+    const values = form.value as ContactFormValue;
+    this.checkWords(values.message);
 
-    if (!name || !email || !message) {
-      this.errorMessage.set('Bitte alle Felder ausfüllen.');
+    if (form.invalid || !this.threeWords || !values.privacy) {
+      form.control.markAllAsTouched();
+      this.errorMessage.set('Bitte prüfe die markierten Felder.');
       return;
     }
 
-    // Compose email body
-    const emailBody = `Name: ${name}\nEmail: ${email}\n\nNachricht:\n${message}`;
+    const name = values.name.trim();
+    const email = values.email.trim();
+    const message = values.message.trim();
+    const emailBody = `Name: ${name}\nE-Mail: ${email}\n\nNachricht:\n${message}`;
     const subject = `Neue Nachricht von ${name}`;
-
-    // Open default email client (mailto:)
     const mailtoLink = `mailto:${this.recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+
     window.location.href = mailtoLink;
+    this.successMessage.set(
+      'Dein E-Mail-Programm sollte sich jetzt öffnen. Bitte sende die vorbereitete Nachricht dort ab.',
+    );
 
-    // Show success message (optional, as the email client will open)
-    this.successMessage.set('E-Mail-Programm öffnet sich...');
-
-    // Reset form after a short delay
-    setTimeout(() => {
-      (document.querySelector('form') as HTMLFormElement)?.reset();
-      this.successMessage.set(null);
-    }, 2000);
+    form.resetForm();
+    this.threeWords = false;
   }
-  threeWords: boolean = false;
 
-checkWords(message: any) {
-  const words = message.value?.trim().split(/\s+/) || [];
-  this.threeWords = words.length >= 3;
-}
-
+  checkWords(message: string | null | undefined): void {
+    const words = message?.trim().split(/\s+/).filter(Boolean) ?? [];
+    this.threeWords = words.length >= 3;
+  }
 }

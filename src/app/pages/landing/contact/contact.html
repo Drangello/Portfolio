@@ -5,7 +5,6 @@
   </div>
 
   <div class="contact-container container">
-
     <div class="contact-info">
       <h3>Gibt es wieder Herausforderungen zu bestreiten ?</h3>
       <p>
@@ -18,61 +17,181 @@
       </p>
     </div>
 
-    <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="contact-form">
-
+    <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" class="contact-form" novalidate>
       <div class="field-wrapper">
-        <input type="text" name="name" placeholder="Your name" ngModel #name="ngModel" required minlength="2" [ngClass]="{
-      'valid': name.valid && name.touched,
-      'invalid': name.invalid && name.touched
-    }" />
+        <label for="contact-name" class="visually-hidden">Name</label>
+        <input
+          id="contact-name"
+          type="text"
+          name="name"
+          placeholder="Dein Name"
+          autocomplete="name"
+          ngModel
+          #name="ngModel"
+          required
+          minlength="2"
+          pattern=".*\S.*\S.*"
+          aria-describedby="name-error"
+          [attr.aria-invalid]="name.invalid && name.touched"
+          [ngClass]="{
+            valid: name.valid && name.touched,
+            invalid: name.invalid && name.touched,
+          }"
+        />
 
-        <!-- ICON im Input -->
-        <img *ngIf="name.valid && name.touched" src="assets/icons/Vector-1.svg" class="state-icon success" />
-        <img *ngIf="name.invalid && name.touched" src="assets/icons/Frame.svg" class="state-icon error" />
-        <span class="error-text" *ngIf="name.invalid && name.touched">
-          Name nicht korrekt
+        <img
+          *ngIf="name.valid && name.touched"
+          src="assets/icons/Vector-1.svg"
+          class="state-icon success"
+          alt=""
+          aria-hidden="true"
+        />
+        <img
+          *ngIf="name.invalid && name.touched"
+          src="assets/icons/Frame.svg"
+          class="state-icon error"
+          alt=""
+          aria-hidden="true"
+        />
+        <span
+          id="name-error"
+          class="error-text"
+          [class.is-visible]="name.invalid && name.touched"
+          aria-live="polite"
+        >
+          Bitte gib mindestens zwei Zeichen ein.
         </span>
       </div>
 
-
       <div class="field-wrapper">
-        <input type="email" name="email" placeholder="Your email" ngModel #email="ngModel" required email [ngClass]="{
-      'valid': email.valid && email.touched,
-      'invalid': email.invalid && email.touched
-    }" />
+        <label for="contact-email" class="visually-hidden">E-Mail-Adresse</label>
+        <input
+          id="contact-email"
+          type="email"
+          name="email"
+          placeholder="Deine E-Mail-Adresse"
+          autocomplete="email"
+          ngModel
+          #email="ngModel"
+          required
+          email
+          aria-describedby="email-error"
+          [attr.aria-invalid]="email.invalid && email.touched"
+          [ngClass]="{
+            valid: email.valid && email.touched,
+            invalid: email.invalid && email.touched,
+          }"
+        />
 
-        <img *ngIf="email.valid && email.touched" src="assets/icons/Vector-1.svg" class="state-icon success" />
-        <img *ngIf="email.invalid && email.touched" src="assets/icons/Frame.svg" class="state-icon error" />
-        <span class="error-text" *ngIf="email.invalid && email.touched">
-          E-Mail nicht korrekt
+        <img
+          *ngIf="email.valid && email.touched"
+          src="assets/icons/Vector-1.svg"
+          class="state-icon success"
+          alt=""
+          aria-hidden="true"
+        />
+        <img
+          *ngIf="email.invalid && email.touched"
+          src="assets/icons/Frame.svg"
+          class="state-icon error"
+          alt=""
+          aria-hidden="true"
+        />
+        <span
+          id="email-error"
+          class="error-text"
+          [class.is-visible]="email.invalid && email.touched"
+          aria-live="polite"
+        >
+          Bitte gib eine gültige E-Mail-Adresse ein.
         </span>
       </div>
 
-
       <div class="field-wrapper">
-        <textarea name="message" rows="6" placeholder="Your message" ngModel #message="ngModel" required
-          (ngModelChange)="checkWords(message)" [ngClass]="{
-      'valid': message.valid && threeWords,
-      'invalid': message.touched && !threeWords
-    }"></textarea>
+        <label for="contact-message" class="visually-hidden">Nachricht</label>
+        <textarea
+          id="contact-message"
+          name="message"
+          rows="6"
+          placeholder="Deine Nachricht"
+          autocomplete="off"
+          ngModel
+          #message="ngModel"
+          required
+          (ngModelChange)="checkWords($event)"
+          aria-describedby="message-error"
+          [attr.aria-invalid]="message.touched && (message.invalid || !threeWords)"
+          [ngClass]="{
+            valid: message.valid && message.touched && threeWords,
+            invalid: message.touched && (message.invalid || !threeWords),
+          }"
+        ></textarea>
 
-        <img *ngIf="message.valid && threeWords" src="assets/icons/Vector-1.svg" class="state-icon success" />
-        <img *ngIf="message.touched && !threeWords" src="assets/icons/Frame.svg" class="state-icon error" />
-        <span class="error-text" *ngIf="message.touched && !threeWords">
-          Bisschen mehr Text bitte
+        <img
+          *ngIf="message.valid && message.touched && threeWords"
+          src="assets/icons/Vector-1.svg"
+          class="state-icon success"
+          alt=""
+          aria-hidden="true"
+        />
+        <img
+          *ngIf="message.touched && (message.invalid || !threeWords)"
+          src="assets/icons/Frame.svg"
+          class="state-icon error"
+          alt=""
+          aria-hidden="true"
+        />
+        <span
+          id="message-error"
+          class="error-text"
+          [class.is-visible]="message.touched && (message.invalid || !threeWords)"
+          aria-live="polite"
+        >
+          Bitte schreibe mindestens drei Wörter.
         </span>
       </div>
+
       <label class="checkbox">
-        <input type="checkbox" name="privacy" ngModel required class="checkbox-input" />
+        <input
+          id="contact-privacy"
+          type="checkbox"
+          name="privacy"
+          ngModel
+          #privacy="ngModel"
+          required
+          class="checkbox-input"
+          aria-describedby="privacy-error"
+          [attr.aria-invalid]="privacy.invalid && privacy.touched"
+          [class.invalid]="privacy.invalid && privacy.touched"
+        />
         <span>
-          I've read the <a href="#">privacy policy</a> and agree.
+          Ich habe die <a href="#">Datenschutzerklärung</a> gelesen und stimme ihr zu.
+        </span>
+        <span
+          id="privacy-error"
+          class="error-text privacy-error"
+          [class.is-visible]="privacy.invalid && privacy.touched"
+          aria-live="polite"
+        >
+          Bitte stimme der Datenschutzerklärung zu.
         </span>
       </label>
 
       <button type="submit" [disabled]="!contactForm.valid || !threeWords">
-        Send message :)
+        Nachricht senden
       </button>
 
+      <div
+        class="form-status"
+        [class.status-info]="!!successMessage()"
+        [class.status-error]="!!errorMessage()"
+        [attr.role]="errorMessage() ? 'alert' : 'status'"
+        [attr.aria-live]="errorMessage() ? 'assertive' : 'polite'"
+        aria-atomic="true"
+      >
+        <span *ngIf="errorMessage()">{{ errorMessage() }}</span>
+        <span *ngIf="successMessage()">{{ successMessage() }}</span>
+      </div>
     </form>
   </div>
 </section>
