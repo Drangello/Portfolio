@@ -1,30 +1,29 @@
 <section class="contact">
   <div class="contact-heading">
     <span class="contact-heading-line"></span>
-    <h2>Kontakt</h2>
+    <h2>{{ 'contact.title' | translate }}</h2>
   </div>
 
   <div class="contact-container container">
     <div class="contact-info">
-      <h3>Gibt es wieder Herausforderungen zu bestreiten ?</h3>
+      <h3>{{ 'contact.heading' | translate }}</h3>
       <p>
-        Logisches Denken und der künstlerische Geist wurden mir schon in die Wiege gelegt.
-        Mit Leidenschaft für Details und dem Blick für das Große Ganze setze ich mich hinter jedes Werk.
+        {{ 'contact.intro' | translate }}
       </p>
       <p>
-        Benötigst du Verstärkung für anspruchsvolle kreative Projekte?
-        <span class="highlight">Kontaktiere mich!</span>
+        {{ 'contact.invitation' | translate }}
+        <span class="highlight">{{ 'contact.highlight' | translate }}</span>
       </p>
     </div>
 
     <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" class="contact-form" novalidate>
       <div class="field-wrapper">
-        <label for="contact-name" class="visually-hidden">Name</label>
+        <label for="contact-name" class="visually-hidden">{{ 'contact.form.labels.name' | translate }}</label>
         <input
           id="contact-name"
           type="text"
           name="name"
-          placeholder="Dein Name"
+          [placeholder]="'contact.form.placeholders.name' | translate"
           autocomplete="name"
           ngModel
           #name="ngModel"
@@ -59,18 +58,18 @@
           aria-live="polite"
         >
           <ng-container *ngIf="name.invalid && name.touched">
-            Bitte gib mindestens zwei Zeichen ein.
+            {{ 'contact.form.errors.name' | translate }}
           </ng-container>
         </span>
       </div>
 
       <div class="field-wrapper">
-        <label for="contact-email" class="visually-hidden">E-Mail-Adresse</label>
+        <label for="contact-email" class="visually-hidden">{{ 'contact.form.labels.email' | translate }}</label>
         <input
           id="contact-email"
           type="email"
           name="email"
-          placeholder="Deine E-Mail-Adresse"
+          [placeholder]="'contact.form.placeholders.email' | translate"
           autocomplete="email"
           ngModel
           #email="ngModel"
@@ -104,18 +103,18 @@
           aria-live="polite"
         >
           <ng-container *ngIf="email.invalid && email.touched">
-            Bitte gib eine gültige E-Mail-Adresse ein.
+            {{ 'contact.form.errors.email' | translate }}
           </ng-container>
         </span>
       </div>
 
       <div class="field-wrapper">
-        <label for="contact-message" class="visually-hidden">Nachricht</label>
+        <label for="contact-message" class="visually-hidden">{{ 'contact.form.labels.message' | translate }}</label>
         <textarea
           id="contact-message"
           name="message"
           rows="6"
-          placeholder="Deine Nachricht"
+          [placeholder]="'contact.form.placeholders.message' | translate"
           autocomplete="off"
           ngModel
           #message="ngModel"
@@ -149,7 +148,7 @@
           aria-live="polite"
         >
           <ng-container *ngIf="message.touched && (message.invalid || !threeWords)">
-            Bitte schreibe mindestens drei Wörter.
+            {{ 'contact.form.errors.message' | translate }}
           </ng-container>
         </span>
       </div>
@@ -169,18 +168,20 @@
             [class.invalid]="privacy.invalid && privacy.touched"
           />
           <span>
-            Ich habe die <a href="#">Datenschutzerklärung</a> gelesen und stimme ihr zu.
+            {{ 'contact.form.privacy.prefix' | translate }}
+            <a href="#">{{ 'contact.form.privacy.link' | translate }}</a>
+            {{ 'contact.form.privacy.suffix' | translate }}
           </span>
         </label>
         <span id="privacy-error" class="error-text privacy-error" aria-live="polite">
           <ng-container *ngIf="privacy.invalid && privacy.touched">
-            Bitte stimme der Datenschutzerklärung zu.
+            {{ 'contact.form.errors.privacy' | translate }}
           </ng-container>
         </span>
       </div>
 
       <button type="submit" [disabled]="!contactForm.valid || !threeWords">
-        Nachricht senden
+        {{ 'contact.form.submit' | translate }}
       </button>
 
       <div

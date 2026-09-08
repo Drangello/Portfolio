@@ -2,13 +2,13 @@
   <div class="container">
     <div class="portfolio-heading">
       <span class="line"></span>
-      <h2>Meine Werke</h2>
+      <h2>{{ 'portfolio.title' | translate }}</h2>
       <span class="line"></span>
     </div>
 
     <!-- Untertitel -->
     <p class="portfolio-subtitle">
-      Eine Auswahl meiner bisherigen Projekte zum Reinschnuppern und Ausprobieren.
+      {{ 'portfolio.subtitle' | translate }}
     </p>
 
     <!-- Projekte-Container -->
@@ -18,7 +18,7 @@
       <div class="project">
         <!-- Bild LINKS -->
         <div class="project-image">
-          <img src="assets/img/Property 1=Join.png" alt="Projektvorschau Join">
+          <img src="assets/img/Property 1=Join.png" [alt]="'portfolio.projects.join.image_alt' | translate">
         </div>
 
         <!-- Text RECHTS -->
@@ -30,8 +30,7 @@
           </p>
 
           <p class="description">
-            Ein Gruppenprojekt für einen Aufgabenmanager mit Drag-and-Drop-Funktionalitäten – vom Organisieren bis
-            zur Kategoriezuweisung.
+            {{ 'portfolio.projects.join.description' | translate }}
           </p>
 
           <div class="buttons">
@@ -39,21 +38,22 @@
               class="btn live"
               role="link"
               aria-disabled="true"
-              aria-label="Live-Demo von Join derzeit nicht verfügbar"
-            >Teste mich</span>
+              [attr.aria-label]="'portfolio.projects.join.live_unavailable_aria' | translate"
+            >{{ 'portfolio.actions.live_test' | translate }}</span>
             <a
               href="https://github.com/Drangello/join"
               class="btn github"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="GitHub-Repository von Join öffnen"
+              [attr.aria-label]="'portfolio.projects.join.github_aria' | translate"
             >GitHub</a>
           </div>
         </div>
       </div>
       <div class="project">
         <div class="project-image">
-          <img src="assets/img/Pollo loco 1.png" alt="Projektvorschau Spanisches Feuer der Leidenschaft">
+          <img src="assets/img/Pollo loco 1.png"
+            [alt]="'portfolio.projects.spanish_fire.image_alt' | translate">
         </div>
 
         <div class="project-info">
@@ -64,7 +64,7 @@
           </p>
 
           <p class="description">
-            Ein Run-and-Gun-Spiel mit Fokus auf objektorientierte Programmierung in JavaScript.
+            {{ 'portfolio.projects.spanish_fire.description' | translate }}
           </p>
 
           <div class="buttons">
@@ -73,21 +73,22 @@
               class="btn live"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Live-Demo des Projekts Spanisches Feuer der Leidenschaft öffnen"
-            >Teste mich</a>
+              [attr.aria-label]="'portfolio.projects.spanish_fire.live_aria' | translate"
+            >{{ 'portfolio.actions.live_test' | translate }}</a>
             <a
               href="https://github.com/Drangello/FeuerderLeidenschaft"
               class="btn github"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="GitHub-Repository von Spanisches Feuer der Leidenschaft öffnen"
+              [attr.aria-label]="'portfolio.projects.spanish_fire.github_aria' | translate"
             >GitHub</a>
           </div>
         </div>
       </div>
       <div class="project">
         <div class="project-image">
-          <img src="assets/img/Property 1=Pkedex.png" alt="Projektvorschau Pokédex">
+          <img src="assets/img/Property 1=Pkedex.png"
+            [alt]="'portfolio.projects.pokedex.image_alt' | translate">
         </div>
 
         <div class="project-info">
@@ -98,7 +99,7 @@
           </p>
 
           <p class="description">
-            Ein Pokédex mit Such- und Filterfunktionen unter Verwendung der PokéAPI.
+            {{ 'portfolio.projects.pokedex.description' | translate }}
           </p>
 
           <div class="buttons">
@@ -107,14 +108,14 @@
               class="btn live"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Live-Demo von Pokédex öffnen"
-            >Teste mich</a>
+              [attr.aria-label]="'portfolio.projects.pokedex.live_aria' | translate"
+            >{{ 'portfolio.actions.live_test' | translate }}</a>
             <a
               href="https://github.com/Drangello/PokedexFinal"
               class="btn github"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="GitHub-Repository von Pokédex öffnen"
+              [attr.aria-label]="'portfolio.projects.pokedex.github_aria' | translate"
             >GitHub</a>
           </div>
         </div>

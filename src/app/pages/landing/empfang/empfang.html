@@ -1,35 +1,38 @@
-<section class="empfang" role="region" aria-label="Empfang">
+<section class="empfang" role="region" [attr.aria-label]="'hero.region_label' | translate">
 	<!-- Social Links Left -->
 	<div class="hero-socials">
 		<div class="social-line"></div>
 		<a href="https://github.com/Drangello" target="_blank" rel="noopener noreferrer"><img
-				src="assets/icons/Property 1=hover.svg" alt="GitHub" /></a>
-		<a href="mailto:kontakt@florianweimann.de"><img src="assets/icons/Property 1=Mail.svg" alt="E-Mail" /></a>
+				src="assets/icons/Property 1=hover.svg" [alt]="'hero.social.github' | translate" /></a>
+		<a href="mailto:kontakt@florianweimann.de"><img src="assets/icons/Property 1=Mail.svg"
+				[alt]="'hero.social.email' | translate" /></a>
 		<a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><img
-				src="assets/icons/Property 1=Mail.svg" alt="LinkedIn" /></a>
+				src="assets/icons/Property 1=Mail.svg" [alt]="'hero.social.linkedin' | translate" /></a>
 		<span class="social-email">kontakt&#64;florianweimann.de</span>
 	</div>
 
 	<!-- Scroll Down Right -->
 	<div class="hero-scroll">
-		<span>Scroll down &rarr;</span>
+		<span>{{ 'hero.scroll_down' | translate }}</span>
 	</div>
 
 	<div class="empfang-inner container">
 		<div class="empfang-visual" aria-hidden="true">
-			<img src="/assets/img/stitch.png" alt="Profilbild Florian Weimann" class="empfang-visual-img" />
-			<img src="assets/img/29. photo shadows.png" alt="Farbklekse" class="empfang-visual-tup" />
+			<img src="/assets/img/stitch.png" [alt]="'hero.profile_alt' | translate" class="empfang-visual-img" />
+			<img src="assets/img/29. photo shadows.png" [alt]="'hero.blob_alt' | translate"
+				class="empfang-visual-tup" />
 		</div>
 
 		<div class="empfang-vertical">
-			<span class="vertical-label">ich bin</span>
+			<span class="vertical-label">{{ 'hero.introduction' | translate }}</span>
 		</div>
 
 		<div class="empfang-content">
 			<div class="name-wrap">
 				<h1 class="display-name">Florian Weimann</h1>
 				<div class="subtitle">Fullstack Developer</div>
-				<a class="btn talk" href="#contact" aria-label="Lass schnacken - zum Kontakt">lass schnacken</a>
+				<a class="btn talk" href="#contact"
+					[attr.aria-label]="'hero.contact_cta_aria' | translate">{{ 'hero.contact_cta' | translate }}</a>
 			</div>
 		</div>
 	</div>

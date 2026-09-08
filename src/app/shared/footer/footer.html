@@ -3,7 +3,7 @@
 		<div class="footer-left">
 			<img
 				src="/assets/img/FlosLogo.png"
-				alt="Logo von Florian Weimann"
+				[alt]="'footer.logo_alt' | translate"
 				width="1024"
 				height="1024"
 			/>
@@ -13,12 +13,12 @@
 			<span>© Florian Weimann 2026</span>
 		</div>
 
-		<nav class="footer-right" aria-label="Soziale Profile und Kontakt">
+		<nav class="footer-right" [attr.aria-label]="'footer.navigation_label' | translate">
 			<a
 				href="https://github.com/Drangello"
 				target="_blank"
 				rel="noopener noreferrer"
-				aria-label="GitHub-Profil von Florian Weimann"
+				[attr.aria-label]="'footer.github_aria' | translate"
 			>
 				<img
 					src="/assets/icons/Property 1=hover.svg"
@@ -32,7 +32,7 @@
 				href="https://www.linkedin.com/in/florian-weimann-b0357a3a0/"
 				target="_blank"
 				rel="noopener noreferrer"
-				aria-label="LinkedIn-Profil von Florian Weimann"
+				[attr.aria-label]="'footer.linkedin_aria' | translate"
 			>
 				<img
 					src="/assets/icons/Vector.svg"
@@ -44,7 +44,7 @@
 			</a>
 			<a
 				href="mailto:kontakt@florianweimann.de"
-				aria-label="E-Mail an Florian Weimann"
+				[attr.aria-label]="'footer.email_aria' | translate"
 			>
 				<img
 					src="/assets/icons/Property 1=Mail.svg"

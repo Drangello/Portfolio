@@ -2,31 +2,36 @@
 	<div class="container">
 
 		<a #brandLink class="brand" href="#empfang" (click)="closeMenu()">
-			<img src="/assets/img/FlosLogo.png" alt="Florian Weimann Logo" class="logo-img" width="1024"
+			<img src="/assets/img/FlosLogo.png" [alt]="'header.logo_alt' | translate" class="logo-img" width="1024"
 				height="1024" />
 		</a>
 
 		<!-- Burger Button (Mobile Only) -->
 		<button #burgerButton class="burger-btn" type="button" [class.open]="menuOpen" (click)="toggleMenu()"
 			[attr.aria-expanded]="menuOpen" aria-controls="mobile-menu"
-			[attr.aria-label]="menuOpen ? 'Menü schließen' : 'Menü öffnen'">
+			[attr.aria-label]="(menuOpen ? 'header.burger.close' : 'header.burger.open') | translate">
 			<span></span>
 			<span></span>
 			<span></span>
 		</button>
 
 		<div class="header-right">
-			<nav class="main-nav" aria-label="Hauptnavigation">
-				<a href="#ueber-mich">Über mich</a>
-				<a href="#skills">Skills</a>
-				<a href="#meine-werke">Werke</a>
-				<a href="#contact">Kontakt</a>
+			<nav class="main-nav" [attr.aria-label]="'header.navigation.label' | translate">
+				<a href="#ueber-mich">{{ 'header.navigation.about' | translate }}</a>
+				<a href="#skills">{{ 'header.navigation.skills' | translate }}</a>
+				<a href="#meine-werke">{{ 'header.navigation.portfolio' | translate }}</a>
+				<a href="#contact">{{ 'header.navigation.contact' | translate }}</a>
 			</nav>
 
 			<div class="lang-buttons">
-				<button class="lang-btn" type="button" aria-pressed="false" disabled
-					aria-label="Englische Version noch nicht verfügbar">EN</button>
-				<button class="lang-btn active" type="button" aria-pressed="true">DE</button>
+				<button class="lang-btn" type="button" (click)="setLanguage('en')"
+					[class.active]="currentLanguage === 'en'"
+					[attr.aria-pressed]="currentLanguage === 'en'"
+					[attr.aria-label]="'header.language.switch_to_english' | translate">EN</button>
+				<button class="lang-btn" type="button" (click)="setLanguage('de')"
+					[class.active]="currentLanguage === 'de'"
+					[attr.aria-pressed]="currentLanguage === 'de'"
+					[attr.aria-label]="'header.language.switch_to_german' | translate">DE</button>
 			</div>
 		</div>
 	</div>
@@ -34,18 +39,24 @@
 	<!-- Mobile Menu Overlay -->
 	@if (menuOpen) {
 		<div #mobileMenu id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true"
-			aria-label="Navigationsmenü">
-			<nav class="mobile-nav" aria-label="Mobile Navigation">
-				<a #firstMenuLink href="#ueber-mich" (click)="closeMenu()">Über mich</a>
-				<a href="#skills" (click)="closeMenu()">Skills</a>
-				<a href="#meine-werke" (click)="closeMenu()">Werke</a>
-				<a href="#contact" (click)="closeMenu()">Kontakt</a>
+			[attr.aria-label]="'header.mobile_menu.dialog_label' | translate">
+			<nav class="mobile-nav" [attr.aria-label]="'header.mobile_menu.navigation_label' | translate">
+				<a #firstMenuLink href="#ueber-mich" (click)="closeMenu()">{{ 'header.navigation.about' | translate }}</a>
+				<a href="#skills" (click)="closeMenu()">{{ 'header.navigation.skills' | translate }}</a>
+				<a href="#meine-werke" (click)="closeMenu()">{{ 'header.navigation.portfolio' | translate }}</a>
+				<a href="#contact" (click)="closeMenu()">{{ 'header.navigation.contact' | translate }}</a>
 			</nav>
-			<div class="mobile-lang" role="group" aria-label="Sprachauswahl">
-				<button class="lang-btn" type="button" aria-pressed="false" disabled
-					aria-label="Englische Version noch nicht verfügbar">EN</button>
+			<div class="mobile-lang" role="group"
+				[attr.aria-label]="'header.language.group_label' | translate">
+				<button class="lang-btn" type="button" (click)="setLanguage('en')"
+					[class.active]="currentLanguage === 'en'"
+					[attr.aria-pressed]="currentLanguage === 'en'"
+					[attr.aria-label]="'header.language.switch_to_english' | translate">EN</button>
 				<span class="divider" aria-hidden="true">/</span>
-				<button class="lang-btn active" type="button" aria-pressed="true">DE</button>
+				<button class="lang-btn" type="button" (click)="setLanguage('de')"
+					[class.active]="currentLanguage === 'de'"
+					[attr.aria-pressed]="currentLanguage === 'de'"
+					[attr.aria-label]="'header.language.switch_to_german' | translate">DE</button>
 			</div>
 		</div>
 	}

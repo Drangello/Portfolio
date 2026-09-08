@@ -1,9 +1,14 @@
-import { AfterViewChecked, Component, ElementRef, HostListener, OnDestroy, ViewChild } from '@angular/core';
+import { AfterViewChecked, Component, ElementRef, HostListener, inject, OnDestroy, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+
+type SupportedLanguage = 'de' | 'en';
+
+const LANGUAGE_STORAGE_KEY = 'portfolio-language';
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
@@ -14,7 +19,9 @@ export class Header implements AfterViewChecked, OnDestroy {
   @ViewChild('firstMenuLink') private firstMenuLink?: ElementRef<HTMLAnchorElement>;
 
   menuOpen = false;
+  currentLanguage: SupportedLanguage = 'de';
 
+  private readonly translate = inject(TranslateService);
   private scrollLockActive = false;
   private previousBodyOverflow = '';
   private previousBodyPaddingRight = '';
@@ -24,6 +31,25 @@ export class Header implements AfterViewChecked, OnDestroy {
   private previousHtmlOverflowY = '';
   private lockedScrollPosition = 0;
   private focusFirstMenuLink = false;
+
+  constructor() {
+    this.translate.addLangs(['de', 'en']);
+    this.setLanguage(this.getStoredLanguage(), false);
+  }
+
+  setLanguage(language: SupportedLanguage, persist = true): void {
+    this.currentLanguage = language;
+    this.translate.use(language);
+    document.documentElement.lang = language;
+
+    if (persist) {
+      try {
+        localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
+      } catch {
+        // Language switching still works if browser storage is unavailable.
+      }
+    }
+  }
 
   toggleMenu() {
     if (this.menuOpen) {
@@ -119,6 +145,15 @@ export class Header implements AfterViewChecked, OnDestroy {
     this.focusFirstMenuLink = true;
     this.menuOpen = true;
     this.lockPageScroll();
+  }
+
+  private getStoredLanguage(): SupportedLanguage {
+    try {
+      const storedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+      return storedLanguage === 'en' || storedLanguage === 'de' ? storedLanguage : 'de';
+    } catch {
+      return 'de';
+    }
   }
 
   private keepFocusInsideMenu(event: KeyboardEvent) {

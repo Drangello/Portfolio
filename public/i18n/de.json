@@ -1,0 +1,141 @@
+{
+  "header": {
+    "logo_alt": "Florian Weimann Logo",
+    "burger": {
+      "open": "Menü öffnen",
+      "close": "Menü schließen"
+    },
+    "navigation": {
+      "label": "Hauptnavigation",
+      "about": "Über mich",
+      "skills": "Skills",
+      "portfolio": "Werke",
+      "contact": "Kontakt"
+    },
+    "mobile_menu": {
+      "dialog_label": "Navigationsmenü",
+      "navigation_label": "Mobile Navigation"
+    },
+    "language": {
+      "group_label": "Sprachauswahl",
+      "switch_to_english": "Auf Englisch wechseln",
+      "switch_to_german": "Auf Deutsch wechseln"
+    }
+  },
+  "hero": {
+    "region_label": "Empfang",
+    "social": {
+      "github": "GitHub-Profil von Florian Weimann",
+      "email": "E-Mail an Florian Weimann",
+      "linkedin": "LinkedIn-Profil von Florian Weimann"
+    },
+    "scroll_down": "Scroll down →",
+    "profile_alt": "Profilbild Florian Weimann",
+    "blob_alt": "Farbklekse",
+    "introduction": "ich bin",
+    "contact_cta": "lass schnacken",
+    "contact_cta_aria": "Lass schnacken – zum Kontakt"
+  },
+  "about": {
+    "title": "Über mich",
+    "intro": "Mich selbst kann ich lediglich als Mathematik gewieften Künstler bezeichnen, der Liebe zum Detail verspürt, ein Typ kein Mensch.",
+    "points": {
+      "location": {
+        "icon_alt": "Location Icon",
+        "text": "Du findest mich an rauen Stränden dort woher kommen so viele Legenden. Aufgewachsen auf dem Darß mit riesßen Spaß, für Lebenserfahrung nach Rostock gezogen und so weiter ziehe ich meine Lebensbogen."
+      },
+      "thinking": {
+        "icon_alt": "Lightbilb Icon",
+        "text": "Logisches Denken und das Hinterfragen bei jeder Gelegenheit an diese Realität ist einer Meiner vielen Geh Danke (n) Begleiter seitdem ich mich errinern Kann. Bildungsstart bis zur Fachhochschulreife (11Kl.) war an der freien Schule Prerow. Danach ging es mit Ach und Krach 15 Jahre in die Gastro und der Schmerz nach Freiheit hat mich an diesen Ort geführt zur Selbstverwirklichung."
+      },
+      "interests": {
+        "icon_alt": "Puzzel Icon",
+        "text": "Freizeitgestaltung von entspanntem Gamig bis zu Feuershow, Tiere, Natur und Sport ziehen sich wie ein Roter Faden durch mein Leben mit Genuss von Geschmack und Kultur."
+      }
+    },
+    "profile_alt": "Profilbild"
+  },
+  "skills": {
+    "title": "Meine Skills",
+    "intro": "Ich entwickle moderne Webanwendungen vom Frontend bis zum Backend und setze dabei auf Technologien, mit denen sich performante, wartbare und skalierbare Lösungen umsetzen lassen.",
+    "cta": {
+      "prefix": "Suchst du nach",
+      "highlight": "noch mehr Fähigkeiten",
+      "text": "Ich lerne kontinuierlich dazu und freue mich auf neue Herausforderungen. Schreib mir gerne und erzähl mir von deinem Projekt.",
+      "button": "Kontakt aufnehmen"
+    }
+  },
+  "portfolio": {
+    "title": "Meine Werke",
+    "subtitle": "Eine Auswahl meiner bisherigen Projekte zum Reinschnuppern und Ausprobieren.",
+    "actions": {
+      "live_test": "Teste mich"
+    },
+    "projects": {
+      "join": {
+        "image_alt": "Projektvorschau Join",
+        "description": "Ein Gruppenprojekt für einen Aufgabenmanager mit Drag-and-Drop-Funktionalitäten – vom Organisieren bis zur Kategoriezuweisung.",
+        "live_unavailable_aria": "Live-Demo von Join derzeit nicht verfügbar",
+        "github_aria": "GitHub-Repository von Join öffnen"
+      },
+      "spanish_fire": {
+        "image_alt": "Projektvorschau Spanisches Feuer der Leidenschaft",
+        "description": "Ein Run-and-Gun-Spiel mit Fokus auf objektorientierte Programmierung in JavaScript.",
+        "live_aria": "Live-Demo des Projekts Spanisches Feuer der Leidenschaft öffnen",
+        "github_aria": "GitHub-Repository von Spanisches Feuer der Leidenschaft öffnen"
+      },
+      "pokedex": {
+        "image_alt": "Projektvorschau Pokédex",
+        "description": "Ein Pokédex mit Such- und Filterfunktionen unter Verwendung der PokéAPI.",
+        "live_aria": "Live-Demo von Pokédex öffnen",
+        "github_aria": "GitHub-Repository von Pokédex öffnen"
+      }
+    }
+  },
+  "contact": {
+    "title": "Kontakt",
+    "heading": "Gibt es wieder Herausforderungen zu bestreiten ?",
+    "intro": "Logisches Denken und der künstlerische Geist wurden mir schon in die Wiege gelegt. Mit Leidenschaft für Details und dem Blick für das Große Ganze setze ich mich hinter jedes Werk.",
+    "invitation": "Benötigst du Verstärkung für anspruchsvolle kreative Projekte?",
+    "highlight": "Kontaktiere mich!",
+    "form": {
+      "labels": {
+        "name": "Name",
+        "email": "E-Mail-Adresse",
+        "message": "Nachricht"
+      },
+      "placeholders": {
+        "name": "Dein Name",
+        "email": "Deine E-Mail-Adresse",
+        "message": "Deine Nachricht"
+      },
+      "errors": {
+        "name": "Bitte gib mindestens zwei Zeichen ein.",
+        "email": "Bitte gib eine gültige E-Mail-Adresse ein.",
+        "message": "Bitte schreibe mindestens drei Wörter.",
+        "privacy": "Bitte stimme der Datenschutzerklärung zu."
+      },
+      "privacy": {
+        "prefix": "Ich habe die",
+        "link": "Datenschutzerklärung",
+        "suffix": "gelesen und stimme ihr zu."
+      },
+      "submit": "Nachricht senden"
+    },
+    "status": {
+      "validation_error": "Bitte prüfe die markierten Felder.",
+      "success": "Dein E-Mail-Programm sollte sich jetzt öffnen. Bitte sende die vorbereitete Nachricht dort ab."
+    },
+    "mail": {
+      "subject": "Neue Nachricht von {{name}}",
+      "body": "Name: {{name}}\nE-Mail: {{email}}\n\nNachricht:\n{{message}}"
+    }
+  },
+  "footer": {
+    "logo_alt": "Logo von Florian Weimann",
+    "navigation_label": "Soziale Profile und Kontakt",
+    "github_aria": "GitHub-Profil von Florian Weimann",
+    "linkedin_aria": "LinkedIn-Profil von Florian Weimann",
+    "email_aria": "E-Mail an Florian Weimann"
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "header": {
+    "logo_alt": "Florian Weimann logo",
+    "burger": {
+      "open": "Open menu",
+      "close": "Close menu"
+    },
+    "navigation": {
+      "label": "Main navigation",
+      "about": "About me",
+      "skills": "Skills",
+      "portfolio": "Portfolio",
+      "contact": "Contact"
+    },
+    "mobile_menu": {
+      "dialog_label": "Navigation menu",
+      "navigation_label": "Mobile navigation"
+    },
+    "language": {
+      "group_label": "Language selection",
+      "switch_to_english": "Switch to English",
+      "switch_to_german": "Switch to German"
+    }
+  },
+  "hero": {
+    "region_label": "Introduction",
+    "social": {
+      "github": "Florian Weimann's GitHub profile",
+      "email": "Email Florian Weimann",
+      "linkedin": "Florian Weimann's LinkedIn profile"
+    },
+    "scroll_down": "Scroll down →",
+    "profile_alt": "Portrait of Florian Weimann",
+    "blob_alt": "Color splashes",
+    "introduction": "I am",
+    "contact_cta": "Let's talk",
+    "contact_cta_aria": "Let's talk – go to the contact section"
+  },
+  "about": {
+    "title": "About me",
+    "intro": "I see myself as a mathematically minded artist with a love of detail – a true character.",
+    "points": {
+      "location": {
+        "icon_alt": "Location icon",
+        "text": "You will find me on rugged shores, where so many legends originate. I grew up on the Darß and later moved to Rostock to gain life experience, continuing to shape my own path along the way."
+      },
+      "thinking": {
+        "icon_alt": "Light bulb icon",
+        "text": "Logical thinking and questioning reality at every opportunity have been among my constant companions for as long as I can remember. My education began at Freie Schule Prerow and continued through year 11. After that, I spent 15 eventful years in hospitality before the desire for freedom led me here to pursue my own path."
+      },
+      "interests": {
+        "icon_alt": "Puzzle icon",
+        "text": "From relaxed gaming to fire shows, animals, nature, and sport run through my life like a common thread, alongside an appreciation of food and culture."
+      }
+    },
+    "profile_alt": "Portrait"
+  },
+  "skills": {
+    "title": "My skills",
+    "intro": "I develop modern web applications across the full stack, using technologies that enable performant, maintainable, and scalable solutions.",
+    "cta": {
+      "prefix": "Looking for",
+      "highlight": "another skill",
+      "text": "I am constantly learning and look forward to new challenges. Feel free to get in touch and tell me about your project.",
+      "button": "Get in touch"
+    }
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "A selection of my previous projects to explore and try out.",
+    "actions": {
+      "live_test": "Live test"
+    },
+    "projects": {
+      "join": {
+        "image_alt": "Preview of the Join project",
+        "description": "A collaborative task manager project featuring drag-and-drop functionality, from organizing tasks to assigning categories.",
+        "live_unavailable_aria": "Live demo of Join is currently unavailable",
+        "github_aria": "Open the GitHub repository for Join"
+      },
+      "spanish_fire": {
+        "image_alt": "Preview of the Spanisches Feuer der Leidenschaft project",
+        "description": "A run-and-gun game focused on object-oriented programming in JavaScript.",
+        "live_aria": "Open the live demo of Spanisches Feuer der Leidenschaft",
+        "github_aria": "Open the GitHub repository for Spanisches Feuer der Leidenschaft"
+      },
+      "pokedex": {
+        "image_alt": "Preview of the Pokédex project",
+        "description": "A Pokédex with search and filter functionality using the PokéAPI.",
+        "live_aria": "Open the live demo of Pokédex",
+        "github_aria": "Open the GitHub repository for Pokédex"
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "heading": "Ready to take on another challenge?",
+    "intro": "Logical thinking and an artistic mindset have been with me from the very beginning. With a passion for detail and an eye for the bigger picture, I put my full effort into every project.",
+    "invitation": "Need support for ambitious creative projects?",
+    "highlight": "Get in touch!",
+    "form": {
+      "labels": {
+        "name": "Name",
+        "email": "Email address",
+        "message": "Message"
+      },
+      "placeholders": {
+        "name": "Your name",
+        "email": "Your email address",
+        "message": "Your message"
+      },
+      "errors": {
+        "name": "Please enter at least two characters.",
+        "email": "Please enter a valid email address.",
+        "message": "Please write at least three words.",
+        "privacy": "Please agree to the privacy policy."
+      },
+      "privacy": {
+        "prefix": "I have read the",
+        "link": "privacy policy",
+        "suffix": "and agree to it."
+      },
+      "submit": "Send message"
+    },
+    "status": {
+      "validation_error": "Please check the highlighted fields.",
+      "success": "Your email application should now open. Please send the prepared message from there."
+    },
+    "mail": {
+      "subject": "New message from {{name}}",
+      "body": "Name: {{name}}\nEmail: {{email}}\n\nMessage:\n{{message}}"
+    }
+  },
+  "footer": {
+    "logo_alt": "Logo of Florian Weimann",
+    "navigation_label": "Social profiles and contact",
+    "github_aria": "Florian Weimann's GitHub profile",
+    "linkedin_aria": "Florian Weimann's LinkedIn profile",
+    "email_aria": "Email Florian Weimann"
+  }
+}

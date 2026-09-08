@@ -1,10 +1,19 @@
 import { TestBed } from '@angular/core/testing';
+import { provideTranslateService } from '@ngx-translate/core';
 import { App } from './app';
 
 describe('App', () => {
   beforeEach(async () => {
+    localStorage.removeItem('portfolio-language');
+
     await TestBed.configureTestingModule({
       imports: [App],
+      providers: [
+        provideTranslateService({
+          lang: 'de',
+          fallbackLang: 'de',
+        }),
+      ],
     }).compileComponents();
   });
 
@@ -13,5 +22,4 @@ describe('App', () => {
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
-  // UI rendering tests removed; adapt tests to your project components as needed.
 });
