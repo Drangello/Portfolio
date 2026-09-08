@@ -56,10 +56,11 @@
         <span
           id="name-error"
           class="error-text"
-          [class.is-visible]="name.invalid && name.touched"
           aria-live="polite"
         >
-          Bitte gib mindestens zwei Zeichen ein.
+          <ng-container *ngIf="name.invalid && name.touched">
+            Bitte gib mindestens zwei Zeichen ein.
+          </ng-container>
         </span>
       </div>
 
@@ -100,10 +101,11 @@
         <span
           id="email-error"
           class="error-text"
-          [class.is-visible]="email.invalid && email.touched"
           aria-live="polite"
         >
-          Bitte gib eine gültige E-Mail-Adresse ein.
+          <ng-container *ngIf="email.invalid && email.touched">
+            Bitte gib eine gültige E-Mail-Adresse ein.
+          </ng-container>
         </span>
       </div>
 
@@ -144,38 +146,38 @@
         <span
           id="message-error"
           class="error-text"
-          [class.is-visible]="message.touched && (message.invalid || !threeWords)"
           aria-live="polite"
         >
-          Bitte schreibe mindestens drei Wörter.
+          <ng-container *ngIf="message.touched && (message.invalid || !threeWords)">
+            Bitte schreibe mindestens drei Wörter.
+          </ng-container>
         </span>
       </div>
 
-      <label class="checkbox">
-        <input
-          id="contact-privacy"
-          type="checkbox"
-          name="privacy"
-          ngModel
-          #privacy="ngModel"
-          required
-          class="checkbox-input"
-          aria-describedby="privacy-error"
-          [attr.aria-invalid]="privacy.invalid && privacy.touched"
-          [class.invalid]="privacy.invalid && privacy.touched"
-        />
-        <span>
-          Ich habe die <a href="#">Datenschutzerklärung</a> gelesen und stimme ihr zu.
+      <div class="privacy-wrapper">
+        <label class="checkbox" for="contact-privacy">
+          <input
+            id="contact-privacy"
+            type="checkbox"
+            name="privacy"
+            ngModel
+            #privacy="ngModel"
+            required
+            class="checkbox-input"
+            aria-describedby="privacy-error"
+            [attr.aria-invalid]="privacy.invalid && privacy.touched"
+            [class.invalid]="privacy.invalid && privacy.touched"
+          />
+          <span>
+            Ich habe die <a href="#">Datenschutzerklärung</a> gelesen und stimme ihr zu.
+          </span>
+        </label>
+        <span id="privacy-error" class="error-text privacy-error" aria-live="polite">
+          <ng-container *ngIf="privacy.invalid && privacy.touched">
+            Bitte stimme der Datenschutzerklärung zu.
+          </ng-container>
         </span>
-        <span
-          id="privacy-error"
-          class="error-text privacy-error"
-          [class.is-visible]="privacy.invalid && privacy.touched"
-          aria-live="polite"
-        >
-          Bitte stimme der Datenschutzerklärung zu.
-        </span>
-      </label>
+      </div>
 
       <button type="submit" [disabled]="!contactForm.valid || !threeWords">
         Nachricht senden

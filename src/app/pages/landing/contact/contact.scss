@@ -134,8 +134,11 @@
     box-shadow: 0 0 12px rgba(239, 68, 68, 0.4);
   }
 
-  .checkbox {
+  .privacy-wrapper {
     position: relative;
+  }
+
+  .checkbox {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
@@ -167,15 +170,8 @@
     position: absolute;
     bottom: -22px;
     left: 0;
-    visibility: hidden;
-    opacity: 0;
     color: #ef4444;
     font-size: 14px;
-
-    &.is-visible {
-      visibility: visible;
-      opacity: 1;
-    }
   }
 
   .privacy-error {
