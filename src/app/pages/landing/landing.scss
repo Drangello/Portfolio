@@ -32,6 +32,11 @@
 	width: clamp(28rem, 51.4vw, 46.25rem);
 	aspect-ratio: 740 / 736;
 	background-image: url('/assets/img/30. Purple shadow about me.png');
+	z-index: 2;
+}
+
+#ueber-mich > * {
+	z-index: 3;
 }
 
 #skills::before {
