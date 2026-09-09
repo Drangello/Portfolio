@@ -1,5 +1,6 @@
 import { AfterViewChecked, Component, ElementRef, HostListener, inject, OnDestroy, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 
 type SupportedLanguage = 'de' | 'en';
@@ -8,7 +9,7 @@ const LANGUAGE_STORAGE_KEY = 'portfolio-language';
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule, TranslatePipe],
+  imports: [CommonModule, RouterLink, TranslatePipe],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })

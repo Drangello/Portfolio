@@ -7,6 +7,10 @@
 				width="1024"
 				height="1024"
 			/>
+			<nav class="footer-legal" [attr.aria-label]="'footer.legal_navigation_label' | translate">
+				<a routerLink="/impressum">{{ 'footer.imprint' | translate }}</a>
+				<a routerLink="/datenschutz">{{ 'footer.privacy' | translate }}</a>
+			</nav>
 		</div>
 
 		<div class="footer-center">

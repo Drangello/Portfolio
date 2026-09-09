@@ -169,7 +169,7 @@
           />
           <span>
             {{ 'contact.form.privacy.prefix' | translate }}
-            <a href="#">{{ 'contact.form.privacy.link' | translate }}</a>
+            <a routerLink="/datenschutz" (click)="$event.stopPropagation()">{{ 'contact.form.privacy.link' | translate }}</a>
             {{ 'contact.form.privacy.suffix' | translate }}
           </span>
         </label>

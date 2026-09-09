@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { provideTranslateService, TranslateService } from '@ngx-translate/core';
 import { Header } from './header';
 
@@ -38,6 +39,7 @@ describe('Header language switching', () => {
     await TestBed.configureTestingModule({
       imports: [Header],
       providers: [
+        provideRouter([]),
         provideTranslateService({
           lang: 'de',
           fallbackLang: 'de',

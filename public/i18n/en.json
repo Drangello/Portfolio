@@ -134,8 +134,99 @@
   "footer": {
     "logo_alt": "Logo of Florian Weimann",
     "navigation_label": "Social profiles and contact",
+    "legal_navigation_label": "Legal information",
+    "imprint": "Legal notice",
+    "privacy": "Privacy policy",
     "github_aria": "Florian Weimann's GitHub profile",
     "linkedin_aria": "Florian Weimann's LinkedIn profile",
     "email_aria": "Email Florian Weimann"
+  },
+  "legal": {
+    "review": {
+      "title": "Review before publication"
+    },
+    "imprint": {
+      "eyebrow": "Legal information",
+      "title": "Legal notice",
+      "intro": "This page contains the provider identification for this portfolio. Mandatory details that are still missing are clearly marked as TODO items.",
+      "provider": {
+        "title": "Information pursuant to Section 5 DDG",
+        "address_todo": "[TODO: Add the full serviceable postal address]"
+      },
+      "contact": {
+        "title": "Contact",
+        "email_label": "Email:"
+      },
+      "responsible": {
+        "title": "Responsibility for content",
+        "condition": "Where Section 18(2) MStV applies to individual content in this portfolio:"
+      },
+      "review_text": "The full serviceable postal address must be added before publication. It must also be checked whether further details—such as register entries, a VAT identification number, supervisory authorities, or regulated professional information—are required in this specific case. This content does not constitute legal advice."
+    },
+    "privacy": {
+      "eyebrow": "Legal information",
+      "title": "Privacy policy",
+      "intro": "This privacy policy describes the processing of personal data when visiting this portfolio based on its currently implemented technical state.",
+      "controller": {
+        "title": "1. Controller",
+        "address_todo": "[TODO: Add the full serviceable postal address]",
+        "email_label": "Email:"
+      },
+      "hosting": {
+        "title": "2. Hosting",
+        "text": "When this website is accessed, the hosting provider processes technically necessary connection data in order to deliver the content and ensure stability and security.",
+        "provider_todo": "[TODO: Add the hosting provider, its contact details, and the server location]",
+        "retention_todo": "[TODO: Verify data processing terms and the specific retention period for server logs against the hosting agreement]"
+      },
+      "server_logs": {
+        "title": "3. Server logs",
+        "text": "The following data in particular may be processed in server logs whenever a page is accessed:",
+        "data": {
+          "ip": "IP address of the accessing device",
+          "request": "Date and time, requested file or URL, and amount of data transferred",
+          "referrer": "Referrer URL, if transmitted by the browser",
+          "browser": "Browser type, browser version, and operating system"
+        },
+        "purpose_basis": "The processing serves to provide the website technically and to identify and prevent disruptions and attacks. Article 6(1)(f) GDPR may serve as the legal basis. The legitimate interest lies in operating the website securely and reliably. The actual logging and retention period depend on the hosting provider that still needs to be specified."
+      },
+      "email_contact": {
+        "title": "4. Contact by email",
+        "mailto": "The contact form does not transmit a message to a dedicated web server. Once the entries are valid, it creates a mailto link that attempts to open the email application configured on the device with a prepared message. The entered data is only transmitted through the participating email providers when the message is sent there.",
+        "processing": "This may involve processing the name, email address, message content, and technical transmission data. The data is processed in order to respond to the enquiry. Depending on its content, processing is based on Article 6(1)(b) GDPR for pre-contractual communication or Article 6(1)(f) GDPR for other enquiries.",
+        "retention": "The data will be deleted once the enquiry has been fully dealt with and no statutory retention obligations or other legitimate reasons require further storage."
+      },
+      "language_storage": {
+        "title": "5. Language selection in the browser",
+        "text": "When switching actively between German and English, the website stores the selection exclusively in the browser's local storage. This retains the selected language for a later visit. The information is not transmitted to the web server.",
+        "key_label": "localStorage key",
+        "values_label": "Possible values",
+        "legal_note": "Storage only takes place after the user selects a language. Whether it qualifies as strictly necessary storage under Section 25(2) TDDDG in the specific deployment should receive a final legal review before publication. The entry can be deleted at any time using the browser settings."
+      },
+      "cookies_analytics": {
+        "title": "6. Cookies and analytics",
+        "text": "In its currently implemented state, this portfolio does not set cookies and does not use analytics, tracking, or advertising services. CLI telemetry present in the Angular development environment is not part of the deployed website."
+      },
+      "fonts": {
+        "title": "7. Fonts",
+        "text": "The Figtree font is served locally by this website. Loading the font does not establish a connection to Google Fonts or any other external font provider."
+      },
+      "external_links": {
+        "title": "8. External links",
+        "text": "This website contains links to external services, in particular GitHub and LinkedIn, as well as published project demos. A connection to the respective third party is only established when such a link is opened. From that point on, the privacy terms of the respective provider apply."
+      },
+      "rights": {
+        "title": "9. Data subject rights",
+        "intro": "Where the statutory requirements are met, the following rights apply in particular:",
+        "access": "Access to processed personal data under Article 15 GDPR",
+        "rectification": "Rectification of inaccurate data under Article 16 GDPR",
+        "erasure": "Erasure of personal data under Article 17 GDPR",
+        "restriction": "Restriction of processing under Article 18 GDPR",
+        "portability": "Data portability under Article 20 GDPR",
+        "objection": "Objection to processing under Article 21 GDPR",
+        "complaint": "Lodging a complaint with a data protection supervisory authority under Article 77 GDPR"
+      },
+      "review_text": "Before publication, the full address, hosting provider, server location, data processing terms, and actual server-log retention period must be added or verified. This policy must be reviewed after every technical change and should receive a legal review.",
+      "updated": "Last updated: September 2026"
+    }
   }
 }

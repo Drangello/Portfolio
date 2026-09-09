@@ -1,7 +1,7 @@
 <header class="site-header" [class.menu-open]="menuOpen">
 	<div class="container">
 
-		<a #brandLink class="brand" href="#empfang" (click)="closeMenu()">
+		<a #brandLink class="brand" routerLink="/" fragment="empfang" (click)="closeMenu()">
 			<img src="/assets/img/FlosLogo.png" [alt]="'header.logo_alt' | translate" class="logo-img" width="1024"
 				height="1024" />
 		</a>
@@ -17,10 +17,10 @@
 
 		<div class="header-right">
 			<nav class="main-nav" [attr.aria-label]="'header.navigation.label' | translate">
-				<a href="#ueber-mich">{{ 'header.navigation.about' | translate }}</a>
-				<a href="#skills">{{ 'header.navigation.skills' | translate }}</a>
-				<a href="#meine-werke">{{ 'header.navigation.portfolio' | translate }}</a>
-				<a href="#contact">{{ 'header.navigation.contact' | translate }}</a>
+				<a routerLink="/" fragment="ueber-mich">{{ 'header.navigation.about' | translate }}</a>
+				<a routerLink="/" fragment="skills">{{ 'header.navigation.skills' | translate }}</a>
+				<a routerLink="/" fragment="meine-werke">{{ 'header.navigation.portfolio' | translate }}</a>
+				<a routerLink="/" fragment="contact">{{ 'header.navigation.contact' | translate }}</a>
 			</nav>
 
 			<div class="lang-buttons">
@@ -41,10 +41,10 @@
 		<div #mobileMenu id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true"
 			[attr.aria-label]="'header.mobile_menu.dialog_label' | translate">
 			<nav class="mobile-nav" [attr.aria-label]="'header.mobile_menu.navigation_label' | translate">
-				<a #firstMenuLink href="#ueber-mich" (click)="closeMenu()">{{ 'header.navigation.about' | translate }}</a>
-				<a href="#skills" (click)="closeMenu()">{{ 'header.navigation.skills' | translate }}</a>
-				<a href="#meine-werke" (click)="closeMenu()">{{ 'header.navigation.portfolio' | translate }}</a>
-				<a href="#contact" (click)="closeMenu()">{{ 'header.navigation.contact' | translate }}</a>
+				<a #firstMenuLink routerLink="/" fragment="ueber-mich" (click)="closeMenu()">{{ 'header.navigation.about' | translate }}</a>
+				<a routerLink="/" fragment="skills" (click)="closeMenu()">{{ 'header.navigation.skills' | translate }}</a>
+				<a routerLink="/" fragment="meine-werke" (click)="closeMenu()">{{ 'header.navigation.portfolio' | translate }}</a>
+				<a routerLink="/" fragment="contact" (click)="closeMenu()">{{ 'header.navigation.contact' | translate }}</a>
 			</nav>
 			<div class="mobile-lang" role="group"
 				[attr.aria-label]="'header.language.group_label' | translate">

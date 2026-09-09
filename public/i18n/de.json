@@ -134,8 +134,99 @@
   "footer": {
     "logo_alt": "Logo von Florian Weimann",
     "navigation_label": "Soziale Profile und Kontakt",
+    "legal_navigation_label": "Rechtliche Informationen",
+    "imprint": "Impressum",
+    "privacy": "Datenschutz",
     "github_aria": "GitHub-Profil von Florian Weimann",
     "linkedin_aria": "LinkedIn-Profil von Florian Weimann",
     "email_aria": "E-Mail an Florian Weimann"
+  },
+  "legal": {
+    "review": {
+      "title": "Vor Veröffentlichung prüfen"
+    },
+    "imprint": {
+      "eyebrow": "Rechtliche Informationen",
+      "title": "Impressum",
+      "intro": "Diese Seite enthält die Anbieterkennzeichnung für dieses Portfolio. Noch fehlende Pflichtangaben sind deutlich als TODO markiert.",
+      "provider": {
+        "title": "Angaben gemäß § 5 DDG",
+        "address_todo": "[TODO: Vollständige ladungsfähige Anschrift ergänzen]"
+      },
+      "contact": {
+        "title": "Kontakt",
+        "email_label": "E-Mail:"
+      },
+      "responsible": {
+        "title": "Verantwortlich für den Inhalt",
+        "condition": "Soweit § 18 Abs. 2 MStV auf einzelne Inhalte dieses Portfolios anwendbar ist:"
+      },
+      "review_text": "Die vollständige ladungsfähige Anschrift muss vor der Veröffentlichung ergänzt werden. Außerdem sollte geprüft werden, ob weitere Angaben – etwa zu Registereinträgen, Umsatzsteuer-ID, Aufsichtsbehörden oder reglementierten Berufen – im konkreten Fall erforderlich sind. Der Inhalt ersetzt keine Rechtsberatung."
+    },
+    "privacy": {
+      "eyebrow": "Rechtliche Informationen",
+      "title": "Datenschutzerklärung",
+      "intro": "Diese Datenschutzerklärung beschreibt die Verarbeitung personenbezogener Daten beim Besuch dieses Portfolios auf Grundlage des derzeit implementierten technischen Stands.",
+      "controller": {
+        "title": "1. Verantwortlicher",
+        "address_todo": "[TODO: Vollständige ladungsfähige Anschrift ergänzen]",
+        "email_label": "E-Mail:"
+      },
+      "hosting": {
+        "title": "2. Hosting",
+        "text": "Beim Aufruf dieser Website verarbeitet der Hosting-Anbieter technisch erforderliche Verbindungsdaten, um die Inhalte auszuliefern sowie Stabilität und Sicherheit zu gewährleisten.",
+        "provider_todo": "[TODO: Hosting-Anbieter, dessen Kontaktdaten und den Serverstandort ergänzen]",
+        "retention_todo": "[TODO: Auftragsverarbeitung und konkrete Speicherdauer der Server-Logfiles mit dem Hosting-Vertrag abgleichen]"
+      },
+      "server_logs": {
+        "title": "3. Server-Logfiles",
+        "text": "Bei jedem Seitenaufruf können insbesondere folgende Daten in Server-Logfiles verarbeitet werden:",
+        "data": {
+          "ip": "IP-Adresse des zugreifenden Geräts",
+          "request": "Datum und Uhrzeit, aufgerufene Datei beziehungsweise URL und übertragene Datenmenge",
+          "referrer": "Referrer-URL, sofern vom Browser übermittelt",
+          "browser": "Browsertyp, Browserversion und Betriebssystem"
+        },
+        "purpose_basis": "Die Verarbeitung dient der technischen Bereitstellung sowie der Erkennung und Abwehr von Störungen und Angriffen. Als Rechtsgrundlage kommt Art. 6 Abs. 1 lit. f DSGVO in Betracht. Das berechtigte Interesse liegt im sicheren und funktionsfähigen Betrieb der Website. Die konkrete Protokollierung und Speicherdauer hängen vom noch einzutragenden Hosting-Anbieter ab."
+      },
+      "email_contact": {
+        "title": "4. Kontaktaufnahme per E-Mail",
+        "mailto": "Das Kontaktformular überträgt keine Nachricht an einen eigenen Webserver. Nach erfolgreicher Eingabe wird ein mailto-Link erzeugt, der versucht, das auf dem Gerät eingerichtete E-Mail-Programm mit einer vorbereiteten Nachricht zu öffnen. Erst wenn die Nachricht dort abgesendet wird, werden die eingegebenen Daten über die beteiligten E-Mail-Anbieter übermittelt.",
+        "processing": "Dabei können insbesondere Name, E-Mail-Adresse, Nachrichteninhalt und technische Versanddaten verarbeitet werden. Die Verarbeitung erfolgt zur Bearbeitung der Anfrage. Je nach Inhalt beruht sie auf Art. 6 Abs. 1 lit. b DSGVO für vorvertragliche Kommunikation oder auf Art. 6 Abs. 1 lit. f DSGVO für sonstige Anfragen.",
+        "retention": "Die Daten werden gelöscht, sobald die Anfrage abschließend bearbeitet ist und keine gesetzlichen Aufbewahrungspflichten oder sonstigen berechtigten Gründe für eine weitere Speicherung bestehen."
+      },
+      "language_storage": {
+        "title": "5. Sprachwahl im Browser",
+        "text": "Wenn aktiv zwischen Deutsch und Englisch gewechselt wird, speichert die Website die Auswahl ausschließlich im lokalen Speicher des Browsers. Dadurch bleibt die ausgewählte Sprache bei einem späteren Besuch erhalten. Die Information wird nicht an den Webserver übertragen.",
+        "key_label": "localStorage-Key",
+        "values_label": "Mögliche Werte",
+        "legal_note": "Die Speicherung erfolgt erst nach der vom Nutzer gewählten Spracheinstellung. Ob sie im konkreten Einsatz als unbedingt erforderliche Speicherung nach § 25 Abs. 2 TDDDG einzuordnen ist, sollte vor Veröffentlichung abschließend rechtlich geprüft werden. Der Eintrag kann jederzeit über die Browser-Einstellungen gelöscht werden."
+      },
+      "cookies_analytics": {
+        "title": "6. Cookies und Reichweitenmessung",
+        "text": "Dieses Portfolio setzt nach dem derzeitigen Implementierungsstand keine Cookies und verwendet keine Analyse-, Tracking- oder Werbedienste. Die in der Angular-Entwicklungsumgebung vorhandene CLI-Telemetrie ist kein Bestandteil der ausgelieferten Website."
+      },
+      "fonts": {
+        "title": "7. Schriftarten",
+        "text": "Die Schriftart Figtree wird lokal von dieser Website ausgeliefert. Beim Laden der Schrift wird keine Verbindung zu Google Fonts oder einem anderen externen Font-Anbieter hergestellt."
+      },
+      "external_links": {
+        "title": "8. Externe Links",
+        "text": "Diese Website enthält Links zu externen Angeboten, insbesondere GitHub und LinkedIn sowie zu veröffentlichten Projekt-Demos. Eine Verbindung zum jeweiligen Drittanbieter entsteht erst beim Aufrufen eines solchen Links. Ab diesem Zeitpunkt gelten die Datenschutzbestimmungen des jeweiligen Anbieters."
+      },
+      "rights": {
+        "title": "9. Rechte betroffener Personen",
+        "intro": "Soweit die gesetzlichen Voraussetzungen erfüllt sind, bestehen insbesondere folgende Rechte:",
+        "access": "Auskunft über verarbeitete personenbezogene Daten nach Art. 15 DSGVO",
+        "rectification": "Berichtigung unrichtiger Daten nach Art. 16 DSGVO",
+        "erasure": "Löschung personenbezogener Daten nach Art. 17 DSGVO",
+        "restriction": "Einschränkung der Verarbeitung nach Art. 18 DSGVO",
+        "portability": "Datenübertragbarkeit nach Art. 20 DSGVO",
+        "objection": "Widerspruch gegen eine Verarbeitung nach Art. 21 DSGVO",
+        "complaint": "Beschwerde bei einer Datenschutz-Aufsichtsbehörde nach Art. 77 DSGVO"
+      },
+      "review_text": "Vor Veröffentlichung müssen insbesondere die vollständige Anschrift, der Hosting-Anbieter, der Serverstandort, die Auftragsverarbeitung und die tatsächliche Speicherdauer der Logfiles ergänzt beziehungsweise verifiziert werden. Die Erklärung muss nach jeder technischen Änderung erneut abgeglichen und rechtlich geprüft werden.",
+      "updated": "Stand: September 2026"
+    }
   }
 }
