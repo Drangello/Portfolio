@@ -25,7 +25,6 @@
 }
 
 h2 {
-  margin: 0;
   font-size: 64px;
   font-weight: 700;
   line-height: 1.1;
@@ -152,6 +151,7 @@ textarea {
 .checkbox {
   display: flex;
   align-items: flex-start;
+  justify-content: flex-start;
   gap: 12px;
   cursor: pointer;
 }
@@ -244,10 +244,8 @@ button {
 }
 
 .visually-hidden {
-  padding: 0;
   margin: -1px;
   clip: rect(0, 0, 0, 0);
-  border: 0;
 }
 
 /* ============================== */
