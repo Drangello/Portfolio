@@ -123,12 +123,12 @@
       "submit": "Nachricht senden"
     },
     "status": {
+      "sending": "Nachricht wird gesendet …",
       "validation_error": "Bitte prüfe die markierten Felder.",
-      "success": "Dein E-Mail-Programm sollte sich jetzt öffnen. Bitte sende die vorbereitete Nachricht dort ab."
-    },
-    "mail": {
-      "subject": "Neue Nachricht von {{name}}",
-      "body": "Name: {{name}}\nE-Mail: {{email}}\n\nNachricht:\n{{message}}"
+      "success": "Deine Nachricht wurde erfolgreich versendet.",
+      "rate_limit": "Zu viele Sendeversuche. Bitte warte kurz und versuche es später erneut.",
+      "network_error": "Der Nachrichtenserver ist derzeit nicht erreichbar. Bitte prüfe deine Verbindung und versuche es erneut.",
+      "server_error": "Die Nachricht konnte gerade nicht versendet werden. Bitte versuche es später erneut."
     }
   },
   "footer": {
@@ -176,7 +176,8 @@
         "title": "2. Hosting",
         "text": "Beim Aufruf dieser Website verarbeitet der Hosting-Anbieter technisch erforderliche Verbindungsdaten, um die Inhalte auszuliefern sowie Stabilität und Sicherheit zu gewährleisten.",
         "provider_todo": "[TODO: Hosting-Anbieter, dessen Kontaktdaten und den Serverstandort ergänzen]",
-        "retention_todo": "[TODO: Auftragsverarbeitung und konkrete Speicherdauer der Server-Logfiles mit dem Hosting-Vertrag abgleichen]"
+        "retention_todo": "[TODO: Auftragsverarbeitung und konkrete Speicherdauer der Server-Logfiles mit dem Hosting-Vertrag abgleichen]",
+        "backend_todo": "[TODO: Vor dem Deployment Region, Serverkonfiguration, Protokollierung und Auftragsverarbeitung der geplanten Google-Cloud-VM prüfen und ergänzen]"
       },
       "server_logs": {
         "title": "3. Server-Logfiles",
@@ -190,10 +191,11 @@
         "purpose_basis": "Die Verarbeitung dient der technischen Bereitstellung sowie der Erkennung und Abwehr von Störungen und Angriffen. Als Rechtsgrundlage kommt Art. 6 Abs. 1 lit. f DSGVO in Betracht. Das berechtigte Interesse liegt im sicheren und funktionsfähigen Betrieb der Website. Die konkrete Protokollierung und Speicherdauer hängen vom noch einzutragenden Hosting-Anbieter ab."
       },
       "email_contact": {
-        "title": "4. Kontaktaufnahme per E-Mail",
-        "mailto": "Das Kontaktformular überträgt keine Nachricht an einen eigenen Webserver. Nach erfolgreicher Eingabe wird ein mailto-Link erzeugt, der versucht, das auf dem Gerät eingerichtete E-Mail-Programm mit einer vorbereiteten Nachricht zu öffnen. Erst wenn die Nachricht dort abgesendet wird, werden die eingegebenen Daten über die beteiligten E-Mail-Anbieter übermittelt.",
-        "processing": "Dabei können insbesondere Name, E-Mail-Adresse, Nachrichteninhalt und technische Versanddaten verarbeitet werden. Die Verarbeitung erfolgt zur Bearbeitung der Anfrage. Je nach Inhalt beruht sie auf Art. 6 Abs. 1 lit. b DSGVO für vorvertragliche Kommunikation oder auf Art. 6 Abs. 1 lit. f DSGVO für sonstige Anfragen.",
-        "retention": "Die Daten werden gelöscht, sobald die Anfrage abschließend bearbeitet ist und keine gesetzlichen Aufbewahrungspflichten oder sonstigen berechtigten Gründe für eine weitere Speicherung bestehen."
+        "title": "4. Kontaktformular und E-Mail-Versand",
+        "transport": "Wenn das Kontaktformular abgesendet wird, werden Name, E-Mail-Adresse und Nachricht an einen eigenen Backend-Endpunkt übertragen. Das Backend validiert die Angaben und übermittelt die Nachricht als Klartext-E-Mail an florianweimann9@gmail.com.",
+        "processing": "Die Anwendung speichert die Formulardaten nicht in einer eigenen Datenbank und protokolliert keine Nachrichteninhalte. Für das technische Rate-Limiting wird die IP-Adresse vorübergehend verarbeitet. Ein Honeypot-Feld dient der automatisierten Spam-Erkennung. Die Verarbeitung erfolgt zur Bearbeitung der Anfrage. Je nach Inhalt kommt Art. 6 Abs. 1 lit. b DSGVO für vorvertragliche Kommunikation oder Art. 6 Abs. 1 lit. f DSGVO für sonstige Anfragen als Rechtsgrundlage in Betracht.",
+        "provider": "Der E-Mail-Versand ist über Gmail SMTP konfiguriert. Google verarbeitet dabei die für die Übermittlung erforderlichen Daten; die empfangene Nachricht wird im Gmail-Postfach der Zieladresse verarbeitet und gespeichert.",
+        "retention_todo": "[TODO: Vor dem Produktivbetrieb die konkrete Verarbeitung durch Google, mögliche Drittlandtransfers, Vertragsgrundlagen und Speicherdauer im Gmail-Postfach prüfen und dokumentieren]"
       },
       "language_storage": {
         "title": "5. Sprachwahl im Browser",
@@ -225,7 +227,7 @@
         "objection": "Widerspruch gegen eine Verarbeitung nach Art. 21 DSGVO",
         "complaint": "Beschwerde bei einer Datenschutz-Aufsichtsbehörde nach Art. 77 DSGVO"
       },
-      "review_text": "Vor Veröffentlichung müssen insbesondere die vollständige Anschrift, der Hosting-Anbieter, der Serverstandort, die Auftragsverarbeitung und die tatsächliche Speicherdauer der Logfiles ergänzt beziehungsweise verifiziert werden. Die Erklärung muss nach jeder technischen Änderung erneut abgeglichen und rechtlich geprüft werden.",
+      "review_text": "Vor Veröffentlichung müssen insbesondere die vollständige Anschrift, das Frontend-Hosting, Region und Konfiguration der geplanten Google-Cloud-VM, die jeweilige Auftragsverarbeitung sowie die tatsächliche Speicherdauer von Server-Logfiles und Nachrichten im Gmail-Postfach ergänzt beziehungsweise verifiziert werden. Die Erklärung muss nach jeder technischen Änderung erneut abgeglichen und rechtlich geprüft werden.",
       "updated": "Stand: September 2026"
     }
   }

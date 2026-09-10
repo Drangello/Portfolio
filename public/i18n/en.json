@@ -123,12 +123,12 @@
       "submit": "Send message"
     },
     "status": {
+      "sending": "Sending message …",
       "validation_error": "Please check the highlighted fields.",
-      "success": "Your email application should now open. Please send the prepared message from there."
-    },
-    "mail": {
-      "subject": "New message from {{name}}",
-      "body": "Name: {{name}}\nEmail: {{email}}\n\nMessage:\n{{message}}"
+      "success": "Your message has been sent successfully.",
+      "rate_limit": "Too many sending attempts. Please wait and try again later.",
+      "network_error": "The message server is currently unavailable. Please check your connection and try again.",
+      "server_error": "Your message could not be sent right now. Please try again later."
     }
   },
   "footer": {
@@ -176,7 +176,8 @@
         "title": "2. Hosting",
         "text": "When this website is accessed, the hosting provider processes technically necessary connection data in order to deliver the content and ensure stability and security.",
         "provider_todo": "[TODO: Add the hosting provider, its contact details, and the server location]",
-        "retention_todo": "[TODO: Verify data processing terms and the specific retention period for server logs against the hosting agreement]"
+        "retention_todo": "[TODO: Verify data processing terms and the specific retention period for server logs against the hosting agreement]",
+        "backend_todo": "[TODO: Before deployment, verify and add the region, server configuration, logging, and processing terms for the planned Google Cloud VM]"
       },
       "server_logs": {
         "title": "3. Server logs",
@@ -190,10 +191,11 @@
         "purpose_basis": "The processing serves to provide the website technically and to identify and prevent disruptions and attacks. Article 6(1)(f) GDPR may serve as the legal basis. The legitimate interest lies in operating the website securely and reliably. The actual logging and retention period depend on the hosting provider that still needs to be specified."
       },
       "email_contact": {
-        "title": "4. Contact by email",
-        "mailto": "The contact form does not transmit a message to a dedicated web server. Once the entries are valid, it creates a mailto link that attempts to open the email application configured on the device with a prepared message. The entered data is only transmitted through the participating email providers when the message is sent there.",
-        "processing": "This may involve processing the name, email address, message content, and technical transmission data. The data is processed in order to respond to the enquiry. Depending on its content, processing is based on Article 6(1)(b) GDPR for pre-contractual communication or Article 6(1)(f) GDPR for other enquiries.",
-        "retention": "The data will be deleted once the enquiry has been fully dealt with and no statutory retention obligations or other legitimate reasons require further storage."
+        "title": "4. Contact form and email delivery",
+        "transport": "When the contact form is submitted, the name, email address, and message are transmitted to a dedicated backend endpoint. The backend validates the entries and forwards the message as a plaintext email to florianweimann9@gmail.com.",
+        "processing": "The application does not store form data in its own database and does not log message content. The IP address is processed temporarily for technical rate limiting. A honeypot field is used for automated spam detection. The data is processed in order to respond to the enquiry. Depending on its content, Article 6(1)(b) GDPR for pre-contractual communication or Article 6(1)(f) GDPR for other enquiries may serve as the legal basis.",
+        "provider": "Email delivery is configured through Gmail SMTP. Google processes the data required for delivery; the received message is processed and stored in the recipient Gmail mailbox.",
+        "retention_todo": "[TODO: Before production use, verify and document Google's specific processing, possible international data transfers, contractual basis, and retention period in the Gmail mailbox]"
       },
       "language_storage": {
         "title": "5. Language selection in the browser",
@@ -225,7 +227,7 @@
         "objection": "Objection to processing under Article 21 GDPR",
         "complaint": "Lodging a complaint with a data protection supervisory authority under Article 77 GDPR"
       },
-      "review_text": "Before publication, the full address, hosting provider, server location, data processing terms, and actual server-log retention period must be added or verified. This policy must be reviewed after every technical change and should receive a legal review.",
+      "review_text": "Before publication, the full address, frontend hosting, region and configuration of the planned Google Cloud VM, the applicable data processing terms, and the actual retention periods for server logs and messages in the Gmail mailbox must be added or verified. This policy must be reviewed after every technical change and should receive a legal review.",
       "updated": "Last updated: September 2026"
     }
   }

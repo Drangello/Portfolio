@@ -1,15 +1,18 @@
 import { Component, inject, OnDestroy, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { FormsModule, NgForm } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
-import { Subscription } from 'rxjs';
+import { finalize, Subscription } from 'rxjs';
+import { environment } from '../../../../environments/environment';
 
 interface ContactFormValue {
   name: string;
   email: string;
   message: string;
   privacy: boolean;
+  website: string;
 }
 
 @Component({
@@ -21,13 +24,18 @@ interface ContactFormValue {
 export class Contact implements OnDestroy {
   successMessage = signal<string | null>(null);
   errorMessage = signal<string | null>(null);
+  isSubmitting = signal(false);
   threeWords = false;
+  private readonly http = inject(HttpClient);
   private readonly translate = inject(TranslateService);
-  private readonly recipientEmail = 'florianweimann9@gmail.com';
   private successMessageSubscription?: Subscription;
   private errorMessageSubscription?: Subscription;
 
   onSubmit(form: NgForm): void {
+    if (this.isSubmitting()) {
+      return;
+    }
+
     this.setSuccessMessage(null);
     this.setErrorMessage(null);
 
@@ -43,16 +51,22 @@ export class Contact implements OnDestroy {
     const name = values.name.trim();
     const email = values.email.trim();
     const message = values.message.trim();
-    const translationParameters = { name, email, message };
-    const emailBody = this.translate.instant('contact.mail.body', translationParameters);
-    const subject = this.translate.instant('contact.mail.subject', translationParameters);
-    const mailtoLink = `mailto:${this.recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+    const website = values.website?.trim() ?? '';
 
-    window.location.href = mailtoLink;
-    this.setSuccessMessage('contact.status.success');
-
-    form.resetForm();
-    this.threeWords = false;
+    this.isSubmitting.set(true);
+    this.http
+      .post<{ status: string }>(environment.contactApiUrl, { name, email, message, website })
+      .pipe(finalize(() => this.isSubmitting.set(false)))
+      .subscribe({
+        next: () => {
+          this.setSuccessMessage('contact.status.success');
+          form.resetForm();
+          this.threeWords = false;
+        },
+        error: (error: HttpErrorResponse) => {
+          this.setErrorMessage(this.getErrorTranslationKey(error));
+        },
+      });
   }
 
   checkWords(message: string | null | undefined): void {
@@ -89,5 +103,18 @@ export class Contact implements OnDestroy {
     this.errorMessageSubscription = this.translate.stream(key).subscribe((message) => {
       this.errorMessage.set(message);
     });
+  }
+
+  private getErrorTranslationKey(error: HttpErrorResponse): string {
+    if (error.status === 429) {
+      return 'contact.status.rate_limit';
+    }
+    if (error.status === 0) {
+      return 'contact.status.network_error';
+    }
+    if (error.status === 422 || error.status === 413) {
+      return 'contact.status.validation_error';
+    }
+    return 'contact.status.server_error';
   }
 }

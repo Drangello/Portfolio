@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { provideHttpClient } from '@angular/common/http';
 import { provideRouter } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { provideTranslateService, TranslateService } from '@ngx-translate/core';
@@ -65,6 +66,7 @@ describe('Legal pages and links', () => {
     await TestBed.configureTestingModule({
       imports: [Contact, Footer],
       providers: [
+        provideHttpClient(),
         provideRouter(routes),
         provideTranslateService({
           lang: 'de',

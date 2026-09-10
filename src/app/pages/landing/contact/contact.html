@@ -16,7 +16,25 @@
       </p>
     </div>
 
-    <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" class="contact-form" novalidate>
+    <form
+      (ngSubmit)="onSubmit(contactForm)"
+      #contactForm="ngForm"
+      class="contact-form"
+      novalidate
+      [attr.aria-busy]="isSubmitting()"
+    >
+      <div class="contact-honeypot" aria-hidden="true">
+        <label for="contact-website">Website</label>
+        <input
+          id="contact-website"
+          type="text"
+          name="website"
+          autocomplete="off"
+          tabindex="-1"
+          ngModel
+        />
+      </div>
+
       <div class="field-wrapper">
         <label for="contact-name" class="visually-hidden">{{ 'contact.form.labels.name' | translate }}</label>
         <input
@@ -29,6 +47,7 @@
           #name="ngModel"
           required
           minlength="2"
+          maxlength="100"
           pattern=".*\S.*\S.*"
           aria-describedby="name-error"
           [attr.aria-invalid]="name.invalid && name.touched"
@@ -75,6 +94,7 @@
           #email="ngModel"
           required
           email
+          maxlength="254"
           aria-describedby="email-error"
           [attr.aria-invalid]="email.invalid && email.touched"
           [ngClass]="{
@@ -119,6 +139,7 @@
           ngModel
           #message="ngModel"
           required
+          maxlength="5000"
           (ngModelChange)="checkWords($event)"
           aria-describedby="message-error"
           [attr.aria-invalid]="message.touched && (message.invalid || !threeWords)"
@@ -180,18 +201,23 @@
         </span>
       </div>
 
-      <button type="submit" [disabled]="!contactForm.valid || !threeWords">
-        {{ 'contact.form.submit' | translate }}
+      <button
+        type="submit"
+        [disabled]="!contactForm.valid || !threeWords || isSubmitting()"
+        [attr.aria-busy]="isSubmitting()"
+      >
+        {{ (isSubmitting() ? 'contact.status.sending' : 'contact.form.submit') | translate }}
       </button>
 
       <div
         class="form-status"
-        [class.status-info]="!!successMessage()"
+        [class.status-info]="isSubmitting() || !!successMessage()"
         [class.status-error]="!!errorMessage()"
         [attr.role]="errorMessage() ? 'alert' : 'status'"
         [attr.aria-live]="errorMessage() ? 'assertive' : 'polite'"
         aria-atomic="true"
       >
+        <span *ngIf="isSubmitting()">{{ 'contact.status.sending' | translate }}</span>
         <span *ngIf="errorMessage()">{{ errorMessage() }}</span>
         <span *ngIf="successMessage()">{{ successMessage() }}</span>
       </div>
