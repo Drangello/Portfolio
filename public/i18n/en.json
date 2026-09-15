@@ -1,4 +1,18 @@
 {
+  "seo": {
+    "landing": {
+      "title": "Florian Weimann | Fullstack Developer",
+      "description": "Portfolio of Florian Weimann, a full-stack developer building modern, high-performance web applications with Angular, TypeScript, Python, and Flask."
+    },
+    "imprint": {
+      "title": "Legal Notice | Florian Weimann",
+      "description": "Legal notice and provider information for Florian Weimann's portfolio."
+    },
+    "privacy": {
+      "title": "Privacy Policy | Florian Weimann",
+      "description": "Privacy policy for Florian Weimann's portfolio, including information about the processing of personal data."
+    }
+  },
   "header": {
     "logo_alt": "Florian Weimann logo",
     "burger": {
