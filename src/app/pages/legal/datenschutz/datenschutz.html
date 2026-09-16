@@ -8,40 +8,35 @@
       <h2 id="privacy-controller-title">{{ 'legal.privacy.controller.title' | translate }}</h2>
       <address>
         <span>Florian Weimann</span>
-        <span class="legal-todo">{{ 'legal.privacy.controller.address_todo' | translate }}</span>
+        <span>Hagebuttenweg 3</span>
+        <span>18119 Rostock</span>
+        <span>{{ 'legal.privacy.controller.country' | translate }}</span>
         <span>
           {{ 'legal.privacy.controller.email_label' | translate }}
-          <a href="mailto:kontakt@florianweimann.de">kontakt&#64;florianweimann.de</a>
+          <a href="mailto:florianweimann9@gmail.com">florianweimann9&#64;gmail.com</a>
+        </span>
+        <span>
+          {{ 'legal.privacy.controller.phone_label' | translate }}
+          <a href="tel:+4915735649243">015735649243</a>
         </span>
       </address>
     </section>
 
     <section aria-labelledby="privacy-hosting-title">
       <h2 id="privacy-hosting-title">{{ 'legal.privacy.hosting.title' | translate }}</h2>
-      <p>{{ 'legal.privacy.hosting.text' | translate }}</p>
-      <p class="legal-todo">{{ 'legal.privacy.hosting.provider_todo' | translate }}</p>
-      <p class="legal-todo">{{ 'legal.privacy.hosting.retention_todo' | translate }}</p>
-      <p class="legal-todo">{{ 'legal.privacy.hosting.backend_todo' | translate }}</p>
-    </section>
-
-    <section aria-labelledby="privacy-logs-title">
-      <h2 id="privacy-logs-title">{{ 'legal.privacy.server_logs.title' | translate }}</h2>
-      <p>{{ 'legal.privacy.server_logs.text' | translate }}</p>
-      <ul>
-        <li>{{ 'legal.privacy.server_logs.data.ip' | translate }}</li>
-        <li>{{ 'legal.privacy.server_logs.data.request' | translate }}</li>
-        <li>{{ 'legal.privacy.server_logs.data.referrer' | translate }}</li>
-        <li>{{ 'legal.privacy.server_logs.data.browser' | translate }}</li>
-      </ul>
-      <p>{{ 'legal.privacy.server_logs.purpose_basis' | translate }}</p>
+      <p>{{ 'legal.privacy.hosting.infrastructure' | translate }}</p>
+      <p>{{ 'legal.privacy.hosting.connection_data' | translate }}</p>
+      <p>{{ 'legal.privacy.hosting.purpose_basis' | translate }}</p>
+      <p>{{ 'legal.privacy.hosting.retention' | translate }}</p>
     </section>
 
     <section aria-labelledby="privacy-contact-title">
       <h2 id="privacy-contact-title">{{ 'legal.privacy.email_contact.title' | translate }}</h2>
-      <p>{{ 'legal.privacy.email_contact.transport' | translate }}</p>
-      <p>{{ 'legal.privacy.email_contact.processing' | translate }}</p>
-      <p>{{ 'legal.privacy.email_contact.provider' | translate }}</p>
-      <p class="legal-todo">{{ 'legal.privacy.email_contact.retention_todo' | translate }}</p>
+      <p>{{ 'legal.privacy.email_contact.data' | translate }}</p>
+      <p>{{ 'legal.privacy.email_contact.process' | translate }}</p>
+      <p>{{ 'legal.privacy.email_contact.purpose_basis' | translate }}</p>
+      <p>{{ 'legal.privacy.email_contact.storage' | translate }}</p>
+      <p>{{ 'legal.privacy.email_contact.provision' | translate }}</p>
     </section>
 
     <section aria-labelledby="privacy-language-title">
@@ -93,11 +88,21 @@
       </ul>
     </section>
 
-    <aside class="legal-review" aria-labelledby="privacy-review-title">
-      <h2 id="privacy-review-title">{{ 'legal.review.title' | translate }}</h2>
-      <p>{{ 'legal.privacy.review_text' | translate }}</p>
-    </aside>
-
     <p class="legal-updated">{{ 'legal.privacy.updated' | translate }}</p>
+
+    <!--
+      DEPLOYMENT-TODO — complete the final legal pass against the actual production setup:
+      - add/verify the final production domain and canonical URLs;
+      - verify the exact Hostinger contracting entity, plan/server configuration, processing
+        locations, access-log fields and retention periods;
+      - verify the Google Cloud VM project/configuration, production region, public IP,
+        reverse-proxy/application/security logging and every applicable retention period;
+      - verify the actual Google/Gmail account setup, mailbox deletion practice, processing
+        locations and any international data transfers;
+      - verify rather than assume the applicable data-processing agreements and contractual
+        roles for Hostinger and every Google service;
+      - update this notice if any provider, data flow, purpose or retention practice differs.
+      These details are intentionally not shown as settled facts before deployment.
+    -->
   </div>
 </article>

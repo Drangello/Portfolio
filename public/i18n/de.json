@@ -156,92 +156,75 @@
     "email_aria": "E-Mail an Florian Weimann"
   },
   "legal": {
-    "review": {
-      "title": "Vor Veröffentlichung prüfen"
-    },
     "imprint": {
       "eyebrow": "Rechtliche Informationen",
       "title": "Impressum",
-      "intro": "Diese Seite enthält die Anbieterkennzeichnung für dieses Portfolio. Noch fehlende Pflichtangaben sind deutlich als TODO markiert.",
+      "intro": "Anbieterinformationen zu diesem privaten Bewerbungsportfolio.",
       "provider": {
-        "title": "Angaben gemäß § 5 DDG",
-        "address_todo": "[TODO: Vollständige ladungsfähige Anschrift ergänzen]"
+        "title": "Anbieter",
+        "country": "Deutschland"
       },
       "contact": {
         "title": "Kontakt",
-        "email_label": "E-Mail:"
-      },
-      "responsible": {
-        "title": "Verantwortlich für den Inhalt",
-        "condition": "Soweit § 18 Abs. 2 MStV auf einzelne Inhalte dieses Portfolios anwendbar ist:"
-      },
-      "review_text": "Die vollständige ladungsfähige Anschrift muss vor der Veröffentlichung ergänzt werden. Außerdem sollte geprüft werden, ob weitere Angaben – etwa zu Registereinträgen, Umsatzsteuer-ID, Aufsichtsbehörden oder reglementierten Berufen – im konkreten Fall erforderlich sind. Der Inhalt ersetzt keine Rechtsberatung."
+        "email_label": "E-Mail:",
+        "phone_label": "Telefon:"
+      }
     },
     "privacy": {
       "eyebrow": "Rechtliche Informationen",
       "title": "Datenschutzerklärung",
-      "intro": "Diese Datenschutzerklärung beschreibt die Verarbeitung personenbezogener Daten beim Besuch dieses Portfolios auf Grundlage des derzeit implementierten technischen Stands.",
+      "intro": "Diese Datenschutzerklärung informiert darüber, wie personenbezogene Daten bei der Nutzung dieses Portfolios verarbeitet werden.",
       "controller": {
         "title": "1. Verantwortlicher",
-        "address_todo": "[TODO: Vollständige ladungsfähige Anschrift ergänzen]",
-        "email_label": "E-Mail:"
+        "country": "Deutschland",
+        "email_label": "E-Mail:",
+        "phone_label": "Telefon:"
       },
       "hosting": {
-        "title": "2. Hosting",
-        "text": "Beim Aufruf dieser Website verarbeitet der Hosting-Anbieter technisch erforderliche Verbindungsdaten, um die Inhalte auszuliefern sowie Stabilität und Sicherheit zu gewährleisten.",
-        "provider_todo": "[TODO: Hosting-Anbieter, dessen Kontaktdaten und den Serverstandort ergänzen]",
-        "retention_todo": "[TODO: Auftragsverarbeitung und konkrete Speicherdauer der Server-Logfiles mit dem Hosting-Vertrag abgleichen]",
-        "backend_todo": "[TODO: Vor dem Deployment Region, Serverkonfiguration, Protokollierung und Auftragsverarbeitung der geplanten Google-Cloud-VM prüfen und ergänzen]"
-      },
-      "server_logs": {
-        "title": "3. Server-Logfiles",
-        "text": "Bei jedem Seitenaufruf können insbesondere folgende Daten in Server-Logfiles verarbeitet werden:",
-        "data": {
-          "ip": "IP-Adresse des zugreifenden Geräts",
-          "request": "Datum und Uhrzeit, aufgerufene Datei beziehungsweise URL und übertragene Datenmenge",
-          "referrer": "Referrer-URL, sofern vom Browser übermittelt",
-          "browser": "Browsertyp, Browserversion und Betriebssystem"
-        },
-        "purpose_basis": "Die Verarbeitung dient der technischen Bereitstellung sowie der Erkennung und Abwehr von Störungen und Angriffen. Als Rechtsgrundlage kommt Art. 6 Abs. 1 lit. f DSGVO in Betracht. Das berechtigte Interesse liegt im sicheren und funktionsfähigen Betrieb der Website. Die konkrete Protokollierung und Speicherdauer hängen vom noch einzutragenden Hosting-Anbieter ab."
+        "title": "2. Hosting und technische Bereitstellung",
+        "infrastructure": "Das Angular-Frontend wird über Hostinger bereitgestellt. Die Kontakt-API läuft als Flask-Backend auf einer Google-Cloud-VM. Hostinger und Google können dabei als technische Dienstleister Verbindungsdaten erhalten.",
+        "connection_data": "Beim Aufruf der Website oder der Kontakt-API werden technisch erforderliche Verbindungs- und Anfragedaten verarbeitet. Dazu gehören insbesondere die IP-Adresse, Zeitpunkt und Ziel der Anfrage sowie vom Browser übermittelte technische Angaben wie User-Agent oder Referrer.",
+        "purpose_basis": "Die Verarbeitung dient der Auslieferung der Website und der API sowie deren Stabilität, Sicherheit und Schutz vor Missbrauch. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Die berechtigten Interessen liegen in einer sicheren und funktionsfähigen Bereitstellung des Portfolios.",
+        "retention": "Verbindungsdaten werden nur so lange gespeichert, wie dies für den jeweiligen technischen oder sicherheitsbezogenen Zweck erforderlich ist; gesetzliche Aufbewahrungspflichten bleiben unberührt. Umfang und Löschfristen etwaiger Server-Logs richten sich nach der produktiven Hosting- und Serverkonfiguration."
       },
       "email_contact": {
-        "title": "4. Kontaktformular und E-Mail-Versand",
-        "transport": "Wenn das Kontaktformular abgesendet wird, werden Name, E-Mail-Adresse und Nachricht an einen eigenen Backend-Endpunkt übertragen. Das Backend validiert die Angaben und übermittelt die Nachricht als Klartext-E-Mail an florianweimann9@gmail.com.",
-        "processing": "Die Anwendung speichert die Formulardaten nicht in einer eigenen Datenbank und protokolliert keine Nachrichteninhalte. Für das technische Rate-Limiting wird die IP-Adresse vorübergehend verarbeitet. Ein Honeypot-Feld dient der automatisierten Spam-Erkennung. Die Verarbeitung erfolgt zur Bearbeitung der Anfrage. Je nach Inhalt kommt Art. 6 Abs. 1 lit. b DSGVO für vorvertragliche Kommunikation oder Art. 6 Abs. 1 lit. f DSGVO für sonstige Anfragen als Rechtsgrundlage in Betracht.",
-        "provider": "Der E-Mail-Versand ist über Gmail SMTP konfiguriert. Google verarbeitet dabei die für die Übermittlung erforderlichen Daten; die empfangene Nachricht wird im Gmail-Postfach der Zieladresse verarbeitet und gespeichert.",
-        "retention_todo": "[TODO: Vor dem Produktivbetrieb die konkrete Verarbeitung durch Google, mögliche Drittlandtransfers, Vertragsgrundlagen und Speicherdauer im Gmail-Postfach prüfen und dokumentieren]"
+        "title": "3. Kontaktformular und E-Mail-Versand",
+        "data": "Beim Absenden des Kontaktformulars werden Name, E-Mail-Adresse und Nachricht verarbeitet. Zusätzlich verarbeitet das Backend die IP-Adresse für das Rate-Limiting sowie den Wert des ausgeblendeten Honeypot-Felds zur Spamabwehr.",
+        "process": "Das Angular-Frontend übermittelt die Daten an die Flask Contact API. Dort werden die Eingaben serverseitig validiert und zum Schutz vor Missbrauch geprüft. Gültige Nachrichten werden per Gmail SMTP an florianweimann9@gmail.com gesendet; die E-Mail-Adresse des Absenders wird als Reply-To gesetzt.",
+        "purpose_basis": "Die Verarbeitung dient der Bearbeitung und Beantwortung der Anfrage. Bei vorvertraglicher Kommunikation ist Art. 6 Abs. 1 lit. b DSGVO die Rechtsgrundlage; bei sonstigen Anfragen sowie für Rate-Limiting und Spamabwehr Art. 6 Abs. 1 lit. f DSGVO. Die berechtigten Interessen liegen in einer zuverlässigen Kommunikation und im Schutz des Formulars vor Missbrauch.",
+        "storage": "Das Backend führt keine eigene Datenbank für Kontaktanfragen. Die Nachricht und die darin enthaltenen Kontaktdaten werden jedoch über Google/Gmail übermittelt und können im Gmail-Postfach des Empfängers sowie in Systemen von Google gespeichert werden. Die Speicherdauer richtet sich dort nach der Bearbeitung der Anfrage, der Löschung im Postfach, den Einstellungen und Verfahren von Google sowie gegebenenfalls gesetzlichen Aufbewahrungspflichten.",
+        "provision": "Die Angaben sind freiwillig. Ohne die als erforderlich gekennzeichneten Angaben kann die Nachricht nicht über das Formular versendet und beantwortet werden."
       },
       "language_storage": {
-        "title": "5. Sprachwahl im Browser",
-        "text": "Wenn aktiv zwischen Deutsch und Englisch gewechselt wird, speichert die Website die Auswahl ausschließlich im lokalen Speicher des Browsers. Dadurch bleibt die ausgewählte Sprache bei einem späteren Besuch erhalten. Die Information wird nicht an den Webserver übertragen.",
+        "title": "4. Sprachwahl im Browser",
+        "text": "Bei einer aktiven Auswahl von Deutsch oder Englisch speichert die Website die Sprachpräferenz im lokalen Speicher des Browsers. Dadurch wird die gewählte Sprache bei späteren Besuchen wiederverwendet. Die Sprachpräferenz wird im Rahmen dieses Speichervorgangs nicht an den Server übermittelt.",
         "key_label": "localStorage-Key",
         "values_label": "Mögliche Werte",
-        "legal_note": "Die Speicherung erfolgt erst nach der vom Nutzer gewählten Spracheinstellung. Ob sie im konkreten Einsatz als unbedingt erforderliche Speicherung nach § 25 Abs. 2 TDDDG einzuordnen ist, sollte vor Veröffentlichung abschließend rechtlich geprüft werden. Der Eintrag kann jederzeit über die Browser-Einstellungen gelöscht werden."
+        "legal_note": "Der Eintrag dient ausschließlich dazu, die ausdrücklich gewählte Sprache bereitzustellen. Die Speicherung ist dafür im Sinne von § 25 Abs. 2 Nr. 2 TDDDG erforderlich. Sie bleibt bestehen, bis die Auswahl geändert oder der Eintrag über die Browser-Einstellungen gelöscht wird."
       },
       "cookies_analytics": {
-        "title": "6. Cookies und Reichweitenmessung",
-        "text": "Dieses Portfolio setzt nach dem derzeitigen Implementierungsstand keine Cookies und verwendet keine Analyse-, Tracking- oder Werbedienste. Die in der Angular-Entwicklungsumgebung vorhandene CLI-Telemetrie ist kein Bestandteil der ausgelieferten Website."
+        "title": "5. Cookies, Analyse und Tracking",
+        "text": "Dieses Portfolio setzt nach dem aktuellen technischen Stand selbst keine Tracking-Cookies und verwendet keine Analyse-, Tracking- oder Werbedienste. Die Sprachpräferenz im localStorage ist kein Cookie und wird im vorherigen Abschnitt beschrieben."
       },
       "fonts": {
-        "title": "7. Schriftarten",
-        "text": "Die Schriftart Figtree wird lokal von dieser Website ausgeliefert. Beim Laden der Schrift wird keine Verbindung zu Google Fonts oder einem anderen externen Font-Anbieter hergestellt."
+        "title": "6. Schriftarten",
+        "text": "Die Schriftart Figtree wird lokal von dieser Website ausgeliefert. Beim Laden der Schrift wird keine Verbindung zu Google Fonts oder einem anderen externen Schriftanbieter hergestellt."
       },
       "external_links": {
-        "title": "8. Externe Links",
-        "text": "Diese Website enthält Links zu externen Angeboten, insbesondere GitHub und LinkedIn sowie zu veröffentlichten Projekt-Demos. Eine Verbindung zum jeweiligen Drittanbieter entsteht erst beim Aufrufen eines solchen Links. Ab diesem Zeitpunkt gelten die Datenschutzbestimmungen des jeweiligen Anbieters."
+        "title": "7. Externe Links",
+        "text": "Diese Website enthält Links zu externen Angeboten, insbesondere GitHub, LinkedIn und Projekt-Demos. Eine Verbindung zum jeweiligen Drittanbieter entsteht erst, wenn ein solcher Link aktiv aufgerufen wird. Ab diesem Zeitpunkt verarbeitet der Drittanbieter Daten nach seinen eigenen Datenschutzbestimmungen."
       },
       "rights": {
-        "title": "9. Rechte betroffener Personen",
-        "intro": "Soweit die gesetzlichen Voraussetzungen erfüllt sind, bestehen insbesondere folgende Rechte:",
+        "title": "8. Rechte betroffener Personen",
+        "intro": "Soweit die jeweiligen gesetzlichen Voraussetzungen erfüllt sind, bestehen insbesondere folgende Rechte:",
         "access": "Auskunft über verarbeitete personenbezogene Daten nach Art. 15 DSGVO",
         "rectification": "Berichtigung unrichtiger Daten nach Art. 16 DSGVO",
         "erasure": "Löschung personenbezogener Daten nach Art. 17 DSGVO",
         "restriction": "Einschränkung der Verarbeitung nach Art. 18 DSGVO",
         "portability": "Datenübertragbarkeit nach Art. 20 DSGVO",
-        "objection": "Widerspruch gegen eine Verarbeitung nach Art. 21 DSGVO",
+        "objection": "Widerspruch gegen eine Verarbeitung auf Grundlage berechtigter Interessen nach Art. 21 DSGVO",
         "complaint": "Beschwerde bei einer Datenschutz-Aufsichtsbehörde nach Art. 77 DSGVO"
       },
-      "review_text": "Vor Veröffentlichung müssen insbesondere die vollständige Anschrift, das Frontend-Hosting, Region und Konfiguration der geplanten Google-Cloud-VM, die jeweilige Auftragsverarbeitung sowie die tatsächliche Speicherdauer von Server-Logfiles und Nachrichten im Gmail-Postfach ergänzt beziehungsweise verifiziert werden. Die Erklärung muss nach jeder technischen Änderung erneut abgeglichen und rechtlich geprüft werden.",
       "updated": "Stand: September 2026"
     }
   }

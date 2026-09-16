@@ -1,68 +1,27 @@
-import { TestBed } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
+import { TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { provideTranslateService, TranslateService } from '@ngx-translate/core';
+import type { TranslationObject } from '@ngx-translate/core';
 import { firstValueFrom } from 'rxjs';
 import { routes } from '../../app.routes';
-import { Contact } from '../landing/contact/contact';
 import { Footer } from '../../shared/footer/footer';
+import { Contact } from '../landing/contact/contact';
 import { Datenschutz } from './datenschutz/datenschutz';
 import { Impressum } from './impressum/impressum';
 
-const germanTranslations = {
-  contact: {
-    form: {
-      labels: { name: 'Name', email: 'E-Mail-Adresse', message: 'Nachricht' },
-      placeholders: { name: 'Dein Name', email: 'Deine E-Mail-Adresse', message: 'Deine Nachricht' },
-      errors: { name: '', email: '', message: '', privacy: '' },
-      privacy: { prefix: 'Ich habe die', link: 'Datenschutzerklärung', suffix: 'gelesen.' },
-      submit: 'Nachricht senden',
-    },
-  },
-  footer: {
-    logo_alt: 'Logo von Florian Weimann',
-    legal_navigation_label: 'Rechtliche Informationen',
-    imprint: 'Impressum',
-    privacy: 'Datenschutz',
-    navigation_label: 'Soziale Profile und Kontakt',
-    github_aria: 'GitHub-Profil',
-    linkedin_aria: 'LinkedIn-Profil',
-    email_aria: 'E-Mail senden',
-  },
-  legal: {
-    review: { title: 'Vor Veröffentlichung prüfen' },
-    imprint: {
-      eyebrow: 'Rechtliche Informationen',
-      title: 'Impressum',
-      intro: 'Anbieterkennzeichnung',
-      provider: { title: 'Angaben gemäß § 5 DDG', address_todo: 'Adresse ergänzen' },
-      contact: { title: 'Kontakt', email_label: 'E-Mail:' },
-      responsible: { title: 'Verantwortlich für den Inhalt', condition: 'Soweit anwendbar:' },
-      review_text: 'Rechtlich prüfen.',
-    },
-    privacy: {
-      eyebrow: 'Rechtliche Informationen',
-      title: 'Datenschutzerklärung',
-    },
-  },
-};
-
-const englishTranslations = {
-  ...germanTranslations,
-  legal: {
-    ...germanTranslations.legal,
-    privacy: {
-      eyebrow: 'Legal information',
-      title: 'Privacy policy',
-    },
-  },
-};
-
 describe('Legal pages and links', () => {
   let translate: TranslateService;
+  let germanTranslations: TranslationObject;
+  let englishTranslations: TranslationObject;
 
   beforeEach(async () => {
+    [germanTranslations, englishTranslations] = await Promise.all([
+      fetch('/i18n/de.json').then((response) => response.json()),
+      fetch('/i18n/en.json').then((response) => response.json()),
+    ]);
+
     await TestBed.configureTestingModule({
       imports: [Contact, Footer],
       providers: [
@@ -81,24 +40,88 @@ describe('Legal pages and links', () => {
     await firstValueFrom(translate.use('de'));
   });
 
-  it('renders /impressum in German by default', async () => {
+  function expectCompleteLegalPage(element: HTMLElement, expectedTitle: string): void {
+    const headings = element.querySelectorAll('h1');
+
+    expect(headings.length).toBe(1);
+    expect(headings[0].textContent?.trim()).toBe(expectedTitle);
+    expect(element.textContent).not.toContain('legal.');
+    expect(element.textContent).not.toContain('TODO');
+  }
+
+  function getLeafKeys(value: unknown, prefix = ''): string[] {
+    if (value === null || typeof value !== 'object' || Array.isArray(value)) {
+      return [prefix];
+    }
+
+    return Object.entries(value).flatMap(([key, child]) =>
+      getLeafKeys(child, prefix ? `${prefix}.${key}` : key),
+    );
+  }
+
+  it('keeps all German and English translation keys in parity', () => {
+    expect(getLeafKeys(englishTranslations).sort()).toEqual(
+      getLeafKeys(germanTranslations).sort(),
+    );
+  });
+
+  it('renders /impressum completely in German and English with one H1', async () => {
     const harness = await RouterTestingHarness.create();
     await harness.navigateByUrl('/impressum', Impressum);
 
     expect(translate.getCurrentLang()).toBe('de');
-    expect(harness.routeNativeElement?.querySelector('h1')?.textContent?.trim()).toBe('Impressum');
-  });
-
-  it('renders /datenschutz and reacts to an English language change', async () => {
-    const harness = await RouterTestingHarness.create();
-    await harness.navigateByUrl('/datenschutz', Datenschutz);
-
-    expect(harness.routeNativeElement?.querySelector('h1')?.textContent?.trim()).toBe('Datenschutzerklärung');
+    expectCompleteLegalPage(harness.routeNativeElement!, 'Impressum');
 
     await firstValueFrom(translate.use('en'));
     harness.detectChanges();
 
-    expect(harness.routeNativeElement?.querySelector('h1')?.textContent?.trim()).toBe('Privacy policy');
+    expectCompleteLegalPage(harness.routeNativeElement!, 'Legal notice');
+  });
+
+  it('renders /datenschutz completely in German and English with one H1', async () => {
+    const harness = await RouterTestingHarness.create();
+    await harness.navigateByUrl('/datenschutz', Datenschutz);
+
+    expectCompleteLegalPage(harness.routeNativeElement!, 'Datenschutzerklärung');
+
+    await firstValueFrom(translate.use('en'));
+    harness.detectChanges();
+
+    expectCompleteLegalPage(harness.routeNativeElement!, 'Privacy policy');
+  });
+
+  it('uses the confirmed email and telephone links on both legal pages', async () => {
+    const harness = await RouterTestingHarness.create();
+
+    for (const [url, component] of [
+      ['/impressum', Impressum],
+      ['/datenschutz', Datenschutz],
+    ] as const) {
+      await harness.navigateByUrl(url, component);
+      const element = harness.routeNativeElement!;
+
+      expect(
+        element.querySelector('a[href="mailto:florianweimann9@gmail.com"]'),
+      ).not.toBeNull();
+      expect(element.querySelector('a[href="tel:+4915735649243"]')).not.toBeNull();
+    }
+  });
+
+  it('keeps external privacy links explicit and safely isolated', async () => {
+    const harness = await RouterTestingHarness.create();
+    await harness.navigateByUrl('/datenschutz', Datenschutz);
+    const links = harness.routeNativeElement!.querySelectorAll<HTMLAnchorElement>(
+      'a[target="_blank"]',
+    );
+
+    expect(Array.from(links, (link) => link.href)).toEqual([
+      'https://github.com/Drangello',
+      'https://www.linkedin.com/in/florian-weimann-b0357a3a0/',
+    ]);
+    for (const link of links) {
+      expect(link.rel).toContain('noopener');
+      expect(link.rel).toContain('noreferrer');
+    }
   });
 
   it('uses real internal routes for the footer legal links', () => {
@@ -109,6 +132,9 @@ describe('Legal pages and links', () => {
 
     expect(links[0].getAttribute('href')).toBe('/impressum');
     expect(links[1].getAttribute('href')).toBe('/datenschutz');
+    expect(
+      element.querySelector('.footer-right a[href="mailto:florianweimann9@gmail.com"]'),
+    ).not.toBeNull();
   });
 
   it('links the contact privacy text to /datenschutz without toggling the checkbox', () => {

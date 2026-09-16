@@ -8,7 +8,9 @@
       <h2 id="imprint-provider-title">{{ 'legal.imprint.provider.title' | translate }}</h2>
       <address>
         <span>Florian Weimann</span>
-        <span class="legal-todo">{{ 'legal.imprint.provider.address_todo' | translate }}</span>
+        <span>Hagebuttenweg 3</span>
+        <span>18119 Rostock</span>
+        <span>{{ 'legal.imprint.provider.country' | translate }}</span>
       </address>
     </section>
 
@@ -16,22 +18,19 @@
       <h2 id="imprint-contact-title">{{ 'legal.imprint.contact.title' | translate }}</h2>
       <p>
         {{ 'legal.imprint.contact.email_label' | translate }}
-        <a href="mailto:kontakt@florianweimann.de">kontakt&#64;florianweimann.de</a>
+        <a href="mailto:florianweimann9@gmail.com">florianweimann9&#64;gmail.com</a>
+      </p>
+      <p>
+        {{ 'legal.imprint.contact.phone_label' | translate }}
+        <a href="tel:+4915735649243">015735649243</a>
       </p>
     </section>
 
-    <section aria-labelledby="imprint-responsible-title">
-      <h2 id="imprint-responsible-title">{{ 'legal.imprint.responsible.title' | translate }}</h2>
-      <p>{{ 'legal.imprint.responsible.condition' | translate }}</p>
-      <address>
-        <span>Florian Weimann</span>
-        <span class="legal-todo">{{ 'legal.imprint.provider.address_todo' | translate }}</span>
-      </address>
-    </section>
-
-    <aside class="legal-review" aria-labelledby="imprint-review-title">
-      <h2 id="imprint-review-title">{{ 'legal.review.title' | translate }}</h2>
-      <p>{{ 'legal.imprint.review_text' | translate }}</p>
-    </aside>
+    <!--
+      LEGAL-TODO before production: Reassess the provider-information basis if the portfolio's
+      purpose or operator status changes. Section 18(2) MStV currently does not appear applicable
+      because the described private application portfolio is not a journalistic-editorial service.
+      Add a responsible person only if the content and legal assessment materially change.
+    -->
   </div>
 </article>

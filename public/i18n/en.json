@@ -156,92 +156,75 @@
     "email_aria": "Email Florian Weimann"
   },
   "legal": {
-    "review": {
-      "title": "Review before publication"
-    },
     "imprint": {
       "eyebrow": "Legal information",
       "title": "Legal notice",
-      "intro": "This page contains the provider identification for this portfolio. Mandatory details that are still missing are clearly marked as TODO items.",
+      "intro": "Provider information for this private application portfolio.",
       "provider": {
-        "title": "Information pursuant to Section 5 DDG",
-        "address_todo": "[TODO: Add the full serviceable postal address]"
+        "title": "Provider",
+        "country": "Germany"
       },
       "contact": {
         "title": "Contact",
-        "email_label": "Email:"
-      },
-      "responsible": {
-        "title": "Responsibility for content",
-        "condition": "Where Section 18(2) MStV applies to individual content in this portfolio:"
-      },
-      "review_text": "The full serviceable postal address must be added before publication. It must also be checked whether further details—such as register entries, a VAT identification number, supervisory authorities, or regulated professional information—are required in this specific case. This content does not constitute legal advice."
+        "email_label": "Email:",
+        "phone_label": "Telephone:"
+      }
     },
     "privacy": {
       "eyebrow": "Legal information",
       "title": "Privacy policy",
-      "intro": "This privacy policy describes the processing of personal data when visiting this portfolio based on its currently implemented technical state.",
+      "intro": "This privacy policy explains how personal data is processed when this portfolio is used.",
       "controller": {
         "title": "1. Controller",
-        "address_todo": "[TODO: Add the full serviceable postal address]",
-        "email_label": "Email:"
+        "country": "Germany",
+        "email_label": "Email:",
+        "phone_label": "Telephone:"
       },
       "hosting": {
-        "title": "2. Hosting",
-        "text": "When this website is accessed, the hosting provider processes technically necessary connection data in order to deliver the content and ensure stability and security.",
-        "provider_todo": "[TODO: Add the hosting provider, its contact details, and the server location]",
-        "retention_todo": "[TODO: Verify data processing terms and the specific retention period for server logs against the hosting agreement]",
-        "backend_todo": "[TODO: Before deployment, verify and add the region, server configuration, logging, and processing terms for the planned Google Cloud VM]"
-      },
-      "server_logs": {
-        "title": "3. Server logs",
-        "text": "The following data in particular may be processed in server logs whenever a page is accessed:",
-        "data": {
-          "ip": "IP address of the accessing device",
-          "request": "Date and time, requested file or URL, and amount of data transferred",
-          "referrer": "Referrer URL, if transmitted by the browser",
-          "browser": "Browser type, browser version, and operating system"
-        },
-        "purpose_basis": "The processing serves to provide the website technically and to identify and prevent disruptions and attacks. Article 6(1)(f) GDPR may serve as the legal basis. The legitimate interest lies in operating the website securely and reliably. The actual logging and retention period depend on the hosting provider that still needs to be specified."
+        "title": "2. Hosting and technical delivery",
+        "infrastructure": "The Angular frontend is served through Hostinger. The contact API runs as a Flask backend on a Google Cloud VM. In their capacity as technical service providers, Hostinger and Google may receive connection data.",
+        "connection_data": "When the website or contact API is accessed, technically necessary connection and request data is processed. This includes, in particular, the IP address, the time and destination of the request, and technical information transmitted by the browser, such as the user agent or referrer.",
+        "purpose_basis": "This processing is used to deliver the website and API and to maintain their stability, security, and protection against misuse. The legal basis is Article 6(1)(f) GDPR. The legitimate interests are the secure and reliable delivery of the portfolio.",
+        "retention": "Connection data is stored only for as long as necessary for the respective technical or security purpose; statutory retention obligations remain unaffected. The scope and deletion periods of any server logs depend on the production hosting and server configuration."
       },
       "email_contact": {
-        "title": "4. Contact form and email delivery",
-        "transport": "When the contact form is submitted, the name, email address, and message are transmitted to a dedicated backend endpoint. The backend validates the entries and forwards the message as a plaintext email to florianweimann9@gmail.com.",
-        "processing": "The application does not store form data in its own database and does not log message content. The IP address is processed temporarily for technical rate limiting. A honeypot field is used for automated spam detection. The data is processed in order to respond to the enquiry. Depending on its content, Article 6(1)(b) GDPR for pre-contractual communication or Article 6(1)(f) GDPR for other enquiries may serve as the legal basis.",
-        "provider": "Email delivery is configured through Gmail SMTP. Google processes the data required for delivery; the received message is processed and stored in the recipient Gmail mailbox.",
-        "retention_todo": "[TODO: Before production use, verify and document Google's specific processing, possible international data transfers, contractual basis, and retention period in the Gmail mailbox]"
+        "title": "3. Contact form and email delivery",
+        "data": "When the contact form is submitted, the name, email address, and message are processed. The backend also processes the IP address for rate limiting and the value of the hidden honeypot field for spam prevention.",
+        "process": "The Angular frontend transmits the data to the Flask Contact API. The entries are validated on the server and checked to protect against misuse. Valid messages are sent by Gmail SMTP to florianweimann9@gmail.com; the sender's email address is set as the Reply-To address.",
+        "purpose_basis": "The data is processed to handle and respond to the enquiry. Article 6(1)(b) GDPR is the legal basis for pre-contractual communication; Article 6(1)(f) GDPR applies to other enquiries, rate limiting, and spam prevention. The legitimate interests are reliable communication and protecting the form against misuse.",
+        "storage": "The backend does not maintain its own database for contact enquiries. However, the message and the contact details it contains are transmitted through Google/Gmail and may be stored in the recipient's Gmail mailbox and in Google's systems. The retention period there depends on the handling of the enquiry, deletion from the mailbox, Google's settings and procedures, and any applicable statutory retention obligations.",
+        "provision": "Providing the information is voluntary. Without the fields marked as required, the message cannot be sent through the form or answered."
       },
       "language_storage": {
-        "title": "5. Language selection in the browser",
-        "text": "When switching actively between German and English, the website stores the selection exclusively in the browser's local storage. This retains the selected language for a later visit. The information is not transmitted to the web server.",
+        "title": "4. Language selection in the browser",
+        "text": "When German or English is actively selected, the website stores the language preference in the browser's local storage. This allows the selected language to be reused on later visits. The language preference is not transmitted to the server as part of this storage operation.",
         "key_label": "localStorage key",
         "values_label": "Possible values",
-        "legal_note": "Storage only takes place after the user selects a language. Whether it qualifies as strictly necessary storage under Section 25(2) TDDDG in the specific deployment should receive a final legal review before publication. The entry can be deleted at any time using the browser settings."
+        "legal_note": "The entry is used solely to provide the language explicitly selected by the user. The storage is necessary for this purpose within the meaning of Section 25(2)(2) TDDDG. It remains until the selection is changed or the entry is deleted through the browser settings."
       },
       "cookies_analytics": {
-        "title": "6. Cookies and analytics",
-        "text": "In its currently implemented state, this portfolio does not set cookies and does not use analytics, tracking, or advertising services. CLI telemetry present in the Angular development environment is not part of the deployed website."
+        "title": "5. Cookies, analytics, and tracking",
+        "text": "Based on its current technical implementation, this portfolio does not itself set tracking cookies and does not use analytics, tracking, or advertising services. The language preference in localStorage is not a cookie and is described in the preceding section."
       },
       "fonts": {
-        "title": "7. Fonts",
+        "title": "6. Fonts",
         "text": "The Figtree font is served locally by this website. Loading the font does not establish a connection to Google Fonts or any other external font provider."
       },
       "external_links": {
-        "title": "8. External links",
-        "text": "This website contains links to external services, in particular GitHub and LinkedIn, as well as published project demos. A connection to the respective third party is only established when such a link is opened. From that point on, the privacy terms of the respective provider apply."
+        "title": "7. External links",
+        "text": "This website contains links to external services, in particular GitHub, LinkedIn, and project demos. A connection to the respective third party is only established when such a link is actively opened. From that point, the third party processes data under its own privacy terms."
       },
       "rights": {
-        "title": "9. Data subject rights",
-        "intro": "Where the statutory requirements are met, the following rights apply in particular:",
+        "title": "8. Data subject rights",
+        "intro": "Where the respective statutory requirements are met, the following rights apply in particular:",
         "access": "Access to processed personal data under Article 15 GDPR",
         "rectification": "Rectification of inaccurate data under Article 16 GDPR",
         "erasure": "Erasure of personal data under Article 17 GDPR",
         "restriction": "Restriction of processing under Article 18 GDPR",
         "portability": "Data portability under Article 20 GDPR",
-        "objection": "Objection to processing under Article 21 GDPR",
+        "objection": "Objection to processing based on legitimate interests under Article 21 GDPR",
         "complaint": "Lodging a complaint with a data protection supervisory authority under Article 77 GDPR"
       },
-      "review_text": "Before publication, the full address, frontend hosting, region and configuration of the planned Google Cloud VM, the applicable data processing terms, and the actual retention periods for server logs and messages in the Gmail mailbox must be added or verified. This policy must be reviewed after every technical change and should receive a legal review.",
       "updated": "Last updated: September 2026"
     }
   }
