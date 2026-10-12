@@ -1,3 +1,4 @@
+import { ViewportScroller } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Header } from './shared/header/header';
@@ -11,7 +12,8 @@ import { SeoService } from './core/seo.service';
   styleUrl: './app.scss'
 })
 export class App {
-  constructor(seoService: SeoService) {
+  constructor(seoService: SeoService, viewportScroller: ViewportScroller) {
+    viewportScroller.setOffset([0, 110]);
     seoService.initialize();
   }
 }

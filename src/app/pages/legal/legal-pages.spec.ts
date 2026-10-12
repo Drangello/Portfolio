@@ -133,7 +133,7 @@ describe('Legal pages and links', () => {
     expect(links[0].getAttribute('href')).toBe('/impressum');
     expect(links[1].getAttribute('href')).toBe('/datenschutz');
     expect(
-      element.querySelector('.footer-right a[href="mailto:florianweimann9@gmail.com"]'),
+      element.querySelector('.footer-right a[href="/#contact"]'),
     ).not.toBeNull();
   });
 

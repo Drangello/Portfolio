@@ -40,7 +40,7 @@
     "region_label": "Empfang",
     "social": {
       "github": "GitHub-Profil von Florian Weimann",
-      "email": "E-Mail an Florian Weimann",
+      "email": "Kontaktformular öffnen",
       "linkedin": "LinkedIn-Profil von Florian Weimann"
     },
     "scroll_down": "Scroll down →",
@@ -89,7 +89,7 @@
       "join": {
         "image_alt": "Projektvorschau Join",
         "description": "Ein Gruppenprojekt für einen Aufgabenmanager mit Drag-and-Drop-Funktionalitäten – vom Organisieren bis zur Kategoriezuweisung.",
-        "live_unavailable_aria": "Live-Demo von Join derzeit nicht verfügbar",
+        "live_aria": "Live-Demo von Join öffnen",
         "github_aria": "GitHub-Repository von Join öffnen"
       },
       "spanish_fire": {
@@ -153,7 +153,7 @@
     "privacy": "Datenschutz",
     "github_aria": "GitHub-Profil von Florian Weimann",
     "linkedin_aria": "LinkedIn-Profil von Florian Weimann",
-    "email_aria": "E-Mail an Florian Weimann"
+    "email_aria": "Kontaktformular öffnen"
   },
   "legal": {
     "imprint": {

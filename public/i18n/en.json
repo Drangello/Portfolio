@@ -40,7 +40,7 @@
     "region_label": "Introduction",
     "social": {
       "github": "Florian Weimann's GitHub profile",
-      "email": "Email Florian Weimann",
+      "email": "Open the contact form",
       "linkedin": "Florian Weimann's LinkedIn profile"
     },
     "scroll_down": "Scroll down →",
@@ -89,7 +89,7 @@
       "join": {
         "image_alt": "Preview of the Join project",
         "description": "A collaborative task manager project featuring drag-and-drop functionality, from organizing tasks to assigning categories.",
-        "live_unavailable_aria": "Live demo of Join is currently unavailable",
+        "live_aria": "Open the live demo of Join",
         "github_aria": "Open the GitHub repository for Join"
       },
       "spanish_fire": {
@@ -153,7 +153,7 @@
     "privacy": "Privacy policy",
     "github_aria": "Florian Weimann's GitHub profile",
     "linkedin_aria": "Florian Weimann's LinkedIn profile",
-    "email_aria": "Email Florian Weimann"
+    "email_aria": "Open the contact form"
   },
   "legal": {
     "imprint": {
