@@ -25,6 +25,21 @@
     background: #9747ff;
     max-width: 180px; // optional
   }
+
+  .line:last-child {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 100%;
+      width: 100vw;
+      height: 100%;
+      background: inherit;
+      pointer-events: none;
+    }
+  }
 }
 
 

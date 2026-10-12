@@ -10,6 +10,41 @@
 /* Layout */
 /* ============================== */
 
+.back-to-top-container {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 1200px;
+  margin-top: 32px;
+}
+
+.back-to-top {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+
+  img {
+    grid-area: 1 / 1;
+    transition: opacity 150ms ease;
+  }
+
+  .back-to-top-hover {
+    opacity: 0;
+  }
+
+  &:hover,
+  &:focus-visible {
+    .back-to-top-default { opacity: 0; }
+    .back-to-top-hover { opacity: 1; }
+  }
+
+  &:focus-visible {
+    outline: 2px solid #70e61c;
+    outline-offset: 3px;
+  }
+}
+
 .contact-heading {
   display: flex;
   align-items: center;
