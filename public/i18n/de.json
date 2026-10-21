@@ -14,7 +14,7 @@
     }
   },
   "header": {
-    "logo_alt": "Florian Weimann Logo",
+    "logo_alt": "Logo von Florian Weimann",
     "burger": {
       "open": "Menü öffnen",
       "close": "Menü schließen"
@@ -43,28 +43,28 @@
       "email": "Kontaktformular öffnen",
       "linkedin": "LinkedIn-Profil von Florian Weimann"
     },
-    "scroll_down": "Scroll down →",
+    "scroll_down": "Nach unten scrollen →",
     "profile_alt": "Profilbild Florian Weimann",
-    "blob_alt": "Farbklekse",
+    "blob_alt": "Farbkleckse",
     "introduction": "ich bin",
     "contact_cta": "lass schnacken",
     "contact_cta_aria": "Lass schnacken – zum Kontakt"
   },
   "about": {
     "title": "Über mich",
-    "intro": "Mich selbst kann ich lediglich als Mathematik gewieften Künstler bezeichnen, der Liebe zum Detail verspürt, ein Typ kein Mensch.",
+    "intro": "Mich selbst kann ich lediglich als mathematisch gewieften Künstler bezeichnen, der Liebe zum Detail verspürt – ein Typ, kein Mensch.",
     "points": {
       "location": {
-        "icon_alt": "Location Icon",
-        "text": "Du findest mich an rauen Stränden dort woher kommen so viele Legenden. Aufgewachsen auf dem Darß mit riesßen Spaß, für Lebenserfahrung nach Rostock gezogen und so weiter ziehe ich meine Lebensbogen."
+        "icon_alt": "Standort-Symbol",
+        "text": "Du findest mich an rauen Stränden, dort, wo so viele Legenden herkommen. Aufgewachsen auf dem Darß mit riesigem Spaß, für mehr Lebenserfahrung nach Rostock gezogen – so spanne ich meinen Lebensbogen weiter."
       },
       "thinking": {
-        "icon_alt": "Lightbilb Icon",
-        "text": "Logisches Denken und das Hinterfragen bei jeder Gelegenheit an diese Realität ist einer Meiner vielen Geh Danke (n) Begleiter seitdem ich mich errinern Kann. Bildungsstart bis zur Fachhochschulreife (11Kl.) war an der freien Schule Prerow. Danach ging es mit Ach und Krach 15 Jahre in die Gastro und der Schmerz nach Freiheit hat mich an diesen Ort geführt zur Selbstverwirklichung."
+        "icon_alt": "Glühbirnen-Symbol",
+        "text": "Logisches Denken und das Hinterfragen der Realität bei jeder Gelegenheit gehören zu meinen vielen Gedankenbegleitern, seitdem ich mich erinnern kann. Meine Schulzeit bis zur Fachhochschulreife (11. Klasse) verbrachte ich an der Freien Schule Prerow. Danach ging es mit Ach und Krach 15 Jahre in die Gastro, und die Sehnsucht nach Freiheit hat mich an diesen Ort geführt – zur Selbstverwirklichung."
       },
       "interests": {
-        "icon_alt": "Puzzel Icon",
-        "text": "Freizeitgestaltung von entspanntem Gamig bis zu Feuershow, Tiere, Natur und Sport ziehen sich wie ein Roter Faden durch mein Leben mit Genuss von Geschmack und Kultur."
+        "icon_alt": "Puzzle-Symbol",
+        "text": "Meine Freizeitgestaltung reicht von entspanntem Gaming bis zu Feuershows. Tiere, Natur und Sport ziehen sich wie ein roter Faden durch mein Leben – ebenso wie der Genuss von Geschmack und Kultur."
       }
     },
     "profile_alt": "Profilbild"
@@ -109,8 +109,8 @@
   "contact": {
     "back_to_top": "Zurück nach oben",
     "title": "Kontakt",
-    "heading": "Gibt es wieder Herausforderungen zu bestreiten ?",
-    "intro": "Logisches Denken und der künstlerische Geist wurden mir schon in die Wiege gelegt. Mit Leidenschaft für Details und dem Blick für das Große Ganze setze ich mich hinter jedes Werk.",
+    "heading": "Gibt es wieder Herausforderungen zu meistern?",
+    "intro": "Logisches Denken und der künstlerische Geist wurden mir schon in die Wiege gelegt. Mit Leidenschaft für Details und dem Blick für das große Ganze widme ich mich jedem Werk.",
     "invitation": "Benötigst du Verstärkung für anspruchsvolle kreative Projekte?",
     "highlight": "Kontaktiere mich!",
     "form": {
