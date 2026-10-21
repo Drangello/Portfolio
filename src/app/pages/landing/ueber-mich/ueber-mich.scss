@@ -94,8 +94,20 @@
     margin-right: 0;
   }
 
+  .ueber-right {
+    width: 450px;
+    max-width: 100%;
+  }
+
   .image-wrapper {
+    display: block;
     margin-top: 2rem;
+  }
+
+  .ueber-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
   }
 
   .green-line {
