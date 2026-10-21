@@ -81,6 +81,44 @@ describe('Header language switching', () => {
     expect(languageButtons[1].getAttribute('aria-pressed')).toBe('false');
   });
 
+  it('preserves native Space activation without synthesizing a second language change', () => {
+    const fixture = TestBed.createComponent(Header);
+    fixture.detectChanges();
+    fixture.nativeElement.querySelector('.burger-btn').click();
+    fixture.detectChanges();
+    const button: HTMLButtonElement = fixture.nativeElement.querySelector('.mobile-lang .lang-btn');
+    const changeLanguage = spyOn(fixture.componentInstance, 'setLanguage').and.callThrough();
+    const event = new KeyboardEvent('keydown', { key: ' ', bubbles: true, cancelable: true });
+
+    button.dispatchEvent(event);
+
+    expect(event.defaultPrevented).toBeFalse();
+    expect(changeLanguage).not.toHaveBeenCalled();
+    expect(document.body.style.position).toBe('fixed');
+    expect(document.body.style.overflow).toBe('hidden');
+    button.click();
+    expect(changeLanguage).toHaveBeenCalledOnceWith('en');
+  });
+
+  it('still prevents Space scrolling on menu links and closes on Escape', () => {
+    const fixture = TestBed.createComponent(Header);
+    fixture.detectChanges();
+    const previousPosition = document.body.style.position;
+    const previousOverflow = document.body.style.overflow;
+    fixture.nativeElement.querySelector('.burger-btn').click();
+    fixture.detectChanges();
+    const link: HTMLAnchorElement = fixture.nativeElement.querySelector('.mobile-nav a');
+    const space = new KeyboardEvent('keydown', { key: ' ', bubbles: true, cancelable: true });
+    link.dispatchEvent(space);
+    expect(space.defaultPrevented).toBeTrue();
+
+    link.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true, cancelable: true }));
+    fixture.detectChanges();
+    expect(fixture.componentInstance.menuOpen).toBeFalse();
+    expect(document.body.style.position).toBe(previousPosition);
+    expect(document.body.style.overflow).toBe(previousOverflow);
+  });
+
   it('restores English and switches back to German', () => {
     localStorage.setItem('portfolio-language', 'en');
     const fixture = TestBed.createComponent(Header);

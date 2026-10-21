@@ -100,6 +100,11 @@ export class Header implements AfterViewChecked, OnDestroy {
       return;
     }
 
+    // Preserve native Space activation on buttons; the page remains scroll-locked.
+    if (event.key === ' ' && event.target instanceof HTMLButtonElement && !event.target.disabled) {
+      return;
+    }
+
     if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].includes(event.key)) {
       event.preventDefault();
     }
