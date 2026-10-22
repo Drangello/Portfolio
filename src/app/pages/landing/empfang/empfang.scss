@@ -186,6 +186,13 @@
   z-index: 2;
 }
 
+@media (min-width: 801px) {
+  .empfang-visual-img {
+    // Keep the portrait's lower edge behind the existing foreground curve.
+    transform: translateY(max(0px, calc(11.5vh + 3.25rem - 50%)));
+  }
+}
+
 @media (min-width: 801px) and (max-width: 1100px) {
   .empfang-inner {
     padding: 2rem 2rem 5rem;
@@ -234,7 +241,21 @@
   }
 
   .empfang::after {
-    bottom: -5%;
+    display: none;
+  }
+
+  .empfang-inner::after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+    z-index: 2;
+    left: 50%;
+    width: 100vw;
+    height: calc(100% + 20rem);
+    // Anchor the curve to the portrait bottom, independently of viewport height.
+    top: calc(1rem + clamp(13rem, 55vw, 15rem) * 2 / 3);
+    transform: translate(-50%, -21%);
+    background: url('/assets/img/51. bg VERSION B.png') center / 100% 100% no-repeat;
   }
 
   .empfang-inner {
