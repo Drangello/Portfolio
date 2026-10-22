@@ -1,3 +1,4 @@
+import { DOCUMENT } from '@angular/common';
 import { DestroyRef, Injectable, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
@@ -23,6 +24,7 @@ export class SeoService {
   private readonly meta = inject(Meta);
   private readonly translate = inject(TranslateService);
   private readonly destroyRef = inject(DestroyRef);
+  private readonly document = inject(DOCUMENT);
   private initialized = false;
 
   initialize(): void {
@@ -50,6 +52,16 @@ export class SeoService {
       ),
       takeUntilDestroyed(this.destroyRef),
     ).subscribe(({ title, description }) => {
+      const path = this.router.url.split(/[?#]/)[0];
+      const canonicalUrl = `https://weimanndev.com${path}`;
+      let canonical = this.document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+      if (!canonical) {
+        canonical = this.document.createElement('link');
+        canonical.rel = 'canonical';
+        this.document.head.appendChild(canonical);
+      }
+      canonical.href = canonicalUrl;
+      this.meta.updateTag({ property: 'og:url', content: canonicalUrl });
       this.title.setTitle(title);
       this.meta.updateTag({ name: 'description', content: description });
       this.meta.updateTag({ property: 'og:title', content: title });

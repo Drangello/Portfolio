@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  contactApiUrl: '/api/contact',
+  contactApiUrl: 'https://api.weimanndev.com/api/contact',
 };

@@ -1,0 +1,23 @@
+Options -Indexes -MultiViews
+DirectoryIndex index.html
+RewriteEngine On
+
+# Canonical production host and HTTPS.
+RewriteCond %{HTTP_HOST} !^weimanndev\.com$ [NC,OR]
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://weimanndev.com%{REQUEST_URI} [R=301,L]
+
+# Never serve hidden files, except ACME challenges.
+RewriteRule (^|/)\.(?!well-known(?:/|$)) - [F,L]
+
+# Existing assets must not be rewritten to HTML.
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Missing assets/API requests remain real 404s.
+RewriteRule ^(?:api|assets|fonts|i18n)(?:/|$) - [R=404,L]
+RewriteRule \.[^/]+$ - [R=404,L]
+
+# Angular routes, including direct legal-page visits.
+RewriteRule ^ index.html [L]

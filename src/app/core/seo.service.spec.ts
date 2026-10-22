@@ -94,6 +94,15 @@ describe('SeoService', () => {
     await Promise.resolve();
   }
 
+  it('uses production canonicals for routes without query strings or fragments', async () => {
+    for (const path of ['/', '/impressum', '/datenschutz']) {
+      await navigate(`${path}?source=test#contact`, 'de');
+      expect(document.querySelector<HTMLLinkElement>('link[rel="canonical"]')?.href)
+        .toBe(`https://weimanndev.com${path}`);
+      expect(meta.getTag('property="og:url"')?.content).toBe(`https://weimanndev.com${path}`);
+    }
+  });
+
   it('sets the German landing-page title', async () => {
     await navigate('/', 'de');
     expect(title.getTitle()).toBe(germanSeo.landing.title);
