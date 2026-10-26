@@ -1,6 +1,5 @@
 :host {
   display: block;
-  min-height: 100vh;
   background: transparent;
   color: #fff;
   padding: 4rem 0;
@@ -10,17 +9,19 @@
 
 
 .ueber-wrapper {
-  max-width: 1200px;
+  max-width: var(--content-width);
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 4rem;
+  gap: clamp(2rem, 4vw, 4rem);
 }
 
 
 .ueber-left h2 {
-  font-size: 3rem;
+  font-size: var(--section-title-size);
+  line-height: 1.1;
+  font-weight: 700;
   margin-bottom: 1rem;
 }
 
@@ -56,8 +57,9 @@
 }
 
 .ueber-image {
-  width: 450px;
-  height: 450px;
+  width: min(35vw, 450px);
+  height: auto;
+  aspect-ratio: 1;
   border-radius: 50%;
   object-fit: cover;
   object-position: center top;
@@ -81,17 +83,17 @@
 @media (max-width: 900px) {
   .ueber-wrapper {
     flex-direction: column;
-    text-align: center;
+    text-align: left;
   }
 
   .ueber-points li {
-    flex-direction: column;
-    text-align: center;
-    gap: 0.5rem;
+    align-items: flex-start;
+    gap: 1rem;
   }
 
   .ueber-points img {
     margin-right: 0;
+    flex: 0 0 28px;
   }
 
   .ueber-right {
