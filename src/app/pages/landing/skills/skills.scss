@@ -2,27 +2,28 @@
   display: block;
   background-color: transparent;
   color: #fff;
-  padding: 6rem 0;
+  padding: var(--section-space) 0;
   margin-top: -1px;
   position: relative;
   overflow: hidden;
 }
 
 .skills-wrapper {
-  max-width: 1440px;
+  max-width: var(--content-width);
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: clamp(5rem, 10vw, 9rem);
+  gap: clamp(2rem, 5vw, 4rem);
   position: relative;
   z-index: 1;
-  padding: 0 clamp(2rem, 6.95vw, 6.25rem);
+  padding: 0 var(--content-gutter);
 }
 
 /* LEFT: ICONS */
 .skills-left {
   flex: 1.2;
+  min-width: 0;
 }
 
 /* RIGHT: TEXT BLOCK */
@@ -47,9 +48,9 @@
 }
 
 .skills-title {
-  font-size: clamp(4rem, 6.25vw, 5.625rem);
-  line-height: 1.2;
-  font-weight: 800;
+  font-size: var(--section-title-size);
+  line-height: 1.1;
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -92,7 +93,7 @@
 .skill-title {
   font-size: 2rem;
   line-height: 1.25;
-  font-weight: 800;
+  font-weight: 700;
   margin: 0 0 1rem 0;
 }
 
@@ -103,7 +104,7 @@
 /* ------------------- ICON GRID ------------------- */
 .icon-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 2.5rem;
   justify-items: center;
 }
@@ -181,7 +182,7 @@
     align-items: center;
     text-align: center;
     gap: 3.5rem;
-    padding: 0 1.5rem;
+    padding: 0 var(--content-gutter);
   }
 
   .skills-right {
@@ -204,7 +205,7 @@
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    font-size: 3.5rem;
+    font-size: var(--section-title-size);
     text-align: center;
   }
 
@@ -265,9 +266,9 @@
   }
 
   .skills-title {
-    font-size: 2.8rem;
-    width: calc(100% + 1.5rem);
-    margin-right: -1.5rem;
+    font-size: var(--section-title-size);
+    width: 100%;
+    margin-right: 0;
     flex-direction: row;
     justify-content: flex-end;
     gap: 1rem;

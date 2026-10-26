@@ -2,7 +2,7 @@
   display: block;
   background: transparent;
   color: #fff;
-  padding: 100px 0;
+  padding: var(--section-space) 0;
   margin-top: -1px;
 }
 
@@ -14,7 +14,8 @@
   margin-bottom: 30px;
 
   h2 {
-    font-size: 64px;
+    font-size: var(--section-title-size);
+    line-height: 1.1;
     font-weight: 700;
     white-space: nowrap;
   }
@@ -65,7 +66,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 80px;
+  gap: clamp(2rem, 5vw, 5rem);
 
   &:nth-child(even) {
     flex-direction: row-reverse; // abwechselnder Stil
@@ -82,6 +83,7 @@
 
 .project-image img {
   width: 420px;
+  max-width: 100%;
   height: auto;
   display: block;
 }
@@ -206,7 +208,7 @@
     gap: 12px;
 
     h2 {
-      font-size: clamp(40px, 8vw, 48px);
+      font-size: var(--section-title-size);
       white-space: normal;
     }
 
@@ -257,3 +259,7 @@
     }
   }
 }
+
+.container { max-width: var(--content-width); }
+
+.project-image, .project-info { min-width: 0; }

@@ -86,6 +86,17 @@
       "live_test": "Live test"
     },
     "projects": {
+      "coderr": {
+        "image_alt": "Coderr on a laptop: profile and order overview",
+        "description": "A Django REST backend for a services marketplace with user profiles, offers, orders and reviews.",
+        "live_aria": "Open the live demo of Coderr",
+        "github_aria": "Open the GitHub repository for the Coderr backend"
+      },
+      "quizly": {
+        "image_alt": "Quizly on a laptop: quiz generator for YouTube videos",
+        "description": "A Django REST backend that creates quizzes from YouTube videos. Whisper transcribes the audio and Gemini generates the questions. Includes user authentication and quiz management.",
+        "github_aria": "Open the GitHub repository for the Quizly backend"
+      },
       "join": {
         "image_alt": "Preview of the Join project",
         "description": "A collaborative task manager project featuring drag-and-drop functionality, from organizing tasks to assigning categories.",
