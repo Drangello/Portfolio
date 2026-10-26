@@ -1,4 +1,8 @@
 .landing-container {
+	--section-title-size: clamp(2.75rem, 5vw, 4rem);
+	--section-space: 4rem;
+	--content-width: 1280px;
+	--content-gutter: 20px;
 	position: relative;
 	isolation: isolate;
 	background: #141d2f;
